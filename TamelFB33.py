@@ -11,6 +11,7 @@ from bokeh.palettes import Category20c
 from bokeh.transform import cumsum
 from bokeh.models import ColumnDataSource
 import numpy as np
+import mysql
 
 
 st.set_page_config(page_title="Kiriman Ke Cabang dan Agen", layout='wide')
