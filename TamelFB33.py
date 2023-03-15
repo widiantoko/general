@@ -15,8 +15,10 @@ import numpy as np
 
 st.set_page_config(page_title="Kiriman Ke Cabang dan Agen", layout='wide')
 
+
 def init_connection():
-    return mysql.connect(host="192.168.37.245", database = 'dmsnew',user="widiantoko", passwd="C1t0 sarana")
+    return mysql.connector.connect(host="192.168.37.245", database = 'dmsnew',user="widiantoko", passwd="C1t0 sarana")
+
 
 conn = init_connection()
 
