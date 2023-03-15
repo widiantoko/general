@@ -325,7 +325,7 @@ if selected2=="Volume Kiriman":
     
 
     datapage3=pd.DataFrame(result3)
-    st.text(datapage3.info)
+    #st.text(datapage3.info)
 
     datapage3.columns= ["tahun","bulan" ,"bln_thn", "qty_pcs", "berat_kg"]
     datapage3["qty_pcs"] = datapage3[["qty_pcs"]].astype(int)
