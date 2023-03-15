@@ -14,7 +14,7 @@ import numpy as np
 import mysql
 
 
-st.set_page_config(page_title="Kiriman Ke Cabang dan Agen 2", layout='wide')
+st.set_page_config(page_title="Kiriman Ke Cabang dan Agen", layout='wide')
 
 
 def init_connection():
