@@ -1,6 +1,6 @@
 import pandas as pd
 import streamlit as st
-import mysql.connector as sql
+import mysql.connector as mysql
 import time
 from st_aggrid import AgGrid
 from streamlit_option_menu import option_menu
@@ -16,7 +16,7 @@ import numpy as np
 st.set_page_config(page_title="Kiriman Ke Cabang dan Agen", layout='wide')
 
 def init_connection():
-    return sql.connect(host="192.168.37.245", database = 'dmsnew',user="widiantoko", passwd="C1t0 sarana")
+    return mysql.connect(host="192.168.37.245", database = 'dmsnew',user="widiantoko", passwd="C1t0 sarana")
 
 conn = init_connection()
 
