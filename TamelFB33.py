@@ -1,6 +1,6 @@
 import pandas as pd
 import streamlit as st
-import mysql.connector as mysql
+import mysql.connector
 import time
 from st_aggrid import AgGrid
 from streamlit_option_menu import option_menu
