@@ -18,7 +18,7 @@ st.set_page_config(page_title="Kiriman Ke Cabang dan Agen", layout='wide')
 
 
 def init_connection():
-    return mysql.connector.connect(host="192.168.37.245", database = 'dmsnew',user="widiantoko", passwd="C1t0 sarana")
+    return mysql.connector.connect(host="117.102.102.186", database = 'dmslog',user="dmsnew", passwd="citojaya1243")
 
 
 conn = init_connection()
