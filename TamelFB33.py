@@ -63,6 +63,8 @@ if selected2=="Kiriman Belum Ada Status":
 
     datafr=pd.DataFrame(result1)
 
+
+
     
     datafr.columns= ["bln_thn", "kdmani", "kd_pelanggan", "nm_pelanggan", "no_status"]
     datafr["no_status"] = datafr[["no_status"]].astype(int)
@@ -95,7 +97,7 @@ if selected2=="Kiriman Belum Ada Status":
         hari_ini=(time.strftime("%d-%m-%Y  %H:%M:%S", time.localtime()))
         
         
-        AgGrid(hasil)
+        AgGrid(hasil.head(20))
 
         st.markdown( f" :green[{hari_ini}] ")
 
@@ -256,9 +258,6 @@ if selected2=="Kiriman Intracity Jakarta":
 
        
         
-        
-        
-
        
 
         p.axis.axis_label=None
