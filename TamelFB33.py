@@ -52,7 +52,7 @@ d.kdpelanggan, d.nmpelanggan, kdproduk, kdkirim  from tkonos a
         and a.kdpelanggan not like 'CBH17002%' and a.pod=' ' and a.jenis not like 'I' 
         order by tanggal asc
 
-'''
+    '''
     cursor = conn.cursor()
     cursor.execute(query_1)
     result1 = cursor.fetchall()
@@ -63,7 +63,7 @@ d.kdpelanggan, d.nmpelanggan, kdproduk, kdkirim  from tkonos a
             cur.execute(mysql1)
             return cur.fetchall()
 
-datafr=pd.DataFrame(result1)
+    datafr=pd.DataFrame(result1)
 
     
     datafr.columns= ["konid", "bln_thn", "kdmani", "diff2", "kd_pelanggan", "nm_pelanggan", "kdproduk", "kdkirim"]
@@ -357,13 +357,10 @@ datafr=pd.DataFrame(result1)
         #pv.add_layout(lblpv)
         #pv.add_layout(Labels)
   
-      
+    
 
         st.bokeh_chart(pv)
-      
-
-            
-
+             
 if selected2=="Kiriman Intracity Jakarta":
     page_2()
 
