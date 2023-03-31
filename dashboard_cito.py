@@ -15,11 +15,17 @@ import math
 
 
 
+
+
+
 st.set_page_config(page_title="Kiriman Ke Cabang dan Agen", layout='wide')
 
-
 def init_connection():
-    return mysql.connector.connect(**st.secrets["mysql"])
+    return mysql.connector.connect(host = "192.168.37.245", database="dmsnew", user="widiantoko", passwd="C1t0 sarana"
+
+    )
+ 
+
 
 
 conn = init_connection()
@@ -33,6 +39,9 @@ def page_2():
 
 def page_3():
     page_3= st.container()
+
+   
+   
 
 
 selected2 = option_menu("Dashboard Operasional CitoXpress", ["Kiriman Belum Ada Status", "Kiriman Intracity Jakarta", "Volume Kiriman", "Analisis Historis"],
@@ -63,7 +72,8 @@ d.kdpelanggan, d.nmpelanggan, kdproduk, kdkirim  from tkonos a
             cur.execute(mysql1)
             return cur.fetchall()
 
-datafr=pd.DataFrame(result1)
+
+    datafr=pd.DataFrame(result1)
 
     
     datafr.columns= ["konid", "bln_thn", "kdmani", "diff2", "kd_pelanggan", "nm_pelanggan", "kdproduk", "kdkirim"]
@@ -362,6 +372,11 @@ datafr=pd.DataFrame(result1)
         st.bokeh_chart(pv)
       
 
+        
+
+       
+    
+    
             
 
 if selected2=="Kiriman Intracity Jakarta":
@@ -371,8 +386,9 @@ if selected2=="Kiriman Intracity Jakarta":
     select konid, tanggal, asal, kdmani, jenis, c.nmpelanggan, penerima, kdproduk, berat, b.nmkota from tkonos a
     left join mkota b on b.kdkota=a.tujuan
     left join mpelanggan c on c.kdpelanggan = left(a.kdpelanggan,8)
-    where Datediff(CURRENT_DATE,tanggal)>=14 and 
-    kdmani in('CBH', 'MDE', 'MDT', 'MDA', 'MDJ') and pod= " "
+    where 
+    6 * (DATEDIFF(CURRENT_DATE, tanggal) DIV 7) + MID('0123455501234445012333450122234501112345000123450', 7 * WEEKDAY(tanggal) + WEEKDAY(CURRENT_DATE) + 1, 1) >=14
+    and kdmani in('CBH', 'MDE', 'MDT', 'MDA', 'MDJ', 'MDK', 'MDN') and pod= " "
     and a.kdpelanggan not like 'CBH17002%' and jenis not like 'I' and tanggal>='2022-12-01'
     order by tanggal asc
     
@@ -414,7 +430,7 @@ if selected2=="Kiriman Intracity Jakarta":
         from bokeh.transform import cumsum
         from bokeh.models import Legend
     
-
+        
 
         groupby_hasil4['angle'] = groupby_hasil4['count']/groupby_hasil4['count'].sum() * 2*pi
         groupby_hasil4['color'] = Category20c[len(groupby_hasil4["pengirim"])]
@@ -426,14 +442,14 @@ if selected2=="Kiriman Intracity Jakarta":
         for i in range(len(groupby_hasil4.index)):
             sep.append(':  ')
 
-
+        groupby_hasil4['pengirim'] = groupby_hasil4['pengirim'].str.replace(",",' ')    
         groupby_hasil4[["awal", "tengah", "belakang", "akhir"]]=groupby_hasil4["pengirim"].str.split(" ", n = 3, expand = True)
         groupby_hasil4["update"]=groupby_hasil4["awal"].str.cat(groupby_hasil4["tengah"], sep = " ")
         
         groupby_hasil4['legend'] = groupby_hasil4['update'] + sep + groupby_hasil4['count'].astype(str)
 
 
-        p = figure(plot_height=350, title="Data Kiriman Belum Ada Status Berdasarkan Pelanggan ", toolbar_location="above",
+        p = figure(plot_height=450, title="Data Kiriman Belum Ada Status Berdasarkan Pelanggan ", toolbar_location="above",
            tools="hover", tooltips="@pengirim: @count1{0.2f} %", x_range=(-.5, .5))
 
         p.annular_wedge(x=0, y=1,  inner_radius=0.18, outer_radius=0.35, direction="anticlock", 
@@ -441,7 +457,6 @@ if selected2=="Kiriman Intracity Jakarta":
         line_color="white", fill_color='color', legend="legend", source=groupby_hasil4)
 
        
-        
        
 
         p.axis.axis_label=None
@@ -453,37 +468,88 @@ if selected2=="Kiriman Intracity Jakarta":
         st.bokeh_chart(p)
 
         
-        
-
+    
         
         localtime = time.asctime( time.localtime(time.time()) )
         hari_ini=(time.strftime("%d-%m-%Y  %H:%M:%S", time.localtime()))
         tgl_ini=(time.strftime("%d-%m-%Y ", time.localtime()))
 
         st.caption(f""" 
-        1. Data yang digunakan adalah Kiriman Intracity Jakarta periode:  01-12-2022  s.d.  {tgl_ini} 
-        2. Data Kiriman tersebut di atas adalah Kiriman yang belum ada status selama 14 hari ke atas dari tanggal Conote
+        Ini adalah data kiriman Intracity Jakarta yang belum ada status selama 14 hari ke atas dari tanggal Conote 
+        (Periode:  01-12-2022  s.d.  {tgl_ini}  )
     
     """)
         
         
         st.markdown( f" :green[{hari_ini}] ")
 
+
         
-    
 
     with col4:
-        p1=groupby_hasil3.plot_bokeh(
-        kind='bar',
-        x='ktr_tujuan',
-        y='count',
-        xlabel='Kurir dan Mitra Jakarta',
-        ylabel='Kiriman No Status',
-        title='Data Kiriman Belum Ada Status Berdasarkan Kurir Intracity / Mitra',
-        color="#3288bd"
-  
-        )
-        st.bokeh_chart(p1)
+        
+
+        wrn_sama=["#3288bd","#3288bd","#3288bd ","#3288bd ","#3288bd ","#3288bd ",
+        "#3288bd","#3288bd","#3288bd","#3288bd ","#3288bd","#3288bd ","#3288bd ","#3288bd ",
+        "#3288bd ","#3288bd ","#3288bd","#3288bd","#3288bd","#3288bd ","#3288bd ","#3288bd ",
+        "#00BFFF","#00BFFF","#00BFFF","#00BFFF","#00BFFF","#00BFFF","#00BFFF","#00BFFF"]
+
+        list_np=np.array(wrn_sama)
+
+        cbh_mitra=list(groupby_hasil3["ktr_tujuan"])
+        vol_cbh_mitra=np.array(groupby_hasil3[["count"]])
+
+        import math
+        x_line = cbh_mitra
+        counts = vol_cbh_mitra
+        fr_len=len(cbh_mitra)
+        color_ts=wrn_sama[0:fr_len]
+
+      
+
+        high_vol=np.max(vol_cbh_mitra)
+
+
+
+        def round_up(n, decimals=0):
+            multiplier = 10 ** decimals
+            return math.ceil(n * multiplier) / multiplier
+
+        y_up=round_up(1.15*high_vol, -1)
+
+    
+
+        source_3 = ColumnDataSource(data=dict(x_line=x_line, counts=counts, color=color_ts))
+
+        TOOLTIPS = [
+        ("", "@x_line - @counts"),
+        ]
+
+        px2 = figure(x_range=x_line, y_range=(0, y_up+20), height=400, tooltips=TOOLTIPS,
+        toolbar_location=None,tools="")
+        px2.vbar(x="x_line", top="counts", width=0.8, color="color", legend_field="x_line", source=source_3)
+    
+        px2.xgrid.grid_line_color = None
+        px2.plot_width=400
+        px2.legend.orientation = "horizontal"
+        px2.legend.location = "top_center"
+        px2.add_layout(px2.legend[0], 'below')
+        px2.legend.visible = False
+
+        st.bokeh_chart(px2,use_container_width=True)
+
+
+
+
+
+
+
+
+
+
+      
+
+
     
 if selected2=="Volume Kiriman":
     page_3()
@@ -508,12 +574,13 @@ if selected2=="Volume Kiriman":
     
 
     datapage3=pd.DataFrame(result3)
-    #st.text(datapage3.info)
+   
 
     datapage3.columns= ["tahun","bulan" ,"bln_thn", "qty_pcs", "berat_kg"]
     datapage3["qty_pcs"] = datapage3[["qty_pcs"]].astype(int)
     datapage3["berat_kg"] = datapage3[["berat_kg"]].astype(int)
 
+    
     p4=datapage3.plot_bokeh(
         kind='bar',
         x='bln_thn',
@@ -524,3 +591,7 @@ if selected2=="Volume Kiriman":
         color="#3288bd")
   
     st.bokeh_chart(p4)
+
+
+        
+    
