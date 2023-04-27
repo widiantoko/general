@@ -110,7 +110,7 @@ d.kdpelanggan, d.nmpelanggan, kdproduk, kdkirim  from tkonos a
         bold = (f"**{total}**")
 
         pkt=list(data_kdkirim)[1]
-        doc=list(data_kdkirim)[2]
+        doc=list(data_kdkirim)[0]
 
 
         hasil2 = datafr[datafr["bln_thn"] == pilihan] 
