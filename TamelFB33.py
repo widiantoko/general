@@ -414,8 +414,8 @@ if selected2=="Kiriman Intracity Jakarta":
 
 
         groupby_hasil4['angle'] = groupby_hasil4['count']/groupby_hasil4['count'].sum() * 2*pi
-        #groupby_hasil4['color'] = Category20c[len(groupby_hasil4["pengirim"])]
-        groupby_hasil4['color'] = Category20c[len(groupby_hasil4)]
+        groupby_hasil4['color'] = Category20c[len(groupby_hasil4["pengirim"])]
+        #groupby_hasil4['color'] = Category20c[len(groupby_hasil4)]
 
 
         z=100*(groupby_hasil4['count']/groupby_hasil4['count'].sum())
