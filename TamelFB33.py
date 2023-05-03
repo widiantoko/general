@@ -528,7 +528,7 @@ if selected2=="Volume Kiriman":
         x='bln_thn',
         y='berat_kg',
         xlabel='Bulan Tahun',
-        ylabel='Kiriman No Status',
+        ylabel='Volume Kiriman',
         title='Data Kiriman',
         color="#3288bd")
   
