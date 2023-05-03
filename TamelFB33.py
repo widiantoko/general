@@ -454,7 +454,7 @@ if selected2=="Kiriman Intracity Jakarta":
         groupby_hasil4['legend'] = groupby_hasil4['update'] + sep + groupby_hasil4['count'].astype(str)
 
 
-        p = figure(plot_height=650, title="Data Kiriman Belum Ada Status Berdasarkan Pelanggan ", toolbar_location="above",
+        p = figure(plot_height=600, title="Data Kiriman Belum Ada Status Berdasarkan Pelanggan ", toolbar_location="above",
            tools="hover", tooltips="@pengirim: @count1{0.2f} %", x_range=(-.5, .5))
 
         p.annular_wedge(x=0, y=1,  inner_radius=0.18, outer_radius=0.35, direction="anticlock", 
