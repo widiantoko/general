@@ -422,8 +422,20 @@ if selected2=="Kiriman Intracity Jakarta":
 '#483D8B','#7FFF00','#228B22','#8B4513','#708090']
 
 
+        color2= ['#ef9a9a','#f48fb1','#ce93d8','#b39ddb',
+'#9fa8da','#90caf9','#81d4fa','#80deea','#80cbc4',
+'#a5d6a7','#c5e1a5','#e6ee9c','#fff59d','#ffe082',
+'#ffcc80','#ffab91','#bcaaa4','#e57373','#f06292',
+'#ba68c8','#9575cd','#7986cb','#64b5f6','#4fc3f7',
+'#4dd0e1','#4db6ac','#81c784','#aed581','#dce775',
+'#fff176','#ffd54f','#ffb74d','#ff8a65','#a1887f',
+'#ef5350','#ec407a','#ab47bc','#7e57c2','#5c6bc0',
+'#42a5f5','#29b6f6','#26c6da','#26a69a','#66bb6a',
+'#9ccc65','#d4e157','#ffee58','#ffca28','#ffa726','#ff7043','#8d6e63']
+
+
         groupby_hasil4['angle'] = groupby_hasil4['count']/groupby_hasil4['count'].sum() * 2*pi
-        groupby_hasil4['color'] = color_don[0:len(groupby_hasil4["pengirim"])]
+        groupby_hasil4['color'] = color2[0:len(groupby_hasil4["pengirim"])]
         #groupby_hasil4['color'] = Category20c[len(groupby_hasil4["pengirim"])]
     
 
