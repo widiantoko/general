@@ -103,7 +103,7 @@ d.kdpelanggan, d.nmpelanggan, kdproduk, kdkirim  from tkonos a
 
         
         data_hasil= datafr.groupby(['bln_thn']).apply(lambda x: x[x['bln_thn'] == pilihan]['konid'].count())
-        data_kdkirim= datafr.groupby(["kdkirim"]).apply(lambda x: x[x['bln_thn'] == pilihan]['konid'].count())
+        data_kdkirim= datafr.groupby(["kdkirim"]).apply(lambda x: x[x['bln_thn'] == pilihan]['konid'].count()).reset_index(name='jumlah')
         data_plgn= datafr.groupby(["nm_pelanggan", "kdproduk"])["konid"].count().reset_index(name='no_status').sort_values(["no_status"], ascending=False).head(12)
         
         total=sum(data_hasil)
