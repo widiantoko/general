@@ -109,8 +109,10 @@ d.kdpelanggan, d.nmpelanggan, kdproduk, kdkirim  from tkonos a
         total=sum(data_hasil)
         bold = (f"**{total}**")
 
-        pkt=list(data_kdkirim)[0]
-        doc=list(data_kdkirim)[1]
+        #pkt=list(data_kdkirim)[0]
+        #doc=list(data_kdkirim)[1]
+        pkt=data_kdkirim.loc[data_kdkirim.kdkirim == 'C', 'jumlah'].iloc[0]
+        doc=data_kdkirim.loc[data_kdkirim.kdkirim == 'D', 'jumlah'].iloc[0]
 
 
         hasil2 = datafr[datafr["bln_thn"] == pilihan] 
@@ -411,12 +413,19 @@ if selected2=="Kiriman Intracity Jakarta":
         from bokeh.transform import cumsum
         from bokeh.models import Legend
     
-        xwan=groupby_hasil4['pengirim'].value_counts()
+        color_don = [
+'#48D1CC','#9370DB','#008080','#8FBC8F','#DA70D6',
+'#0000FF','#FFB6C1','#F5DEB3','#BC8F8F','#FFDAB9',
+'#E6E6FA','#B0C4DE','#D8BFD8','#EEE8AA','#B0E0E6',
+'#DB7093','#90EE90','#66CDAA','#FF69B4','#DEB887',
+'#FFD700','#CD853F','#DAA520','#F0E68C','#87CEEB',
+'#483D8B','#7FFF00','#228B22','#8B4513','#708090']
 
 
         groupby_hasil4['angle'] = groupby_hasil4['count']/groupby_hasil4['count'].sum() * 2*pi
+        groupby_hasil4['color'] = color_don[0:len(groupby_hasil4["pengirim"])]
         #groupby_hasil4['color'] = Category20c[len(groupby_hasil4["pengirim"])]
-        groupby_hasil4['color'] = Category20c[len(xwan)]
+    
 
 
         z=100*(groupby_hasil4['count']/groupby_hasil4['count'].sum())
