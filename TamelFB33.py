@@ -121,15 +121,40 @@ d.kdpelanggan, d.nmpelanggan, kdproduk, kdkirim  from tkonos a
         hasil2c = hasil2.groupby(["pelanggan" ,"bln_thn" ,"kdproduk"])["konid"].count().reset_index(name='rekap').sort_values(["rekap"], ascending=False)
 
        
-        pivot_2c=hasil2c.pivot_table(values='rekap',index=['pelanggan'], columns=['kdproduk'], aggfunc=np.sum).fillna(0)
-        pivot_2c.columns = ['_'.join(str(s).strip() for s in col if s) for col in pivot_2c.columns]
+
+        pivot_2c=hasil2c.pivot_table(values='rekap', index = ['pelanggan'], 
+                     columns= ['kdproduk'], aggfunc= 'sum',  margins = True, margins_name='sum').fillna(0)
+        
         pivot_2c.rename(columns={'N': 'Normal', 'U': 'Urgent', 'T': 'Top Urgent', 'D': 'Darat',
         'C': 'Trucking' , 'P': 'Premium' }, inplace=True)
+      
+        
+
+
+        #pivot_2c=hasil2c.pivot_table(values='rekap',index=['pelanggan'], columns=['kdproduk'], aggfunc=np.sum).fillna(0)
+        #pivot_2c.columns = ['_'.join(str(s).strip() for s in col if s) for col in pivot_2c.columns]
+        #pivot_2c.rename(columns={'N': 'Normal', 'U': 'Urgent', 'T': 'Top Urgent', 'D': 'Darat',
+        #'C': 'Trucking' , 'P': 'Premium' }, inplace=True)
 
         
         pivot_2c.reset_index(inplace=True)
-        pivot_2c["sum"]=pivot_2c.sum(axis=1)
-        final=pivot_2c.sort_values(by=["sum"], ascending=False).head(12)
+        #pivot_2c["sum"]=pivot_2c.sum(axis=1)
+        update_2c = pivot_2c.drop(pivot_2c.index[int(len(pivot_2c))-1])
+
+        
+        final=update_2c.sort_values(by=["sum"], ascending=False).head(12)
+
+
+
+
+
+
+
+
+
+        pivot_2c.reset_index(inplace=True)
+        #pivot_2c["sum"]=pivot_2c.sum(axis=1)
+        #final=pivot_2c.sort_values(by=["sum"], ascending=False).head(12)
 
 
         def round_up(n, decimals=0):
