@@ -148,10 +148,6 @@ d.kdpelanggan, d.nmpelanggan, kdproduk, kdkirim  from tkonos a
 
 
 
-
-
-
-
         #pivot_2c.reset_index(inplace=True)
         #pivot_2c["sum"]=pivot_2c.sum(axis=1)
         #final=pivot_2c.sort_values(by=["sum"], ascending=False).head(12)
@@ -476,7 +472,8 @@ if selected2=="Kiriman Intracity Jakarta":
         groupby_hasil4[["awal", "tengah", "belakang", "akhir"]]=groupby_hasil4["pengirim"].str.split(" ", n = 3, expand = True)
         groupby_hasil4["update"]=groupby_hasil4["awal"].str.cat(groupby_hasil4["tengah"], sep = " ")
         
-        groupby_hasil4['legend'] = groupby_hasil4['update'] + sep + groupby_hasil4['count'].astype(str)
+        #groupby_hasil4['legend'] = groupby_hasil4['update'] + sep + groupby_hasil4['count'].astype(str)
+        groupby_hasil4['legend'] = groupby_hasil4['update'] + groupby_hasil4['count'].astype(str)
 
 
         p = figure(plot_height=600, title="Data Kiriman Belum Ada Status Berdasarkan Pelanggan ", toolbar_location="above",
