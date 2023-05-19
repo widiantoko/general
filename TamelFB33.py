@@ -473,7 +473,7 @@ if selected2=="Kiriman Intracity Jakarta":
         groupby_hasil4["update"]=groupby_hasil4["awal"].str.cat(groupby_hasil4["tengah"], sep = " ")
         
         #groupby_hasil4['legend'] = groupby_hasil4['update'] + sep + groupby_hasil4['count'].astype(str)
-        groupby_hasil4['legend'] = groupby_hasil4['update'] + groupby_hasil4['count'].astype(str)
+        groupby_hasil4['legend'] = groupby_hasil4['update'] + " : " + groupby_hasil4['count'].astype(str)
 
 
         p = figure(plot_height=600, title="Data Kiriman Belum Ada Status Berdasarkan Pelanggan ", toolbar_location="above",
