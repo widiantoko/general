@@ -557,13 +557,47 @@ if selected2=="Volume Kiriman":
     datapage3["qty_pcs"] = datapage3[["qty_pcs"]].astype(int)
     datapage3["berat_kg"] = datapage3[["berat_kg"]].astype(int)
 
-    p4=datapage3.plot_bokeh(
+
+    from datetime import datetime
+    from dateutil import relativedelta
+    from datetime import date
+
+# get two dates
+    today = date.today()
+    d1 = '01/01/2023'
+    d2 = today.strftime("%d/%m/%Y")
+
+# convert string to date object
+    start_date = datetime.strptime(d1, "%d/%m/%Y")
+    end_date = datetime.strptime(d2, "%d/%m/%Y")
+
+# Get the relativedelta between two dates
+    delta = relativedelta.relativedelta(end_date, start_date)
+
+# get months difference
+    res_months = (delta.months + 1) * 100
+    #st.text(res_months)
+
+
+    
+    p4= datapage3.plot_bokeh(
         kind='bar',
         x='bln_thn',
         y='berat_kg',
         xlabel='Bulan Tahun',
-        ylabel='Volume Kiriman',
-        title='Volume Kiriman Tahun 2024',
-        color="#3288bd")
+        title='Volume Berat Kiriman Thn 2023',
+        color="#3288bd") # type: ignore
+    
+    p4.plot_width= res_months
+    p4.plot_height=400
+    p4.yaxis.visible = False
+    p4.grid.grid_line_color = None
+    p4.title.text_font_size = '14pt'
+    p4.title.align = 'center'
+    p4.outline_line_color = None
+    
+
+ 
+    
   
     st.bokeh_chart(p4)
