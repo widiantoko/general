@@ -4,7 +4,7 @@ import mysql.connector
 import time
 from streamlit_option_menu import option_menu
 import pandas_bokeh
-pandas_bokeh.output_notebook()
+#pandas_bokeh.output_notebook()
 from bokeh.plotting import figure
 from bokeh.transform import cumsum
 from bokeh.models import ColumnDataSource, Range1d, LabelSet
