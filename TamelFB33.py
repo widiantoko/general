@@ -584,7 +584,7 @@ if selected2=="Volume Kiriman":
         y='berat_kg',
         xlabel='Bulan Tahun',
         title='Volume Berat Kiriman Thn 2023',
-        color="#3288bd") 
+        color="#3288bd") #type ignore
     
     p4.plot_width= res_months
     p4.plot_height=400
