@@ -1,4 +1,6 @@
 import pandas as pd
+import pandas_bokeh
+pandas_bokeh.output_notebook()
 import streamlit as st
 import mysql.connector
 import time
@@ -10,6 +12,7 @@ import numpy as np
 import mysql
 from bokeh.plotting import figure
 import math
+
 
 
 
