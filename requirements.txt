@@ -6,3 +6,9 @@ streamlit-pandas==0.0.9
 pandas==1.4.1
 pandas-bokeh==0.5.5
 bokeh==2.4.3
+numpy>=1.22.2 # not directly required, pinned by Snyk to avoid a vulnerability
+pillow>=10.0.1 # not directly required, pinned by Snyk to avoid a vulnerability
+pyarrow>=14.0.1 # not directly required, pinned by Snyk to avoid a vulnerability
+streamlit>=1.27.0 # not directly required, pinned by Snyk to avoid a vulnerability
+tornado>=6.3.3 # not directly required, pinned by Snyk to avoid a vulnerability
+validators>=0.21.0 # not directly required, pinned by Snyk to avoid a vulnerability
