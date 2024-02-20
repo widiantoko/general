@@ -589,14 +589,15 @@ if selected2=="Volume Kiriman":
         title='Volume Berat Kiriman Thn 2024',
         color="#3288bd") #type ignore
     
-    p4.plot_width= res_months
+    p4.inner_width= res_months
     p4.plot_height=400
+    p4.plot_width=1000
     p4.yaxis.visible = False
     p4.grid.grid_line_color = None
     p4.title.text_font_size = '14pt'
     p4.title.align = 'center'
     p4.outline_line_color = None
-    p4.frame_width=1000
+    
   
     
 
