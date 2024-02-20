@@ -597,6 +597,7 @@ if selected2=="Volume Kiriman":
     p4.title.align = 'center'
     p4.outline_line_color = None
     p4.frame_width=1000
+    p4.outer_width=2000
     
 
  
