@@ -585,6 +585,7 @@ if selected2=="Volume Kiriman":
         kind='bar',
         x='bln_thn',
         y='berat_kg',
+        frame_width=1000,
         xlabel='Bulan Tahun',
         title='Volume Berat Kiriman Thn 2024',
         color="#3288bd") #type ignore
