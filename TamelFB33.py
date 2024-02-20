@@ -576,7 +576,7 @@ if selected2=="Volume Kiriman":
     delta = relativedelta.relativedelta(end_date, start_date)
 
 # get months difference
-    res_months = (delta.months + 1) * 300
+    res_months = (delta.months + 1) * 100
     #st.text(res_months)
 
 
@@ -597,7 +597,7 @@ if selected2=="Volume Kiriman":
     p4.title.align = 'center'
     p4.outline_line_color = None
     p4.frame_width=1000
-    p4.outer_width=2000
+  
     
 
  
