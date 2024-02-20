@@ -565,7 +565,7 @@ if selected2=="Volume Kiriman":
 
 # get two dates
     today = date.today()
-    d1 = '01/01/2023'
+    d1 = '01/01/2024'
     d2 = today.strftime("%d/%m/%Y")
 
 # convert string to date object
@@ -586,7 +586,7 @@ if selected2=="Volume Kiriman":
         x='bln_thn',
         y='berat_kg',
         xlabel='Bulan Tahun',
-        title='Volume Berat Kiriman Thn 2023',
+        title='Volume Berat Kiriman Thn 2024',
         color="#3288bd") #type ignore
     
     p4.plot_width= res_months
