@@ -585,7 +585,6 @@ if selected2=="Volume Kiriman":
         kind='bar',
         x='bln_thn',
         y='berat_kg',
-        frame_width=1000,
         xlabel='Bulan Tahun',
         title='Volume Berat Kiriman Thn 2024',
         color="#3288bd") #type ignore
@@ -597,6 +596,7 @@ if selected2=="Volume Kiriman":
     p4.title.text_font_size = '14pt'
     p4.title.align = 'center'
     p4.outline_line_color = None
+    p4.frame_width=1000
     
 
  
