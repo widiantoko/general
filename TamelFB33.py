@@ -576,7 +576,7 @@ if selected2=="Volume Kiriman":
     delta = relativedelta.relativedelta(end_date, start_date)
 
 # get months difference
-    res_months = (delta.months + 1) * 100
+    res_months = (delta.months + 1) * 300
     #st.text(res_months)
 
 
