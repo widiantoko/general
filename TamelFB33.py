@@ -51,6 +51,7 @@ d.kdpelanggan, d.nmpelanggan, kdproduk, kdkirim  from tkonos a
         where tanggal>= concat(date_format((DATE_ADD(NOW(), INTERVAL -3 MONTH)),'%Y-%m'),-01)
         and tanggal<= now()
         and a.kdpelanggan not like 'CBH17002%' and a.pod=' ' and a.jenis not like 'I' and a.kdproduk in ('N', 'U', 'T', 'D', 'C', 'P')
+        and a.awbno <> " "
         order by tanggal asc
 
     '''
