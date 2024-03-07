@@ -146,9 +146,6 @@ d.kdpelanggan, d.nmpelanggan, kdproduk, kdkirim  from tkonos a
         final=update_2c.sort_values(by=["sum"], ascending=False).head(12)
 
 
-
-
-
         #pivot_2c.reset_index(inplace=True)
         #pivot_2c["sum"]=pivot_2c.sum(axis=1)
         #final=pivot_2c.sort_values(by=["sum"], ascending=False).head(12)
