@@ -50,7 +50,7 @@ d.kdpelanggan, d.nmpelanggan, kdproduk, kdkirim  from tkonos a
         left join mpelanggan d on left(a.kdpelanggan,8) = d.kdpelanggan
         where tanggal>= concat(date_format((DATE_ADD(NOW(), INTERVAL -3 MONTH)),'%Y-%m'),-01)
         and tanggal<= now()
-        and a.kdpelanggan not like 'CBH17002%' and a.pod=' ' and a.jenis not like 'I' 
+        and a.kdpelanggan not like 'CBH17002%' and a.pod=' ' and a.jenis not like 'I' and a.kdproduk not like 'C' 
         order by tanggal asc
 
     '''
