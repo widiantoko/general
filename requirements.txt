@@ -1,4 +1,4 @@
-mysql-connector-python==8.0.32
+mysql-connector-python==8.4.0
 ipython==8.1.1
 streamlit-aggrid==0.3.4
 streamlit-option-menu==0.3.2
