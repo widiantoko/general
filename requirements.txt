@@ -6,3 +6,4 @@ streamlit-pandas==0.0.9
 pandas==1.4.1
 pandas-bokeh==0.5.5
 bokeh==2.4.3
+urllib3>=2.2.2 # not directly required, pinned by Snyk to avoid a vulnerability
