@@ -7,3 +7,4 @@ pandas==1.4.1
 pandas-bokeh==0.5.5
 bokeh==2.4.3
 numpy==1.26.4
+zipp>=3.19.1 # not directly required, pinned by Snyk to avoid a vulnerability
