@@ -75,6 +75,9 @@ d.kdpelanggan, d.nmpelanggan, kdproduk, kdkirim  from tkonos a
     datafr["diff2"] = datafr[["diff2"]].astype(int)
 
 
+
+
+
     for i, row in datafr.iterrows():
         hasil1 = ''
         if (row['diff2'] >= 0 and row['diff2'] <4):
@@ -598,8 +601,6 @@ if selected2=="Volume Kiriman":
     
   
     
-
- 
     
   
     st.bokeh_chart(p4)
