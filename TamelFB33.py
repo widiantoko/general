@@ -587,7 +587,7 @@ if selected2=="Volume Kiriman":
         x='bln_thn',
         y='berat_kg',
         xlabel='Bulan Tahun',
-        title='Volume Berat Kiriman Thn 2024',
+        title='Volume Berat Kiriman Thn 2024 - 2025',
         color="#3288bd") #type ignore
     
     p4.frame_width= res_months
