@@ -623,8 +623,8 @@ if selected2=="Review Kinerja":
 		o.outbound_kg_mtx,
 		o.trip_trucking,
     i.inbound_kg
-FROM
-(
+    FROM
+    (
     -- Subquery untuk outbound
     SELECT 
         bulan, 
@@ -668,9 +668,9 @@ FROM
     ) AS new1
     GROUP BY bulan, asal_new
 		
-) AS o
-LEFT JOIN
-(
+    ) AS o
+    LEFT JOIN
+    (
     -- Subquery untuk inbound
     SELECT 
         bulan, 
@@ -699,8 +699,8 @@ LEFT JOIN
             AND kdpelanggan NOT LIKE 'CDP18002%'         
     ) AS new2
     GROUP BY bulan, kdmani_new
-) AS i
-ON o.bulan = i.bulan AND o.cabang = i.cabang;
+    ) AS i
+    ON o.bulan = i.bulan AND o.cabang = i.cabang;
 
     
     
