@@ -35,6 +35,9 @@ def page_2():
 def page_3():
     page_3= st.container()
 
+def page_4():
+    page_4= st.container()
+
 
 selected2 = option_menu("Dashboard Operasional CitoXpress", ["Kiriman Belum Ada Status", "Kiriman Intracity Jakarta", "Volume Kiriman", "Review Kinerja"],
     icons=['bi bi-envelope-exclamation', 'bi bi-exclamation-circle', 'bi bi-boxes', 'gear'], 
@@ -603,3 +606,5 @@ if selected2=="Volume Kiriman":
   
     st.bokeh_chart(p4)
    
+if selected2=="Review Kinerja":
+    page_4()
