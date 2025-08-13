@@ -36,7 +36,7 @@ def page_3():
     page_3= st.container()
 
 
-selected2 = option_menu("Dashboard Operasional CitoXpress", ["Kiriman Belum Ada Status", "Kiriman Intracity Jakarta", "Volume Kiriman", "Analisis Historis"],
+selected2 = option_menu("Dashboard Operasional CitoXpress", ["Kiriman Belum Ada Status", "Kiriman Intracity Jakarta", "Volume Kiriman", "Review Kinerja"],
     icons=['bi bi-envelope-exclamation', 'bi bi-exclamation-circle', 'bi bi-boxes', 'gear'], 
     menu_icon="cast", default_index=0, orientation="horizontal")
 
@@ -599,9 +599,7 @@ if selected2=="Volume Kiriman":
     p4.title.align = 'center'
     p4.outline_line_color = None
     
-  
-    
-    
+   
   
     st.bokeh_chart(p4)
-    st.markdown("test aza")
+   
