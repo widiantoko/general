@@ -730,5 +730,9 @@ if selected2=="Review Kinerja":
 
     st.text(lst_cab)
 
-    pil_cab=st.selectbox(label="**Pilih Cabang:**",options= lst_cab)
+    col1, col2 = st.columns([2, 8], gap="small")
+
+    with col1:
+
+        pil_cab=st.selectbox(label="**Pilih Cabang:**",options= lst_cab)
 
