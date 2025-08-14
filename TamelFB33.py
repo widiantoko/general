@@ -718,4 +718,4 @@ if selected2=="Review Kinerja":
     
 
     datapage4=pd.DataFrame(result4)
-    st.text(datapage4.info)
+    st.text(datapage4.head(10))
