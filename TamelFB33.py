@@ -613,19 +613,19 @@ if selected2=="Review Kinerja":
     
     SELECT 
     o.bulan,
-		now() as waktu,
+	now() as waktu,
     o.cabang,
-		o.normal_kg,
-		o.urgent_kg,
-		o.top_urgent_kg,
-		o.darat_kg,
+	o.normal_kg,
+	o.urgent_kg,
+	o.top_urgent_kg,
+	o.darat_kg,
     o.outbound_kg_reg,
-		o.outbound_kg_mtx,
-		o.trip_trucking,
+	o.outbound_kg_mtx,
+	o.trip_trucking,
     i.inbound_kg
     FROM
     (
-    -- Subquery untuk outbound
+    -- Subquery untuk outbound--
     SELECT 
         bulan, 
         asal_new AS cabang,
