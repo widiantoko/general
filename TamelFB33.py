@@ -726,7 +726,7 @@ if selected2=="Review Kinerja":
     #st.text(datapage4.dtypes)
 
     lst_cab=datapage4["cabang"].drop_duplicates().sort_index(ascending=True)
-    st.selectbox("Pilih Cabang", lst_cab, key="cabang")
+    st.selectbox("Pilih Cabang", lst_cab, key="cabang", index=0)
 
     #st.text(lst_cab)
 
