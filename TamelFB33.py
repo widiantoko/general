@@ -733,12 +733,12 @@ if selected2=="Review Kinerja":
 
     col1, col2 = st.columns([2, 10], gap="small")
 
-    with col1:
+    #with col1:
 
-        pil_cab=st.selectbox(label="**Pilih Cabang:**",options= lst_cab)
+        #pil_cab=st.selectbox(label="**Pilih Cabang:**",options= lst_cab)
 
-    with col2:
+    #with col2:
 
-        filter_dp4=datapage4[datapage4['cabang'] == pil_cab]
-        st.dataframe(filter_dp4.set_index(filter_dp4.columns[0]))
+        #filter_dp4=datapage4[datapage4['cabang'] == pil_cab]
+        #st.dataframe(filter_dp4.set_index(filter_dp4.columns[0]))
         #st.dataframe(filter_dp4, index=False, use_container_width=True,)
