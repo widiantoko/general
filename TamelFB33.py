@@ -711,7 +711,7 @@ if selected2=="Review Kinerja":
     result4 = cursor.fetchall()
 
     @st.cache_data(ttl=600)
-    def load_data3(mysql4): 
+    def load_data4(mysql4): 
        with conn.cursor() as cur:
             cur.execute(mysql4)
             return cur.fetchall()
