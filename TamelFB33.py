@@ -739,4 +739,5 @@ if selected2=="Review Kinerja":
     with col2:
 
         filter_dp4=datapage4[datapage4['cabang'] == pil_cab]
-        st.dataframe(filter_dp4, index=False, use_container_width=True,)
+        st.dataframe(filter_dp4.set_index(filter_dp4.columns[0]))
+        #st.dataframe(filter_dp4, index=False, use_container_width=True,)
