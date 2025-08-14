@@ -609,7 +609,7 @@ if selected2=="Volume Kiriman":
 if selected2=="Review Kinerja":
     page_4()
 
-    query_4=""""
+    query_4="""
     
     SELECT 
     o.bulan,
