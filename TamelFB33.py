@@ -722,7 +722,7 @@ if selected2=="Review Kinerja":
     datapage4.columns= ["bln_thn", "waktu", "cabang", "normal_kg", "urgent_kg", "darat_kg", "top_urgent_kg", "outbound_kg_reg", "outbound_kg_mtx", "trip_trucking", "inbound_kg"]
 
     st.dataframe(datapage4.head(10))
-    st.dataframe(datapage4.info())
+    st.text(datapage4.dtypes())
 
     lst_cab=datapage4["cabang"].drop_duplicates().sort_index(ascending=True)
     st.text(lst_cab)
