@@ -718,4 +718,8 @@ if selected2=="Review Kinerja":
     
 
     datapage4=pd.DataFrame(result4)
-    st.text(datapage4.head(10))
+    #st.text(datapage4.head(10))
+
+    lst_cab=datapage4['cabang'].drop_duplicates().sort_index(ascending=True)
+    st.text(lst_cab)
+
