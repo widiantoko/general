@@ -728,7 +728,7 @@ if selected2=="Review Kinerja":
     lst_cab=datapage4["cabang"].drop_duplicates().sort_index(ascending=True)
     #pilihan4=st.selectbox("Pilih Cabang", lst_cab, key="cabang")
 
-    st.text(lst_cab)
+    #st.text(lst_cab)
 
     col1, col2 = st.columns([2, 8], gap="small")
 
@@ -736,3 +736,7 @@ if selected2=="Review Kinerja":
 
         pil_cab=st.selectbox(label="**Pilih Cabang:**",options= lst_cab)
 
+    with col2:
+
+        filter_dp4=datapage4[datapage4['cabang'] == pil_cab]
+        st.dataframe(datapage4)
