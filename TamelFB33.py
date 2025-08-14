@@ -706,9 +706,9 @@ if selected2=="Review Kinerja":
     
     """
 
-    cursor = conn.cursor()
-    cursor.execute(query_4)
-    result4 = cursor.fetchall()
+    #cursor = conn.cursor()
+    #cursor.execute(query_4)
+    #result4 = cursor.fetchall()
 
     @st.cache_data(ttl=600)
     def load_data4(mysql4): 
@@ -717,7 +717,7 @@ if selected2=="Review Kinerja":
             return cur.fetchall()
     
 
-    datapage4=pd.DataFrame(result4)
+    datapage4=pd.DataFrame(query_4)
 
     #datapage4.columns= ["bln_thn", "waktu", "cabang", "normal_kg", "urgent_kg", "darat_kg", "top_urgent_kg", "outbound_kg_reg", "outbound_kg_mtx", "trip_trucking", "inbound_kg"]
 
