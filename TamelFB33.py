@@ -730,5 +730,5 @@ if selected2=="Review Kinerja":
 
     st.text(lst_cab)
 
-    pil_cab=st.selectbox(label="**Location:**",options= lst_cab)
+    pil_cab=st.selectbox(label="**Pilih Cabang:**",options= lst_cab)
 
