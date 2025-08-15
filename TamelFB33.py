@@ -651,7 +651,7 @@ SELECT
 						#and asal =('CML')
             AND asal IN ('CBH','CBM','CBD', 'CSB', 'CSG', 'CML', 'CDP')
     ) AS new1
-    GROUP BY bulan, asal_new
+    GROUP BY bulan, cabang
 		
     
     
