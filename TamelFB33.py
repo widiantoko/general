@@ -663,8 +663,8 @@ FROM
             AND kdpelanggan NOT LIKE 'CBH17002%'
             AND kdpelanggan NOT LIKE 'CML18002%'
             AND kdpelanggan NOT LIKE 'CDP18002%'
-						#and asal =('CML')
-            AND asal IN ('CBH','CBM','CBD', 'CSB', 'CSG', 'CML', 'CDP')
+						and asal =('CML')
+            #AND asal IN ('CBH','CBM','CBD', 'CSB', 'CSG', 'CML', 'CDP')
     ) AS new1
     GROUP BY bulan, asal_new
 		
