@@ -611,20 +611,6 @@ if selected2=="Review Kinerja":
 
     query_4="""
     
-SELECT 
-        bulan, 
-        asal_new AS cabang,
-				SUM(CASE WHEN (kdproduk='N' AND reg_mtx='REG')THEN berat ELSE 0 END) AS normal_kg,
-				SUM(CASE WHEN (kdproduk='U' AND reg_mtx='REG') THEN berat ELSE 0 END) AS urgent_kg,
-				SUM(CASE WHEN (kdproduk='T' AND reg_mtx='REG')THEN berat ELSE 0 END) AS top_urgent_kg,
-				SUM(CASE WHEN (kdproduk='D' AND reg_mtx='REG') THEN berat ELSE 0 END) AS darat_kg, 
-        SUM(CASE WHEN (kdproduk IN ('N', 'U', 'T', 'D') AND reg_mtx='REG') THEN berat ELSE 0 END) AS outbound_kg_reg,
-				sum(case when (kdproduk in ('N', 'U', 'T', 'D') and reg_mtx ='MTX') then berat else 0 end) as outbound_kg_mtx,
-				sum(case when kdproduk='C' then 1 else 0 end) as trip_trucking
-
-    FROM
-    (
-        -- Data pengiriman keluar
         SELECT 
             DATE_FORMAT(tanggal, "%b-%y") AS bulan,
             konid, kdpelanggan, nott,
@@ -650,8 +636,7 @@ SELECT
             AND kdpelanggan NOT LIKE 'CDP18002%'
 						#and asal =('CML')
             AND asal IN ('CBH','CBM','CBD', 'CSB', 'CSG', 'CML', 'CDP')
-    ) AS new1
-    GROUP BY bulan, cabang
+    
 		
     
     
