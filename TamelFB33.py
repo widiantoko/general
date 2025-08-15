@@ -627,7 +627,7 @@ if selected2=="Review Kinerja":
             IF(kdmani IN ('RAX', 'REX', 'CLT', 'SAP'), 'CBD', Kdmani) AS kdmani_new,
             awbno, createdby
         FROM tkonos
-        WHERE tanggal >= '2025-01-01' AND tanggal <= '2025-08-31'
+        WHERE tanggal >= '2025-08-01' AND tanggal <= '2025-08-31'
             AND kdpelanggan NOT LIKE 'CBD18002%'
             AND kdpelanggan NOT LIKE 'CSG18002%'
             AND kdpelanggan NOT LIKE 'CSB18002%'
