@@ -654,7 +654,7 @@ if selected2=="Review Kinerja":
             return cur.fetchall()
     
 
-    datapage4=pd.DataFrame(result4.head(20))
+    datapage4=pd.DataFrame(result4.head(100))  # Limit to 1000 rows for performance
 
     #datapage4.columns= ["bln_thn", "waktu", "cabang", "normal_kg", "urgent_kg", "darat_kg", "top_urgent_kg", "outbound_kg_reg", "outbound_kg_mtx", "trip_trucking", "inbound_kg"]
 
