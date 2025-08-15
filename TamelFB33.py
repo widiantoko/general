@@ -611,22 +611,7 @@ if selected2=="Review Kinerja":
 
     query_4="""
     
-    SELECT 
-    o.bulan,
-		now() as waktu,
-    o.cabang,
-		o.normal_kg,
-		o.urgent_kg,
-		o.top_urgent_kg,
-		o.darat_kg,
-    o.outbound_kg_reg,
-		o.outbound_kg_mtx,
-		o.trip_trucking,
-    i.inbound_kg
-FROM
-(
-    -- Subquery untuk outbound
-    SELECT 
+SELECT 
         bulan, 
         asal_new AS cabang,
 				SUM(CASE WHEN (kdproduk='N' AND reg_mtx='REG')THEN berat ELSE 0 END) AS normal_kg,
@@ -663,45 +648,12 @@ FROM
             AND kdpelanggan NOT LIKE 'CBH17002%'
             AND kdpelanggan NOT LIKE 'CML18002%'
             AND kdpelanggan NOT LIKE 'CDP18002%'
-						and asal =('CML')
-            #AND asal IN ('CBH','CBM','CBD', 'CSB', 'CSG', 'CML', 'CDP')
+						#and asal =('CML')
+            AND asal IN ('CBH','CBM','CBD', 'CSB', 'CSG', 'CML', 'CDP')
     ) AS new1
     GROUP BY bulan, asal_new
 		
-) AS o
-LEFT JOIN
-(
-    -- Subquery untuk inbound
-    SELECT 
-        bulan, 
-        kdmani_new AS cabang,
-        SUM(CASE WHEN kdproduk IN ('N', 'U', 'T', 'D') THEN berat ELSE 0 END) AS inbound_kg
-    FROM
-    (
-        -- Data penerimaan masuk
-        SELECT 
-            DATE_FORMAT(tanggal, "%b-%y") AS bulan,
-            konid, kdpelanggan, nott,           
-            jenis, tanggal, pengirim, penerima, tujuan,
-            kdproduk, asal, 
-            IF(asal='CBM', 'CBH', asal) AS asal_new,
-            koli, berat, kdmani,
-            IF(kdmani IN ('RAX', 'REX', 'CLT', 'SAP'), 'CBD', 
-               IF(kdmani IN ('CBK', 'CBO', 'CTG'), 'CBH', kdmani)) AS kdmani_new,
-            awbno, createdby
-        FROM tkonos
-        WHERE tanggal >= '2025-01-01' AND tanggal <= '2025-08-31'
-            AND kdpelanggan NOT LIKE 'CBD18002%'
-            AND kdpelanggan NOT LIKE 'CSG18002%'
-            AND kdpelanggan NOT LIKE 'CSB18002%'
-            AND kdpelanggan NOT LIKE 'CBH17002%'
-            AND kdpelanggan NOT LIKE 'CML18002%'
-            AND kdpelanggan NOT LIKE 'CDP18002%'         
-    ) AS new2
-    GROUP BY bulan, kdmani_new
-) AS i
-ON o.bulan = i.bulan AND o.cabang = i.cabang;
-
+    
     
     
     """
