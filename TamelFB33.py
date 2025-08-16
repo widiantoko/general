@@ -659,7 +659,7 @@ if selected2=="Review Kinerja":
 
     #datapage4[["normal_kg", "urgent_kg", "darat_kg", "top_urgent_kg", "outbound_kg_reg", "outbound_kg_mtx", "trip_trucking", "inbound_kg"]]=datapage4[["normal_kg", "urgent_kg", "darat_kg", "top_urgent_kg", "outbound_kg_reg", "outbound_kg_mtx", "trip_trucking", "inbound_kg"]].astype(float)
     
-    #st.dataframe(datapage4.head(20))
+    st.dataframe(datapage4.head(20))
     #st.text(datapage4.info)
 
     #kg_tujuan=datapage4.groupby(['bulan','asal_new'])['berat'].sum().reset_index().sort_values(['berat'], ascending=False).reset_index()
