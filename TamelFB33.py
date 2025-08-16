@@ -671,7 +671,7 @@ if selected2=="Review Kinerja":
 
     #st.text(lst_cab)
 
-    col1, col2 = st.columns([2, 10], gap="small")
+    #col1, col2 = st.columns([2, 10], gap="small")
 
     #with col1:
 
