@@ -610,9 +610,8 @@ if selected2=="Review Kinerja":
     page_4()
 
     query_4="""
-    select asal, bulan, sum(case when reg_mtx='REG' then berat else 0 end) as normal_kg 
-    from
-            (SELECT 
+    
+        SELECT 
             DATE_FORMAT(tanggal, "%b-%y") AS bulan,
             konid, kdpelanggan, nott,
             IF(
@@ -635,9 +634,9 @@ if selected2=="Review Kinerja":
             AND kdpelanggan NOT LIKE 'CML18002%'
             AND kdpelanggan NOT LIKE 'CDP18002%'
 						#and asal ='CBM'
-            AND asal IN ('CBH','CBM','CBD', 'CSB', 'CSG', 'CML', 'CDP')) as t1
+            AND asal IN ('CBH','CBM','CBD', 'CSB', 'CSG', 'CML', 'CDP')
     
-	group by asal, bulan	
+	
     
     """
 
