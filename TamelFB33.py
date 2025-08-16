@@ -610,7 +610,7 @@ if selected2=="Review Kinerja":
     page_4()
 
     query_4="""
-    select asal_new, bulan, sum(case when reg_mtx='REG' then berat else 0 end) as normal_kg 
+    select asal, bulan, sum(case when reg_mtx='REG' then berat else 0 end) as normal_kg 
     from
             (SELECT 
             DATE_FORMAT(tanggal, "%b-%y") AS bulan,
@@ -637,7 +637,7 @@ if selected2=="Review Kinerja":
 						#and asal ='CBM'
             AND asal IN ('CBH','CBM','CBD', 'CSB', 'CSG', 'CML', 'CDP')) as t1
     
-	group by asal_new, bulan	
+	group by asal, bulan	
     
     """
 
@@ -654,7 +654,7 @@ if selected2=="Review Kinerja":
 
     datapage4=pd.DataFrame(result4, columns=cursor.column_names)  # Limit to 1000 rows for performance
 
-#df = pd.DataFrame(table_rows, columns=db_cursor.column_names) 
+    #df = pd.DataFrame(table_rows, columns=db_cursor.column_names) 
     #datapage4.columns= ["bln_thn", "waktu", "cabang", "normal_kg", "urgent_kg", "darat_kg", "top_urgent_kg", "outbound_kg_reg", "outbound_kg_mtx", "trip_trucking", "inbound_kg"]
 
     #datapage4[["normal_kg", "urgent_kg", "darat_kg", "top_urgent_kg", "outbound_kg_reg", "outbound_kg_mtx", "trip_trucking", "inbound_kg"]]=datapage4[["normal_kg", "urgent_kg", "darat_kg", "top_urgent_kg", "outbound_kg_reg", "outbound_kg_mtx", "trip_trucking", "inbound_kg"]].astype(float)
