@@ -653,14 +653,7 @@ if selected2=="Review Kinerja":
 
     datapage4=pd.DataFrame(result4, columns=cursor.column_names)  # Limit to 1000 rows for performance
 
-    #df = pd.DataFrame(table_rows, columns=db_cursor.column_names) 
-    #datapage4.columns= ["bln_thn", "waktu", "cabang", "normal_kg", "urgent_kg", "darat_kg", "top_urgent_kg", "outbound_kg_reg", "outbound_kg_mtx", "trip_trucking", "inbound_kg"]
-
-    #datapage4[["normal_kg", "urgent_kg", "darat_kg", "top_urgent_kg", "outbound_kg_reg", "outbound_kg_mtx", "trip_trucking", "inbound_kg"]]=datapage4[["normal_kg", "urgent_kg", "darat_kg", "top_urgent_kg", "outbound_kg_reg", "outbound_kg_mtx", "trip_trucking", "inbound_kg"]].astype(float)
-    
-    #st.dataframe(datapage4.head(20))
-    #st.text(datapage4.info)
-
+   
     kg_tujuan=datapage4.groupby(['bulan','asal_new'])['berat'].sum().reset_index().sort_values(['asal_new'], ascending=False)
 
     st.dataframe(kg_tujuan[(kg_tujuan.asal_new=='CBH')])
