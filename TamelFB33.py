@@ -657,7 +657,7 @@ if selected2=="Review Kinerja":
 
     kg_tujuan=datapage4.groupby(['bulan','asal_new'])['berat'].sum().reset_index().sort_values(['asal_new'], ascending=False)
     kg_tujuan['berat'] = kg_tujuan['berat'].astype(int)
-    filter_5=kg_tujuan[(kg_tujuan.asal_new=='CML')].set_index(['bulan', 'asal_new'])
+    filter_5=pd.DataFrame(kg_tujuan[(kg_tujuan.asal_new=='CML')].set_index(['bulan', 'asal_new']))
 
     AgGrid(filter_5)
     
