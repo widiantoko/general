@@ -610,8 +610,9 @@ if selected2=="Review Kinerja":
     page_4()
 
     query_4="""
-    
-        SELECT 
+    select asal_new, bulan, sum(case when reg_mtx='REG' then berat else 0 end) as normal_kg 
+    from
+            (SELECT 
             DATE_FORMAT(tanggal, "%b-%y") AS bulan,
             konid, kdpelanggan, nott,
             IF(
@@ -634,9 +635,9 @@ if selected2=="Review Kinerja":
             AND kdpelanggan NOT LIKE 'CML18002%'
             AND kdpelanggan NOT LIKE 'CDP18002%'
 						#and asal ='CBM'
-            AND asal IN ('CBH','CBM','CBD', 'CSB', 'CSG', 'CML', 'CDP')
+            AND asal IN ('CBH','CBM','CBD', 'CSB', 'CSG', 'CML', 'CDP')) as t1
     
-		
+	group by asal_new, bulan	
     
     """
 
@@ -658,12 +659,12 @@ if selected2=="Review Kinerja":
 
     #datapage4[["normal_kg", "urgent_kg", "darat_kg", "top_urgent_kg", "outbound_kg_reg", "outbound_kg_mtx", "trip_trucking", "inbound_kg"]]=datapage4[["normal_kg", "urgent_kg", "darat_kg", "top_urgent_kg", "outbound_kg_reg", "outbound_kg_mtx", "trip_trucking", "inbound_kg"]].astype(float)
     
-    st.dataframe(datapage4.head(20))
+    #st.dataframe(datapage4.head(20))
     #st.text(datapage4.info)
 
-    kg_tujuan=datapage4.groupby(['bulan','asal_new'])['berat'].sum().reset_index().sort_values(['berat'], ascending=False).reset_index()
+    #kg_tujuan=datapage4.groupby(['bulan','asal_new'])['berat'].sum().reset_index().sort_values(['berat'], ascending=False).reset_index()
 
-    st.table(kg_tujuan)
+    #st.table(kg_tujuan)
 
     #lst_cab=datapage4["cabang"].drop_duplicates().sort_index(ascending=True)
     #pilihan4=st.selectbox("Pilih Cabang", lst_cab, key="cabang")
