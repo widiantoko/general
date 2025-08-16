@@ -659,9 +659,11 @@ if selected2=="Review Kinerja":
     #datapage4[["normal_kg", "urgent_kg", "darat_kg", "top_urgent_kg", "outbound_kg_reg", "outbound_kg_mtx", "trip_trucking", "inbound_kg"]]=datapage4[["normal_kg", "urgent_kg", "darat_kg", "top_urgent_kg", "outbound_kg_reg", "outbound_kg_mtx", "trip_trucking", "inbound_kg"]].astype(float)
     
     st.dataframe(datapage4.head(20))
-    st.text(datapage4.info)
+    #st.text(datapage4.info)
 
     kg_tujuan=datapage4.groupby(['bulan','asal_new'])['berat'].sum().reset_index().sort_values(['berat'], ascending=False).reset_index()
+
+    st.table(kg_tujuan)
 
     #lst_cab=datapage4["cabang"].drop_duplicates().sort_index(ascending=True)
     #pilihan4=st.selectbox("Pilih Cabang", lst_cab, key="cabang")
