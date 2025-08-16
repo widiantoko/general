@@ -610,9 +610,7 @@ if selected2=="Review Kinerja":
     page_4()
 
     query_4="""
-    select asal,
-     SUM(CASE WHEN (kdproduk IN ('N', 'U', 'T', 'D') AND reg_mtx='REG') THEN berat ELSE 0 END) AS outbound_kg_reg
-from (
+    
         SELECT 
             DATE_FORMAT(tanggal, "%b-%y") AS bulan,
             konid, kdpelanggan, nott,
@@ -637,8 +635,7 @@ from (
             AND kdpelanggan NOT LIKE 'CML18002%'
             AND kdpelanggan NOT LIKE 'CDP18002%'
 						#and asal ='CSG'
-            AND asal IN ('CBH','CBM','CBD', 'CSB', 'CSG', 'CML', 'CDP')) as one
-    GROUP BY asal
+            AND asal IN ('CBH','CBM','CBD', 'CSB', 'CSG', 'CML', 'CDP')
     
 		
     
