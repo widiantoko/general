@@ -624,8 +624,8 @@ if selected2=="Review Kinerja":
             kdproduk, asal, 
             IF(asal='CBM', 'CBH', asal) AS asal_new,
             koli, berat, kdmani, 
-            IF(kdmani IN ('RAX', 'REX', 'CLT', 'SAP'), 'CBD', Kdmani) AS kdmani_new,
-            awbno, createdby
+            IF(kdmani IN ('RAX', 'REX', 'CLT', 'SAP'), 'CBD', Kdmani) AS kdmani_new
+        
         FROM tkonos
         WHERE tanggal >= '2025-08-01' AND tanggal <= '2025-08-31'
             AND kdpelanggan NOT LIKE 'CBD18002%'
