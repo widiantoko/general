@@ -663,7 +663,7 @@ if selected2=="Review Kinerja":
 
     kg_tujuan=datapage4.groupby(['bulan','asal_new'])['berat'].sum().reset_index().sort_values(['bulan'], ascending=False).reset_index(drop=True)
 
-    st.table(kg_tujuan[(kg_tujuan.asal_new=='CBH')])
+    st.dataframe(kg_tujuan[(kg_tujuan.asal_new=='CBH')])
 
     #lst_cab=datapage4["cabang"].drop_duplicates().sort_index(ascending=True)
     #pilihan4=st.selectbox("Pilih Cabang", lst_cab, key="cabang")
