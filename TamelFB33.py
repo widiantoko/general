@@ -659,21 +659,9 @@ if selected2=="Review Kinerja":
     kg_tujuan['berat'] = kg_tujuan['berat'].astype(int)
     filter_5=kg_tujuan[(kg_tujuan.asal_new=='CML')].set_index(['bulan', 'asal_new'])
 
-    AgGrid(filter_5, 
-        editable=True, 
-        fit_columns_on_grid_load=True, 
-        allow_unsafe_jscode=True, 
-        theme='streamlit', 
-        height=400,
-        grid_options={
-            'defaultColDef': {
-                'resizable': True,
-                'sortable': True,
-                'filter': True,
-                'floatingFilter': True
-            }
-        }
-    )
+    AgGrid(filter_5)
+    
+    
     #st.dataframe(kg_tujuan[(kg_tujuan.asal_new=='CML')].set_index(['bulan', 'asal_new']))
 
     #lst_cab=datapage4["cabang"].drop_duplicates().sort_index(ascending=True)
