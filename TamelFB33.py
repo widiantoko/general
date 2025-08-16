@@ -659,7 +659,7 @@ if selected2=="Review Kinerja":
     kg_tujuan['berat'] = kg_tujuan['berat'].astype(int)
     filter_5=pd.DataFrame(kg_tujuan[(kg_tujuan.asal_new=='CML')].set_index(['bulan', 'asal_new']))
 
-    st.table(filter)
+    st.table(filter_5)
     
     #st.dataframe(kg_tujuan[(kg_tujuan.asal_new=='CML')].set_index(['bulan', 'asal_new']))
 
