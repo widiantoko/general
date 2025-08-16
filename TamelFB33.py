@@ -626,7 +626,7 @@ if selected2=="Review Kinerja":
             koli, berat, kdmani, 
             IF(kdmani IN ('RAX', 'REX', 'CLT', 'SAP'), 'CBD', Kdmani) AS kdmani_new
         FROM tkonos
-        WHERE tanggal >= '2025-08-01' AND tanggal <= '2025-08-31'
+        WHERE tanggal >= '2025-01-01' AND tanggal <= '2025-08-31'
             AND kdpelanggan NOT LIKE 'CBD18002%'
             AND kdpelanggan NOT LIKE 'CSG18002%'
             AND kdpelanggan NOT LIKE 'CSB18002%'
@@ -661,7 +661,7 @@ if selected2=="Review Kinerja":
     st.dataframe(datapage4.head(20))
     #st.text(datapage4.info)
 
-    kg_tujuan=datapage4.groupby(['bulan','asal_new'])['berat'].sum().reset_index().sort_values(['berat'], ascending=False)
+    kg_tujuan=datapage4.groupby(['bulan','asal_new'])['berat'].sum().reset_index().sort_values(['berat'], ascending=False).reset_index(drop=True)
 
     st.table(kg_tujuan)
 
