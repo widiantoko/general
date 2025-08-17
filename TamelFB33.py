@@ -638,7 +638,7 @@ if selected2=="Review Kinerja":
 
     st.text(datapage4.dtypes)
     st.dataframe(datapage4)
-    #st.text(len(datapage4))
+    st.text(len(datapage4))
     #kg_tujuan=datapage4.groupby(['bulan','asal_new'])['berat'].sum().reset_index().sort_values(['asal_new'], ascending=False)
     
 
