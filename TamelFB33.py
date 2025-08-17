@@ -663,7 +663,7 @@ if selected2=="Review Kinerja":
     
     
     kg_tujuan=datapage4.groupby(['bulan', 'asal_new'], as_index=False).apply(lambda x: 
-            pd.Series({'normal_kg':x.loc[x.kdproduk=='N']['berat'].sum(),
+            ({'normal_kg':x.loc[x.kdproduk=='N']['berat'].sum(),
                         'urgent_kg':x.loc[x.kdproduk=='U']['berat'].sum(),
                         'top_urgent_kg':x.loc[x.kdproduk=='T']['berat'].sum(),
                         'darat_kg':x.loc[x.kdproduk=='D']['berat'].sum(),
