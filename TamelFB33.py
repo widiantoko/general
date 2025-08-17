@@ -677,7 +677,7 @@ if selected2=="Review Kinerja":
 
    
     
-    #st.dataframe(kg_tujuan[(kg_tujuan.asal_new==pilihan4)].set_index(['bulan', 'asal_new']))
+    st.dataframe(kg_tujuan[(kg_tujuan.asal_new==pilihan4)])
 
     
 
