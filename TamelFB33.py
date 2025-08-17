@@ -652,7 +652,7 @@ if selected2=="Review Kinerja":
     
 
     datapage4=pd.DataFrame(result4, columns=cursor.column_names)  ##
-    datapage4[['berat']] = datapage4[['berat']].astype(int)
+    datapage4[['berat']] = datapage4[['berat']].astype(float)
 
     
 
