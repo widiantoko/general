@@ -658,8 +658,12 @@ if selected2=="Review Kinerja":
     #kg_tujuan=datapage4.groupby(['bulan','asal_new'])['berat'].sum().reset_index().sort_values(['asal_new'], ascending=False)
     
     
-    kg_tujuan=datapage4.groupby(['bulan', 'asal_new'], as_index=False).apply(lambda x: pd.Series({'normal_kg':x.loc[x.kdproduk=='N']['berat'].sum(),
-                                               'urgent_kg':x.loc[x.kdproduk=='U']['berat'].sum()}))
+    kg_tujuan=datapage4.groupby(['bulan', 'asal_new'], as_index=False).apply(lambda x: 
+            pd.Series({'normal_kg':x.loc[x.kdproduk=='N']['berat'].sum(),
+                        'urgent_kg':x.loc[x.kdproduk=='U']['berat'].sum(),
+                        'top_urgent_kg':x.loc[x.kdproduk=='T']['berat'].sum(),
+                        'darat_kg':x.loc[x.kdproduk=='D']['berat'].sum(),
+                        'trucking_kg':x.loc[x.kdproduk=='C']['berat'].count(),}))
     
     lst_cab=kg_tujuan["asal_new"].drop_duplicates().sort_index(ascending=True)
     pilihan4=st.selectbox("Pilih Cabang", lst_cab, key="cabang")  
