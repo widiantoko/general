@@ -618,14 +618,7 @@ if selected2=="Review Kinerja":
             kdproduk, asal, 
             koli, berat, kdmani
         from tkonos
-        where tanggal >='2025-07-01' and tanggal <='2025-08-31'
-            and kdpelanggan NOT LIKE 'CBD18002%'
-            and kdpelanggan NOT LIKE 'CSG18002%'
-            and kdpelanggan NOT LIKE 'CSB18002%'
-            and kdpelanggan NOT LIKE 'CBH17002%'
-            and kdpelanggan NOT LIKE 'CML18002%'
-            and kdpelanggan NOT LIKE 'CDP18002%'
-			and asal='CML' 
+        where tanggal >='2025-07-01' and tanggal <='2025-08-31' and asal='CML' 
         ORDER BY tanggal ASC
     """
 
