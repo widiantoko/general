@@ -616,10 +616,10 @@ if selected2=="Review Kinerja":
             konid, kdpelanggan, nott,
             jenis, tanggal, pengirim, penerima, tujuan,
             kdproduk, asal, 
-            koli, berat, kdmani, 
+            koli, berat, kdmani
         
         FROM tkonos
-        WHERE tanggal >= '2025-07-01' AND tanggal <= '2025-08-31'
+        WHERE tanggal >='2025-07-01' AND tanggal <='2025-08-31'
             AND kdpelanggan NOT LIKE 'CBD18002%'
             AND kdpelanggan NOT LIKE 'CSG18002%'
             AND kdpelanggan NOT LIKE 'CSB18002%'
