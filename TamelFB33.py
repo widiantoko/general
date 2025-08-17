@@ -633,7 +633,7 @@ if selected2=="Review Kinerja":
             return cur.fetchall()
     
 
-    datapage4=pd.DataFrame(result4, columns=cursor.column_names)  ##
+    datapage4=pd.DataFrame(result4)  ##
     datapage4[['berat']] = datapage4[['berat']].astype(float)
 
     st.text(datapage4.dtypes)
