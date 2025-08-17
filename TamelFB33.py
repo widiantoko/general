@@ -626,14 +626,14 @@ if selected2=="Review Kinerja":
             koli, berat, kdmani, 
             IF(kdmani IN ('RAX', 'REX', 'CLT', 'SAP'), 'CBD', Kdmani) AS kdmani_new
         FROM tkonos
-        WHERE tanggal >= '2025-08-01' AND tanggal <= '2025-08-31'
+        WHERE tanggal >= '2025-07-01' AND tanggal <= '2025-08-31'
             AND kdpelanggan NOT LIKE 'CBD18002%'
             AND kdpelanggan NOT LIKE 'CSG18002%'
             AND kdpelanggan NOT LIKE 'CSB18002%'
             AND kdpelanggan NOT LIKE 'CBH17002%'
             AND kdpelanggan NOT LIKE 'CML18002%'
             AND kdpelanggan NOT LIKE 'CDP18002%'
-						and asal ='CBD' and kdproduk='C'
+						and asal_new ='CML' and kdproduk='T'
             #AND asal IN ('CBH','CBM','CBD', 'CSB', 'CSG', 'CML', 'CDP')
     
 	
