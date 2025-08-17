@@ -634,7 +634,7 @@ if selected2=="Review Kinerja":
     
 
     datapage4=pd.DataFrame(result4)  ##
-    datapage4[['berat']] = datapage4[['berat']].astype(float)
+    #datapage4[['berat']] = datapage4[['berat']].astype(float)
 
     st.text(datapage4.dtypes)
     st.dataframe(datapage4)
