@@ -664,7 +664,7 @@ if selected2=="Review Kinerja":
     lst_cab=kg_tujuan["asal_new"].drop_duplicates().sort_index(ascending=True)
     pilihan4=st.selectbox("Pilih Cabang", lst_cab, key="cabang")  
     
-    #kg_tujuan['berat'] = kg_tujuan['berat'].astype(int)
+    kg_tujuan[['normal_kg', 'urgent_kg']] = kg_tujuan[['normal_kg', 'urgent_kg']].astype(int)
     #filter_5=pd.DataFrame(kg_tujuan[(kg_tujuan.asal_new=='CML')].set_index(['bulan', 'asal_new']))
 
     #st.table(filter_5)
