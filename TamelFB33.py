@@ -626,10 +626,7 @@ if selected2=="Review Kinerja":
             AND kdpelanggan NOT LIKE 'CML18002%'
             AND kdpelanggan NOT LIKE 'CDP18002%'
 			AND asal='CML' 
-            AND kdproduk='T'
-            
-    
-    
+        ORDER BY tanggal ASC
     """
 
     cursor = conn.cursor()
@@ -647,8 +644,8 @@ if selected2=="Review Kinerja":
     datapage4[['berat']] = datapage4[['berat']].astype(float)
 
     st.text(datapage4.dtypes)
-    st.dataframe(datapage4.head(50))
-
+    #st.dataframe(datapage4.head(50))
+    st.text(len(datapage4))
     #kg_tujuan=datapage4.groupby(['bulan','asal_new'])['berat'].sum().reset_index().sort_values(['asal_new'], ascending=False)
     
 
