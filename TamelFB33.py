@@ -617,7 +617,6 @@ if selected2=="Review Kinerja":
             jenis, tanggal, pengirim, penerima, tujuan,
             kdproduk, asal, 
             koli, berat, kdmani
-        
         FROM tkonos
         WHERE tanggal >='2025-07-01' AND tanggal <='2025-08-31'
             AND kdpelanggan NOT LIKE 'CBD18002%'
@@ -633,15 +632,15 @@ if selected2=="Review Kinerja":
     
     """
 
-    cursor = conn.cursor()
-    cursor.execute(query_4)
-    result4 = cursor.fetchall()
+    cursor4 = conn.cursor()
+    cursor4.execute(query_4)
+    result4 = cursor4.fetchall()
 
-    @st.cache_data(ttl=600)
-    def load_data4(mysql4): 
-       with conn.cursor() as cur:
-            cur.execute(mysql4)
-            return cur.fetchall()
+    #@st.cache_data(ttl=600)
+    #def load_data4(mysql4): 
+    #   with conn.cursor() as cur:
+    #        cur.execute(mysql4)
+    #        return cur.fetchall()
     
 
     datapage4=pd.DataFrame(result4, columns=cursor.column_names)  ##
