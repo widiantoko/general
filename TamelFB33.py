@@ -611,21 +611,21 @@ if selected2=="Review Kinerja":
 
     query_4="""
     
-        SELECT 
+        select 
             DATE_FORMAT(tanggal, "%b-%y") AS bulan,
             konid, kdpelanggan, nott,
             jenis, tanggal, pengirim, penerima, tujuan,
             kdproduk, asal, 
             koli, berat, kdmani
-        FROM tkonos
-        WHERE tanggal >='2025-07-01' AND tanggal <='2025-08-31'
-            AND kdpelanggan NOT LIKE 'CBD18002%'
-            AND kdpelanggan NOT LIKE 'CSG18002%'
-            AND kdpelanggan NOT LIKE 'CSB18002%'
-            AND kdpelanggan NOT LIKE 'CBH17002%'
-            AND kdpelanggan NOT LIKE 'CML18002%'
-            AND kdpelanggan NOT LIKE 'CDP18002%'
-			AND asal='CML' 
+        from tkonos
+        where tanggal >='2025-07-01' and tanggal <='2025-08-31'
+            and kdpelanggan NOT LIKE 'CBD18002%'
+            and kdpelanggan NOT LIKE 'CSG18002%'
+            and kdpelanggan NOT LIKE 'CSB18002%'
+            and kdpelanggan NOT LIKE 'CBH17002%'
+            and kdpelanggan NOT LIKE 'CML18002%'
+            and kdpelanggan NOT LIKE 'CDP18002%'
+			and asal='CML' 
         ORDER BY tanggal ASC
     """
 
