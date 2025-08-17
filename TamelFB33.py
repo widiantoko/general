@@ -618,7 +618,7 @@ if selected2=="Review Kinerja":
             kdproduk, asal, 
             koli, berat, kdmani
         from tkonos
-        where tanggal >='2025-07-01' and tanggal <='2025-08-31' and asal like 'CML%' 
+        where tanggal>='2025-07-01' and tanggal<='2025-08-31' and asal like 'CML%' 
         ORDER BY tanggal ASC
     """
 
