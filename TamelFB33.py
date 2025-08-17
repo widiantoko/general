@@ -626,8 +626,9 @@ if selected2=="Review Kinerja":
             AND kdpelanggan NOT LIKE 'CBH17002%'
             AND kdpelanggan NOT LIKE 'CML18002%'
             AND kdpelanggan NOT LIKE 'CDP18002%'
-			and asal='CML' and kdproduk='T'
-            #AND asal IN ('CBH','CBM','CBD', 'CSB', 'CSG', 'CML', 'CDP')
+			AND asal='CML' 
+            AND kdproduk='T'
+            
     
     
     """
