@@ -654,7 +654,7 @@ if selected2=="Review Kinerja":
     datapage4=pd.DataFrame(result4, columns=cursor.column_names)  ##
     datapage4[['berat']] = datapage4[['berat']].astype(float)
 
-    
+    st.text(datapage4.dtypes)
 
     #kg_tujuan=datapage4.groupby(['bulan','asal_new'])['berat'].sum().reset_index().sort_values(['asal_new'], ascending=False)
     
@@ -672,7 +672,7 @@ if selected2=="Review Kinerja":
     kg_tujuan[['normal_kg', 'urgent_kg']] = kg_tujuan[['normal_kg', 'urgent_kg']].astype(int)
     #filter_5=pd.DataFrame(kg_tujuan[(kg_tujuan.asal_new=='CML')].set_index(['bulan', 'asal_new']))
 
-    #st.table(filter_5)
+   
     
     st.dataframe(kg_tujuan[(kg_tujuan.asal_new==pilihan4)].set_index(['bulan', 'asal_new']))
 
