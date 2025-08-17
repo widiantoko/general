@@ -676,8 +676,8 @@ if selected2=="Review Kinerja":
     #filter_5=pd.DataFrame(kg_tujuan[(kg_tujuan.asal_new=='CML')].set_index(['bulan', 'asal_new']))
 
    
-    
-    st.dataframe(kg_tujuan[(kg_tujuan.asal_new==pilihan4)])
+    st.dataframe(kg_tujuan)
+    #st.dataframe(kg_tujuan[(kg_tujuan.asal_new==pilihan4)])
 
     
 
