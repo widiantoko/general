@@ -632,9 +632,9 @@ if selected2=="Review Kinerja":
     
     """
 
-    cursor4 = conn.cursor()
-    cursor4.execute(query_4)
-    result4 = cursor4.fetchall()
+    cursor = conn.cursor()
+    cursor.execute(query_4)
+    result4 = cursor.fetchall()
 
     #@st.cache_data(ttl=600)
     #def load_data4(mysql4): 
