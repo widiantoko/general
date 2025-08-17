@@ -610,16 +610,15 @@ if selected2=="Review Kinerja":
     page_4()
 
     query_4="""
-    select 
+            select 
             tanggal,
             konid, kdpelanggan, nott,
             jenis, tanggal, pengirim, penerima, tujuan,
             kdproduk, asal, 
             koli, berat, kdmani
-        from tkonos
-        where tanggal>='2025-07-01' and tanggal<='2025-08-31' and asal='CML' 
-        ORDER BY tanggal ASC
-    """
+            from tkonos
+            where tanggal>='2025-07-01' and tanggal<='2025-07-31' and asal='CML' 
+            ORDER BY tanggal ASC """
 
 # 
 
