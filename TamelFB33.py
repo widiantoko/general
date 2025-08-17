@@ -653,7 +653,8 @@ if selected2=="Review Kinerja":
 
     datapage4=pd.DataFrame(result4, columns=cursor.column_names)  ##
 
-    from st_aggrid import AgGrid
+    lst_cab=datapage4["cabang"].drop_duplicates().sort_index(ascending=True)
+    pilihan4=st.selectbox("Pilih Cabang", lst_cab, key="cabang")  
 
     #kg_tujuan=datapage4.groupby(['bulan','asal_new'])['berat'].sum().reset_index().sort_values(['asal_new'], ascending=False)
     
@@ -667,12 +668,11 @@ if selected2=="Review Kinerja":
 
     #st.table(filter_5)
     
-    st.dataframe(kg_tujuan[(kg_tujuan.asal_new=='CML')].set_index(['bulan', 'asal_new']))
+    st.dataframe(kg_tujuan[(kg_tujuan.asal_new==pilihan4)].set_index(['bulan', 'asal_new']))
 
-    #lst_cab=datapage4["cabang"].drop_duplicates().sort_index(ascending=True)
-    #pilihan4=st.selectbox("Pilih Cabang", lst_cab, key="cabang")
+    
 
-    st.text(kg_tujuan.dtypes)
+    #st.text(kg_tujuan.dtypes)
 
     #col1, col2 = st.columns([2, 10], gap="small")
 
