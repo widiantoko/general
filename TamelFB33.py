@@ -610,8 +610,7 @@ if selected2=="Review Kinerja":
     page_4()
 
     query_4="""
-    
-        select 
+    select 
             tanggal,
             konid, kdpelanggan, nott,
             jenis, tanggal, pengirim, penerima, tujuan,
@@ -623,6 +622,7 @@ if selected2=="Review Kinerja":
     """
 
 # Eksekusi query
+    cursor = conn.cursor()
     cursor.execute(query_4)
 
 # Ambil hasil dan buat DataFrame
