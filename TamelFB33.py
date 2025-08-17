@@ -20,7 +20,7 @@ st.set_page_config(page_title="Kiriman Ke Cabang dan Agen", layout='wide')
 
 
 def init_connection():
-    return mysql.connector.connect(**st.secrets["config_db01"])
+    return mysql.connector.connect(**st.secrets["mysql"])  # type: ignore
 
 
 conn = init_connection()
