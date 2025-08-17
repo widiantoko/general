@@ -643,12 +643,14 @@ if selected2=="Review Kinerja":
     #        return cur.fetchall()
     
 
-    datapage4=pd.DataFrame(result4)  ##
+    #datapage4=pd.DataFrame(result4)  ##
     #datapage4[['berat']] = datapage4[['berat']].astype(float)
 
-    st.text(datapage4.dtypes)
-    st.dataframe(datapage4)
-    st.text(len(datapage4))
+    #st.text(datapage4.dtypes)
+    #st.dataframe(datapage4)
+    #st.text(len(datapage4))
+
+    st.dataframe(result4)
     #kg_tujuan=datapage4.groupby(['bulan','asal_new'])['berat'].sum().reset_index().sort_values(['asal_new'], ascending=False)
     
 
