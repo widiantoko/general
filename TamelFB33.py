@@ -669,7 +669,7 @@ if selected2=="Review Kinerja":
                         'urgent_kg':x.loc[x.kdproduk=='U']['berat'].sum(),
                         'top_urgent_kg':x.loc[x.kdproduk=='T']['berat'].sum(),
                         'darat_kg':x.loc[x.kdproduk=='D']['berat'].sum(),
-                        'trucking_kg':x.loc[x.kdproduk=='C']['kdproduk'].counta(),})).reset_index()
+                        'trucking_kg':x.loc[x.kdproduk=='C']['kdproduk'].count(),})).reset_index()
     
     lst_cab=kg_tujuan["asal_new"].drop_duplicates().sort_index(ascending=True)
     pilihan4=st.selectbox("Pilih Cabang", lst_cab, key="cabang")  
