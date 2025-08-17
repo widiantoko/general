@@ -614,17 +614,10 @@ if selected2=="Review Kinerja":
         SELECT 
             DATE_FORMAT(tanggal, "%b-%y") AS bulan,
             konid, kdpelanggan, nott,
-            IF(
-                IF(LEFT(konid, 3)='CBM', 'CBH', LEFT(konid, 3))
-                = IF(LEFT(kdpelanggan, 3) IN ('CTG', 'CBK', 'CBO'), 'CBH', LEFT(kdpelanggan, 3)),
-                'REG',
-                'MTX'
-            ) AS reg_mtx,
             jenis, tanggal, pengirim, penerima, tujuan,
             kdproduk, asal, 
-            IF(asal='CBM', 'CBH', asal) AS asal_new,
             koli, berat, kdmani, 
-            IF(kdmani IN ('RAX', 'REX', 'CLT', 'SAP'), 'CBD', Kdmani) AS kdmani_new
+        
         FROM tkonos
         WHERE tanggal >= '2025-07-01' AND tanggal <= '2025-08-31'
             AND kdpelanggan NOT LIKE 'CBD18002%'
