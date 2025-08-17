@@ -655,13 +655,19 @@ if selected2=="Review Kinerja":
 
     from st_aggrid import AgGrid
 
-    kg_tujuan=datapage4.groupby(['bulan','asal_new'])['berat'].sum().reset_index().sort_values(['asal_new'], ascending=False)
-    kg_tujuan['berat'] = kg_tujuan['berat'].astype(int)
-    filter_5=pd.DataFrame(kg_tujuan[(kg_tujuan.asal_new=='CML')].set_index(['bulan', 'asal_new']))
-
-    st.table(filter_5)
+    #kg_tujuan=datapage4.groupby(['bulan','asal_new'])['berat'].sum().reset_index().sort_values(['asal_new'], ascending=False)
     
-    #st.dataframe(kg_tujuan[(kg_tujuan.asal_new=='CML')].set_index(['bulan', 'asal_new']))
+    
+    kg_tujuan=datapage4.groupby(['bulan', 'asal_new'], as_index=False).apply(lambda x: pd.Series({'normal_kg':x.loc[x.kdproduk=='N']['berat'].sum(),
+                                               'urgent_kg':x.loc[x.kdproduk=='U']['berat'].sum()}))
+
+    
+    kg_tujuan['berat'] = kg_tujuan['berat'].astype(int)
+    #filter_5=pd.DataFrame(kg_tujuan[(kg_tujuan.asal_new=='CML')].set_index(['bulan', 'asal_new']))
+
+    #st.table(filter_5)
+    
+    st.dataframe(kg_tujuan[(kg_tujuan.asal_new=='CML')].set_index(['bulan', 'asal_new']))
 
     #lst_cab=datapage4["cabang"].drop_duplicates().sort_index(ascending=True)
     #pilihan4=st.selectbox("Pilih Cabang", lst_cab, key="cabang")
