@@ -612,7 +612,7 @@ if selected2=="Review Kinerja":
     query_4="""
     
         select 
-            DATE_FORMAT(tanggal, "%b-%y") AS bulan,
+            tanggal,
             konid, kdpelanggan, nott,
             jenis, tanggal, pengirim, penerima, tujuan,
             kdproduk, asal, 
