@@ -621,36 +621,28 @@ if selected2=="Review Kinerja":
         ORDER BY tanggal ASC
     """
 
-# Eksekusi query
+# 
+
+
     cursor = conn.cursor()
     cursor.execute(query_4)
+    result4 = cursor.fetchall()
 
-# Ambil hasil dan buat DataFrame
-    rows = cursor.fetchall()
-    columns = [desc[0] for desc in cursor.description]
-    result4 = pd.DataFrame(rows, columns=columns)
-
-
-
-    #cursor = conn.cursor()
-    #cursor.execute(query_4)
-    #result4 = cursor.fetchall()
-
-    #@st.cache_data(ttl=600)
-    #def load_data4(mysql4): 
-    #   with conn.cursor() as cur:
-    #        cur.execute(mysql4)
-    #        return cur.fetchall()
+    @st.cache_data(ttl=600)
+    def load_data4(mysql4): 
+       with conn.cursor() as cur:
+            cur.execute(mysql4)
+            return cur.fetchall()
     
 
-    #datapage4=pd.DataFrame(result4)  ##
+    datapage4=pd.DataFrame(result4)  ##
     #datapage4[['berat']] = datapage4[['berat']].astype(float)
 
     #st.text(datapage4.dtypes)
     #st.dataframe(datapage4)
     #st.text(len(datapage4))
 
-    st.dataframe(result4)
+    st.dataframe(datapage4)
     #kg_tujuan=datapage4.groupby(['bulan','asal_new'])['berat'].sum().reset_index().sort_values(['asal_new'], ascending=False)
     
 
