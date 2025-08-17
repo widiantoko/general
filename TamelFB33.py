@@ -658,12 +658,14 @@ if selected2=="Review Kinerja":
 
     #kg_tujuan=datapage4.groupby(['bulan','asal_new'])['berat'].sum().reset_index().sort_values(['asal_new'], ascending=False)
     
+    datapage4['N_reg'] = np.where([datapage4['kdproduk'] == 'N' |datapage4['asalnew'] == 'CML' ], datapage4['berat'], 0)
+    result_4n = datapage4.groupby('bulan').agg({
+    'N_reg': 'sum',}).reset_index()
+
+
+    st.dataframe(result_4n, use_container_width=True)
+
     
-    #result = df.groupby('Category').apply(lambda x: pd.Series({
-    #    'Conditional_Sum': x['Value'].where((x['Condition_Col_1'] == 'X') & 
-    #                                        (x['Condition_Col_2'] == True), 0).sum()})).reset_index()
-
-
     kg_tujuan=datapage4.groupby(['bulan', 'asal_new'], as_index=False).apply(lambda x: 
             pd.Series({'normal_kg':x.loc[x.kdproduk=='N']['berat'].sum(),
                         'urgent_kg':x.loc[x.kdproduk=='U']['berat'].sum(),
@@ -679,7 +681,7 @@ if selected2=="Review Kinerja":
 
    
     
-    st.dataframe(kg_tujuan[(kg_tujuan.asal_new==pilihan4)].set_index(['bulan', 'asal_new']))
+    #st.dataframe(kg_tujuan[(kg_tujuan.asal_new==pilihan4)].set_index(['bulan', 'asal_new']))
 
     
 
