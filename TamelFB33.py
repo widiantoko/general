@@ -629,7 +629,6 @@ if selected2=="Review Kinerja":
 			and asal='CML' and kdproduk='T'
             #AND asal IN ('CBH','CBM','CBD', 'CSB', 'CSG', 'CML', 'CDP')
     
-	
     
     """
 
