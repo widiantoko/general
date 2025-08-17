@@ -626,11 +626,11 @@ if selected2=="Review Kinerja":
     cursor.execute(query_4)
     result4 = cursor.fetchall()
 
-    #@st.cache_data(ttl=600)
-    #def load_data4(mysql4): 
-    #   with conn.cursor() as cur:
-    #        cur.execute(mysql4)
-    #        return cur.fetchall()
+    @st.cache_data(ttl=600)
+    def load_data4(mysql4): 
+       with conn.cursor() as cur:
+            cur.execute(mysql4)
+            return cur.fetchall()
     
 
     datapage4=pd.DataFrame(result4, columns=cursor.column_names)  ##
