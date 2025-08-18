@@ -803,7 +803,7 @@ FROM
 
     with col2:
 
-        st.dataframe(datapage4[(datapage4.asal_new==pil_cab)])
+        st.dataframe(datapage4[(datapage4.cabang==pil_cab)])
         #pil_cab=st.selectbox(label="**Pilih Cabang:**",options= lst_cab)
 
 
