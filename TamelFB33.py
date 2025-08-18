@@ -796,7 +796,7 @@ FROM
 
     with col2:
 
-            st.dataframe(datapage4[(datapage4.cabang==pil_cab)] )
+            st.dataframe(datapage4[(datapage4.cabang==pil_cab)].reset_index(drop=True))
             #pil_cab=st.selectbox(label="**Pilih Cabang:**",options= lst_cab)
 
 
