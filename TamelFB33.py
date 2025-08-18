@@ -58,9 +58,9 @@ d.kdpelanggan, d.nmpelanggan, kdproduk, kdkirim  from tkonos a
         order by tanggal asc
 
     '''
-    cursor = conn_01.cursor()
-    cursor.execute(query_1)
-    result1 = cursor.fetchall()
+    cursor_01 = conn_01.cursor()
+    cursor_01.execute(query_1)
+    result1 = cursor_01.fetchall()
 
     @st.cache_data(ttl=600)
     def load_data(mysql1): 
@@ -71,7 +71,7 @@ d.kdpelanggan, d.nmpelanggan, kdproduk, kdkirim  from tkonos a
     datafr=pd.DataFrame(result1)
 
     if conn_01.is_connected():
-        cursor.close()
+        cursor_01.close()
         conn_01.close()
 
     datafr.columns= ["konid", "bln_thn", "kdmani", "diff2", "kd_pelanggan", "nm_pelanggan", "kdproduk", "kdkirim"]
@@ -406,9 +406,9 @@ if selected2=="Kiriman Intracity Jakarta":
     
     """
 
-    cursor = conn_01.cursor()
-    cursor.execute(query_2)
-    result2 = cursor.fetchall()
+    cursor_01 = conn_01.cursor()
+    cursor_01.execute(query_2)
+    result2 = cursor_01.fetchall()
 
     @st.cache_data(ttl=600)
     def load_data2(mysql2): 
