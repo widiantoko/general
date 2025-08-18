@@ -795,8 +795,9 @@ FROM
         #pil_cab=st.selectbox(label="**Pilih Cabang:**",options= lst_cab)
 
     with col2:
-
-            st.table(filter_dp4)
+            html_table = filter_dp4.to_html(index=False)
+            st.markdown(html_table, unsafe_allow_html=True)
+            #st.table(filter_dp4)
             #pil_cab=st.selectbox(label="**Pilih Cabang:**",options= lst_cab)
 
 
