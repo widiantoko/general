@@ -790,13 +790,13 @@ FROM
         pil_cab=st.selectbox(label="**Pilih Cabang:**",options= lst_cab)
 
         #st.dataframe(datapage4[[datapage4.cabang==lst_cab]])
-       
+        filter_dp4=datapage4[(datapage4.cabang==pil_cab)]
 
         #pil_cab=st.selectbox(label="**Pilih Cabang:**",options= lst_cab)
 
     with col2:
 
-            st.dataframe(datapage4[(datapage4.cabang==pil_cab)].reset_index(drop=True))
+            st.dataframe(filter_dp4.reset_index(drop=True))
             #pil_cab=st.selectbox(label="**Pilih Cabang:**",options= lst_cab)
 
 
