@@ -757,6 +757,9 @@ FROM
     datapage4["top_urgent_kg"] = datapage4[["top_urgent_kg"]].astype(int)
     datapage4["darat_kg"] = datapage4[["darat_kg"]].astype(int)
     datapage4["total_kg"] = datapage4[["total_kg"]].astype(int)
+    datapage4["matrix_kg"] = datapage4[["matrix_kg"]].astype(int)
+    datapage4["trip_trucking"] = datapage4[["trip_trucking"]].astype(int)
+    datapage4["inbound_kg"] = datapage4[["inbound_kg"]].astype(int)
     
     
     #st.text(datapage4.dtypes)
