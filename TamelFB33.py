@@ -23,7 +23,7 @@ def init_connection():
     return mysql.connector.connect(**st.secrets["mysql01"])  
 
 
-conn = init_connection()
+conn_01 = init_connection()
 
 
 def page_1():
@@ -58,13 +58,13 @@ d.kdpelanggan, d.nmpelanggan, kdproduk, kdkirim  from tkonos a
         order by tanggal asc
 
     '''
-    cursor = conn.cursor()
+    cursor = conn_01.cursor()
     cursor.execute(query_1)
     result1 = cursor.fetchall()
 
     @st.cache_data(ttl=600)
     def load_data(mysql1): 
-        with conn.cursor() as cur:
+        with conn_01.cursor() as cur:
             cur.execute(mysql1)
             return cur.fetchall()
 
@@ -403,13 +403,13 @@ if selected2=="Kiriman Intracity Jakarta":
     
     """
 
-    cursor = conn.cursor()
+    cursor = conn_01.cursor()
     cursor.execute(query_2)
     result2 = cursor.fetchall()
 
     @st.cache_data(ttl=600)
     def load_data2(mysql2): 
-        with conn.cursor() as cur:
+        with conn_01.cursor() as cur:
             cur.execute(mysql2)
             return cur.fetchall()
     
@@ -544,13 +544,13 @@ if selected2=="Volume Kiriman":
     order by year(tanggal), month(tanggal) asc
     """
 
-    cursor = conn.cursor()
+    cursor = conn_01.cursor()
     cursor.execute(query_3)
     result3 = cursor.fetchall()
 
     @st.cache_data(ttl=600)
     def load_data3(mysql3): 
-       with conn.cursor() as cur:
+       with conn_01.cursor() as cur:
             cur.execute(mysql3)
             return cur.fetchall()
     
@@ -623,13 +623,13 @@ if selected2=="Review Kinerja":
 # 
 
 
-    cursor = conn.cursor()
+    cursor = conn_01.cursor()
     cursor.execute(query_4)
     result4 = cursor.fetchall()
 
     @st.cache_data(ttl=600)
     def load_data4(mysql4): 
-       with conn.cursor() as cur:
+       with conn_01.cursor() as cur:
             cur.execute(mysql4)
             return cur.fetchall()
     
