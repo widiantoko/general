@@ -795,7 +795,7 @@ FROM
 
         st.text(lst_cab)
 
-        st.dataframe(datapage4[[datapage4.cabang==lst_cab]])
+        #st.dataframe(datapage4[[datapage4.cabang==lst_cab]])
 
         #pil_cab=st.selectbox(label="**Pilih Cabang:**",options= lst_cab)
 
