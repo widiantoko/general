@@ -762,16 +762,9 @@ FROM
     datapage4["matrix_kg"] = datapage4[["matrix_kg"]].astype(int)
     datapage4["trip_trucking"] = datapage4[["trip_trucking"]].astype(int)
     datapage4["inbound_kg"] = datapage4[["inbound_kg"]].astype(int)
+    datapage4.style.hide(axis="index")
     
     
-    #st.text(datapage4.dtypes)
-    #st.dataframe(datapage4)
-    #st.text(len(datapage4))
-
-    #st.dataframe(datapage4)
-
-
-    #kg_tujuan=datapage4.groupby(['bulan','asal_new'])['berat'].sum().reset_index().sort_values(['asal_new'], ascending=False)
     
 
    
