@@ -629,15 +629,102 @@ if selected2=="Review Kinerja":
     page_4()
 
     query_4="""
-            select 
-            tanggal,
+SELECT 
+    o.bulan,
+		now() as waktu,
+    o.cabang,
+		o.normal_kg,
+		o.urgent_kg,
+		o.top_urgent_kg,
+		o.darat_kg,
+    o.outbound_kg_reg,
+		o.outbound_kg_mtx,
+		o.trip_trucking,
+    i.inbound_kg
+FROM
+(
+    -- Subquery untuk outbound
+    SELECT 
+        bulan, 
+        asal_new AS cabang,
+				SUM(CASE WHEN (kdproduk='N' AND reg_mtx='REG')THEN berat ELSE 0 END) AS normal_kg,
+				SUM(CASE WHEN (kdproduk='U' AND reg_mtx='REG') THEN berat ELSE 0 END) AS urgent_kg,
+				SUM(CASE WHEN (kdproduk='T' AND reg_mtx='REG')THEN berat ELSE 0 END) AS top_urgent_kg,
+				SUM(CASE WHEN (kdproduk='D' AND reg_mtx='REG') THEN berat ELSE 0 END) AS darat_kg, 
+        SUM(CASE WHEN (kdproduk IN ('N', 'U', 'T', 'D') AND reg_mtx='REG') THEN berat ELSE 0 END) AS outbound_kg_reg,
+				sum(case when (kdproduk in ('N', 'U', 'T', 'D') and reg_mtx ='MTX') then berat else 0 end) as outbound_kg_mtx,
+				sum(case when kdproduk='C' then 1 else 0 end) as trip_trucking
+
+    FROM
+    (
+        -- Data pengiriman keluar
+        SELECT 
+            DATE_FORMAT(tanggal, "%b-%y") AS bulan,
             konid, kdpelanggan, nott,
+            IF(
+                IF(LEFT(konid, 3)='CBM', 'CBH', LEFT(konid, 3))
+                = IF(LEFT(kdpelanggan, 3) IN ('CTG', 'CBK', 'CBO'), 'CBH', LEFT(kdpelanggan, 3)),
+                'REG',
+                'MTX'
+            ) AS reg_mtx,
             jenis, tanggal, pengirim, penerima, tujuan,
             kdproduk, asal, 
-            koli, berat, kdmani
-            from tkonos
-            where tanggal>='2025-07-01' and tanggal<='2025-07-31' and asal='CML' 
-            ORDER BY tanggal ASC """
+            IF(asal='CBM', 'CBH', asal) AS asal_new,
+            koli, berat, kdmani, 
+            IF(kdmani IN ('RAX', 'REX', 'CLT', 'SAP'), 'CBD', Kdmani) AS kdmani_new,
+            awbno, createdby
+        FROM tkonos
+        WHERE tanggal >= '2025-07-01' AND tanggal <= '2025-08-31'
+            AND kdpelanggan NOT LIKE 'CBD18002%'
+            AND kdpelanggan NOT LIKE 'CSG18002%'
+            AND kdpelanggan NOT LIKE 'CSB18002%'
+            AND kdpelanggan NOT LIKE 'CBH17002%'
+            AND kdpelanggan NOT LIKE 'CML18002%'
+            AND kdpelanggan NOT LIKE 'CDP18002%'
+						and asal ='CML' and kdproduk='T'
+            #AND asal IN ('CBH','CBM','CBD', 'CSB', 'CSG', 'CML', 'CDP')
+    ) AS new1
+    GROUP BY bulan, asal_new
+		
+) AS o
+LEFT JOIN
+(
+    -- Subquery untuk inbound
+    SELECT 
+        bulan, 
+        kdmani_new AS cabang,
+        SUM(CASE WHEN kdproduk IN ('N', 'U', 'T', 'D') THEN berat ELSE 0 END) AS inbound_kg
+    FROM
+    (
+        -- Data penerimaan masuk
+        SELECT 
+            DATE_FORMAT(tanggal, "%b-%y") AS bulan,
+            konid, kdpelanggan, nott,           
+            jenis, tanggal, pengirim, penerima, tujuan,
+            kdproduk, asal, 
+            IF(asal='CBM', 'CBH', asal) AS asal_new,
+            koli, berat, kdmani,
+            IF(kdmani IN ('RAX', 'REX', 'CLT', 'SAP'), 'CBD', 
+               IF(kdmani IN ('CBK', 'CBO', 'CTG'), 'CBH', kdmani)) AS kdmani_new,
+            awbno, createdby
+        FROM tkonos
+        WHERE tanggal >= '2025-01-01' AND tanggal <= '2025-08-31'
+            AND kdpelanggan NOT LIKE 'CBD18002%'
+            AND kdpelanggan NOT LIKE 'CSG18002%'
+            AND kdpelanggan NOT LIKE 'CSB18002%'
+            AND kdpelanggan NOT LIKE 'CBH17002%'
+            AND kdpelanggan NOT LIKE 'CML18002%'
+            AND kdpelanggan NOT LIKE 'CDP18002%'         
+    ) AS new2
+    GROUP BY bulan, kdmani_new
+) AS i
+ON o.bulan = i.bulan AND o.cabang = i.cabang;
+            
+
+                
+            
+            
+            """
 
 # 
 
