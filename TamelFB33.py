@@ -796,7 +796,7 @@ FROM
 
     with col2:
 
-            st.dataframe(filter_dp4.reset_index(drop=True))
+            st.table(filter_dp4)
             #pil_cab=st.selectbox(label="**Pilih Cabang:**",options= lst_cab)
 
 
