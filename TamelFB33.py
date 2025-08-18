@@ -795,36 +795,8 @@ FROM
         #pil_cab=st.selectbox(label="**Pilih Cabang:**",options= lst_cab)
 
     with col2:
-            html_table = filter_dp4.to_html(index=False)
-            st.markdown(
-    """
-    <style>
-    .styled-table {
-        border-collapse: collapse;
-        margin: 25px 0;
-        font-size: 16px;
-        font-family: Arial, Helvetica, sans-serif;
-        width: 100%;
-        box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-    }
-    .styled-table th, .styled-table td {
-        padding: 12px 15px;
-        border: 1px solid #ddd;
-        text-align: left;
-    }
-    .styled-table th {
-        background-color: #009879;
-        color: #ffffff;
-        text-align: center;
-    }
-    .styled-table tbody tr:nth-child(even) {
-        background-color: #f3f3f3;
-    }
-    </style>
-    """, unsafe_allow_html=True)
-
-            st.markdown(html_table, unsafe_allow_html=True)
-            #st.table(filter_dp4)
+            
+            st.dataframe(filter_dp4)
             #pil_cab=st.selectbox(label="**Pilih Cabang:**",options= lst_cab)
 
 
