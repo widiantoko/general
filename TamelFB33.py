@@ -71,7 +71,6 @@ d.kdpelanggan, d.nmpelanggan, kdproduk, kdkirim  from tkonos a
     datafr=pd.DataFrame(result1)
 
     if conn_01.is_connected():
-        st.success("Koneksi ke database berhasil!")
         cursor.close()
         conn_01.close()
 
