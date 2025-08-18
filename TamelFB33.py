@@ -752,11 +752,11 @@ FROM
     #datapage4[['berat']] = datapage4[['berat']].astype(float)
 
     datapage4.columns = ['bulan', 'waktu', 'cabang','normal_kg', 'urgent_kg', 'top_urgent_kg', 'darat_kg', 'total_kg', 'matrix_kg', 'trip_trucking', 'inbound_kg']
-    datapage4["normal_kg"] = datapage4[["normal_kg"]].astype(float).round(2)
-    datapage4["urgent_kg"] = datapage4[["urgent_kg"]].astype(float).round(2)
-    datapage4["top_urgent_kg"] = datapage4[["top_urgent_kg"]].astype(float).round(2)
-    datapage4["darat_kg"] = datapage4[["darat_kg"]].astype(float).round(2)
-    datapage4["total_kg"] = datapage4[["total_kg"]].astype(float).round(2)
+    datapage4["normal_kg"] = datapage4[["normal_kg"]].astype(int)
+    datapage4["urgent_kg"] = datapage4[["urgent_kg"]].astype(int)
+    datapage4["top_urgent_kg"] = datapage4[["top_urgent_kg"]].astype(int)
+    datapage4["darat_kg"] = datapage4[["darat_kg"]].astype(int)
+    datapage4["total_kg"] = datapage4[["total_kg"]].astype(int)
     
     
     #st.text(datapage4.dtypes)
