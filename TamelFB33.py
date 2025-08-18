@@ -751,7 +751,7 @@ FROM
 
     #datapage4[['berat']] = datapage4[['berat']].astype(float)
 
-    datapage4.columns = ['bulan', 'waktu', 'normal_kg', 'urgent_kg', 'top_urgent_kg', 'darat_kg', 'total_kg', 'matrix_kg', 'trip_trucking', 'inbound_kg']
+    datapage4.columns = ['bulan', 'waktu', 'cabang','normal_kg', 'urgent_kg', 'top_urgent_kg', 'darat_kg', 'total_kg', 'matrix_kg', 'trip_trucking', 'inbound_kg']
     #st.text(datapage4.dtypes)
     #st.dataframe(datapage4)
     #st.text(len(datapage4))
