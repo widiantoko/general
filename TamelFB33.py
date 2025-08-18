@@ -796,8 +796,8 @@ FROM
 
     with col2:
 
-        st.dataframe(datapage4[(datapage4.cabang==pil_cab)], hide_index=True, use_container_width=True,)
-        #pil_cab=st.selectbox(label="**Pilih Cabang:**",options= lst_cab)
+            st.dataframe(datapage4[(datapage4.cabang==pil_cab)], hide_index=True, )
+            #pil_cab=st.selectbox(label="**Pilih Cabang:**",options= lst_cab)
 
 
         #filter_dp4=datapage4[datapage4['cabang'] == pil_cab]
