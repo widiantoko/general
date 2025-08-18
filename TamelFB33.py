@@ -70,7 +70,11 @@ d.kdpelanggan, d.nmpelanggan, kdproduk, kdkirim  from tkonos a
 
     datafr=pd.DataFrame(result1)
 
-    
+    if conn_01.is_connected():
+        st.success("Koneksi ke database berhasil!")
+        cursor.close()
+        conn_01.close()
+
     datafr.columns= ["konid", "bln_thn", "kdmani", "diff2", "kd_pelanggan", "nm_pelanggan", "kdproduk", "kdkirim"]
     datafr['nm_pelanggan'] = datafr['nm_pelanggan'].str.replace(",",' ')    
     datafr[["awal", "tengah", "belakang", "akhir"]]=datafr["nm_pelanggan"].str.split(" ", n = 3, expand = True)
