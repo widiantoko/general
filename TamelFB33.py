@@ -419,6 +419,9 @@ if selected2=="Kiriman Intracity Jakarta":
 
     datafr2=pd.DataFrame(result2)
 
+    if conn_01.is_connected():
+        cursor_01.close()
+        conn_01.close()
     
     
     datafr2.columns= ["konid" ,"tanggal", "ktr_asal", "ktr_tujuan", "jenis", "pengirim", "penerima", "kdproduk", "berat", "nm_kota" ]
@@ -560,6 +563,11 @@ if selected2=="Volume Kiriman":
 
     datapage3=pd.DataFrame(result3)
     #st.text(datapage3.info)
+
+    if conn_01.is_connected():
+        cursor_01.close()
+        conn_01.close()
+
 
     datapage3.columns= ["tahun","bulan" ,"bln_thn", "qty_pcs", "berat_kg"]
     datapage3["qty_pcs"] = datapage3[["qty_pcs"]].astype(int)
