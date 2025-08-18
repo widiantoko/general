@@ -634,9 +634,9 @@ if selected2=="Review Kinerja":
 # 
 
 
-    cursor = conn_01.cursor()
-    cursor.execute(query_4)
-    result4 = cursor.fetchall()
+    cursor_01 = conn_01.cursor()
+    cursor_01.execute(query_4)
+    result4 = cursor_01.fetchall()
 
     @st.cache_data(ttl=600)
     def load_data4(mysql4): 
@@ -646,6 +646,14 @@ if selected2=="Review Kinerja":
     
 
     datapage4=pd.DataFrame(result4)  ##
+
+
+    if conn_01.is_connected():
+        cursor_01.close()
+        conn_01.close()
+
+
+
     #datapage4[['berat']] = datapage4[['berat']].astype(float)
 
     #st.text(datapage4.dtypes)
