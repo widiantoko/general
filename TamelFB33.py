@@ -629,7 +629,7 @@ if selected2=="Review Kinerja":
     page_4()
 
     query_4="""
-SELECT 
+    SELECT 
     o.bulan,
 		now() as waktu,
     o.cabang,
@@ -686,9 +686,9 @@ FROM
     ) AS new1
     GROUP BY bulan, asal_new
 		
-) AS o
-LEFT JOIN
-(
+    ) AS o
+    LEFT JOIN
+    (
     -- Subquery untuk inbound
     SELECT 
         bulan, 
@@ -716,15 +716,15 @@ LEFT JOIN
             AND kdpelanggan NOT LIKE 'CML18002%'
             AND kdpelanggan NOT LIKE 'CDP18002%'         
     ) AS new2
-    GROUP BY bulan, kdmani_new
-) AS i
-ON o.bulan = i.bulan AND o.cabang = i.cabang;
+        GROUP BY bulan, kdmani_new
+    ) AS i
+    ON o.bulan = i.bulan AND o.cabang = i.cabang;
             
 
                 
             
             
-            """
+    """
 
 # 
 
