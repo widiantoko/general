@@ -547,9 +547,9 @@ if selected2=="Volume Kiriman":
     order by year(tanggal), month(tanggal) asc
     """
 
-    cursor = conn_01.cursor()
-    cursor.execute(query_3)
-    result3 = cursor.fetchall()
+    cursor_01 = conn_01.cursor()
+    cursor_01.execute(query_3)
+    result3 = cursor_01.fetchall()
 
     @st.cache_data(ttl=600)
     def load_data3(mysql3): 
