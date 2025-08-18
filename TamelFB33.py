@@ -751,11 +751,14 @@ FROM
 
     #datapage4[['berat']] = datapage4[['berat']].astype(float)
 
+    datapage4.columns = ['bulan', 'waktu', 'normal_kg', 'urgent_kg', 'top_urgent_kg', 'darat_kg', 'total_kg', 'matrix_kg', 'trip_trucking', 'inbound_kg']
     #st.text(datapage4.dtypes)
     #st.dataframe(datapage4)
     #st.text(len(datapage4))
 
     st.dataframe(datapage4)
+
+
     #kg_tujuan=datapage4.groupby(['bulan','asal_new'])['berat'].sum().reset_index().sort_values(['asal_new'], ascending=False)
     
 
