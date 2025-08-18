@@ -656,9 +656,9 @@ if selected2=="Review Kinerja":
     datapage4=pd.DataFrame(result4)  ##
 
 
-    if conn_01.is_connected():
-        cursor_01.close()
-        conn_01.close()
+    if conn_02.is_connected():
+        cursor_02.close()
+        conn_02.close()
 
 
 
