@@ -25,6 +25,14 @@ def init_connection():
 
 conn_01 = init_connection()
 
+def init_connection():
+    return mysql.connector.connect(**st.secrets["mysql02"])  
+
+
+conn_02 = init_connection()
+
+
+
 
 def page_1():
     page_1= st.container()
@@ -634,8 +642,8 @@ if selected2=="Review Kinerja":
 # 
 
 
-    cursor_01 = conn_01.cursor()
-    cursor_01.execute(query_4)
+    cursor_02 = conn_02.cursor()
+    cursor_02.execute(query_4)
     result4 = cursor_01.fetchall()
 
     @st.cache_data(ttl=600)
