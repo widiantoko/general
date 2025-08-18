@@ -766,14 +766,14 @@ FROM
     #st.dataframe(datapage4)
     #st.text(len(datapage4))
 
-    st.dataframe(datapage4)
+    #st.dataframe(datapage4)
 
 
     #kg_tujuan=datapage4.groupby(['bulan','asal_new'])['berat'].sum().reset_index().sort_values(['asal_new'], ascending=False)
     
 
    
-    #lst_cab=kg_tujuan["asal_new"].drop_duplicates().sort_index(ascending=True)
+    lst_cab=datapage4["cabang"].drop_duplicates().sort_index(ascending=True)
     #pilihan4=st.selectbox("Pilih Cabang", lst_cab, key="cabang")  
     
     #kg_tujuan[['normal_kg', 'urgent_kg']] = kg_tujuan[['normal_kg', 'urgent_kg']].astype(int)
@@ -787,13 +787,18 @@ FROM
 
     #st.text(kg_tujuan.dtypes)
 
-    #col1, col2 = st.columns([2, 10], gap="small")
+    col1, col2 = st.columns([10, 2], gap="small")
 
-    #with col1:
+    with col1:
+
+        st.dataframe(datapage4[(datapage4.cabang==lst_cab)])
 
         #pil_cab=st.selectbox(label="**Pilih Cabang:**",options= lst_cab)
 
-    #with col2:
+    with col2:
+
+        pil_cab=st.selectbox(label="**Pilih Cabang:**",options= lst_cab)
+
 
         #filter_dp4=datapage4[datapage4['cabang'] == pil_cab]
         #st.dataframe(filter_dp4.set_index(filter_dp4.columns[0]))
