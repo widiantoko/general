@@ -789,19 +789,22 @@ FROM
 
     #st.text(kg_tujuan.dtypes)
 
-    col1, col2 = st.columns([10, 2], gap="small")
+    col1, col2 = st.columns([2, 10], gap="small")
 
     with col1:
 
         st.text(lst_cab)
+        pil_cab=st.selectbox(label="**Pilih Cabang:**",options= lst_cab)
 
         #st.dataframe(datapage4[[datapage4.cabang==lst_cab]])
+       
 
         #pil_cab=st.selectbox(label="**Pilih Cabang:**",options= lst_cab)
 
     with col2:
 
-        pil_cab=st.selectbox(label="**Pilih Cabang:**",options= lst_cab)
+        st.dataframe(datapage4[(datapage4.asal_new==pil_cab)])
+        #pil_cab=st.selectbox(label="**Pilih Cabang:**",options= lst_cab)
 
 
         #filter_dp4=datapage4[datapage4['cabang'] == pil_cab]
