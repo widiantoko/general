@@ -669,7 +669,7 @@ FROM
             ) AS reg_mtx,
             jenis, tanggal, pengirim, penerima, tujuan,
             kdproduk, asal, 
-            IF(asal='CBM', 'CBH', asal) AS asal_new,
+            IF(asal in ('CBM', 'CTG', 'CBO', 'CBK'),'CBH', asal) AS asal_new,
             koli, berat, kdmani, 
             IF(kdmani IN ('RAX', 'REX', 'CLT', 'SAP'), 'CBD', Kdmani) AS kdmani_new,
             awbno, createdby
