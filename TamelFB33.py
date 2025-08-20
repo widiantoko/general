@@ -680,12 +680,12 @@ FROM
             awbno, createdby
         FROM tkonos
         WHERE tanggal >= '2025-01-01' AND tanggal <= '2025-08-31'
-            AND kdpelanggan NOT LIKE 'CBD18002%'
-            AND kdpelanggan NOT LIKE 'CSG18002%'
-            AND kdpelanggan NOT LIKE 'CSB18002%'
-            AND kdpelanggan NOT LIKE 'CBH17002%'
-            AND kdpelanggan NOT LIKE 'CML18002%'
-            AND kdpelanggan NOT LIKE 'CDP18002%'
+            AND (kdpelanggan NOT LIKE 'CBD18002%'
+            or kdpelanggan NOT LIKE 'CSG18002%'
+            or kdpelanggan NOT LIKE 'CSB18002%'
+            or kdpelanggan NOT LIKE 'CBH17002%'
+            or kdpelanggan NOT LIKE 'CML18002%'
+            or kdpelanggan NOT LIKE 'CDP18002%')
 						#and asal ='CML' and kdproduk='T'
             AND asal IN ('CBH','CBM','CBD', 'CSB', 'CSG', 'CML', 'CDP')
     ) AS new1
@@ -714,12 +714,12 @@ FROM
             awbno, createdby
         FROM tkonos
         WHERE tanggal >= '2025-01-01' AND tanggal <= '2025-08-31'
-            AND kdpelanggan NOT LIKE 'CBD18002%'
-            AND kdpelanggan NOT LIKE 'CSG18002%'
-            AND kdpelanggan NOT LIKE 'CSB18002%'
-            AND kdpelanggan NOT LIKE 'CBH17002%'
-            AND kdpelanggan NOT LIKE 'CML18002%'
-            AND kdpelanggan NOT LIKE 'CDP18002%'         
+            (AND kdpelanggan NOT LIKE 'CBD18002%'
+            or kdpelanggan NOT LIKE 'CSG18002%'
+            or kdpelanggan NOT LIKE 'CSB18002%'
+            or kdpelanggan NOT LIKE 'CBH17002%'
+            or kdpelanggan NOT LIKE 'CML18002%'
+            or kdpelanggan NOT LIKE 'CDP18002%')         
     ) AS new2
         GROUP BY bulan, kdmani_new
     ) AS i
