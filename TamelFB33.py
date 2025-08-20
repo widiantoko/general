@@ -553,10 +553,10 @@ if selected2=="Volume Kiriman":
     query_3="""
     select year(tanggal) as tahun, MONTHNAME(tanggal) as bulan,  DATE_FORMAT(tanggal,'%b_%y') as bln_thn,
     COUNT(konid) as qty_pcs, round(sum(berat),0) as berat_kg from 
-    tkonos where tanggal >='2024-06-01' and tanggal<=NOW() and kdpelanggan not like 'CBH17002%' and kdpelanggan like 'CBH%' 
-    and kdpelanggan like 'CTG%' 
-    and kdpelanggan like 'CBO%' 
-    and kdpelanggan like 'CBK%' 
+    tkonos where tanggal >='2024-06-01' and tanggal<=NOW() and kdpelanggan not like 'CBH17002%' and (kdpelanggan like 'CBH%' 
+    or kdpelanggan like 'CTG%' 
+    or kdpelanggan like 'CBO%' 
+    or kdpelanggan like 'CBK%') 
     and kdproduk in ('N', 'U', 'T', 'D', 'P')
     group by month(tanggal), year(tanggal)
     order by year(tanggal), month(tanggal) asc
