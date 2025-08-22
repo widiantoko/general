@@ -684,9 +684,9 @@ FROM
             and kdpelanggan NOT LIKE 'CBH17002%'
             and kdpelanggan NOT LIKE 'CML18002%'
             and kdpelanggan NOT LIKE 'CDP18002%'
-						and left(kdpelanggan,3) ='CML'
+						#and left(kdpelanggan,3) ='CML'
 						#and IF(left(kdpelanggan,3)= IF(asal='CBM', 'CBH', asal),'REG','MTX')='MTX'
-            #AND left(kdpelanggan,3) IN ('CBH','CBM','CBD', 'CSB', 'CSG', 'CML', 'CDP', 'CBK','CBO','CTG')
+            AND left(kdpelanggan,3) IN ('CBH','CBM','CBD', 'CSB', 'CSG', 'CML', 'CDP', 'CBK','CBO','CTG')
     ) AS new1
     GROUP BY bulan, asal_new
 		
