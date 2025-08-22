@@ -409,7 +409,7 @@ if selected2=="Kiriman Intracity Jakarta":
     left join mpelanggan c on c.kdpelanggan = left(a.kdpelanggan,8)
     where Datediff(CURRENT_DATE,tanggal)>=14 and 
     kdmani in('CBH', 'MDE', 'MDT', 'MDA', 'MDJ') and pod= " "
-    and a.kdpelanggan not like 'CBH17002%' and jenis not like 'I' and tanggal>='2022-12-01'
+    and a.kdpelanggan not like 'CBH17002%' and jenis not like 'I' and tanggal>='2025-01-01'
     order by tanggal asc
     
     """
@@ -523,7 +523,7 @@ if selected2=="Kiriman Intracity Jakarta":
         tgl_ini=(time.strftime("%d-%m-%Y ", time.localtime()))
 
         st.caption(f""" 
-        1. Data yang digunakan adalah Kiriman Intracity Jakarta periode:  01-12-2022  s.d.  {tgl_ini} 
+        1. Data yang digunakan adalah Kiriman Intracity Jakarta periode:  01-01-2025  s.d.  {tgl_ini} 
         2. Data Kiriman tersebut di atas adalah Kiriman yang belum ada status selama 14 hari ke atas dari tanggal Conote
     
     """)
