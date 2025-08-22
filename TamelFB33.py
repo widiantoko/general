@@ -763,7 +763,7 @@ ON o.bulan = i.bulan AND o.cabang = i.cabang;
     datapage4["total_kg"] = datapage4[["total_kg"]].astype(int)
     datapage4["matrix_kg"] = datapage4[["matrix_kg"]].astype(int)
     datapage4["trip_trucking"] = datapage4[["trip_trucking"]].astype(int)
-    #datapage4["inbound_kg"] = datapage4[["inbound_kg"]].astype(int)
+    datapage4["inbound_kg"] = datapage4[["inbound_kg"]].astype(int)
     datapage4.style.hide(axis="index")
     
     
@@ -785,6 +785,7 @@ ON o.bulan = i.bulan AND o.cabang = i.cabang;
     #st.text(kg_tujuan.dtypes)
 
     col1, col2 = st.columns([2, 10], gap="small")
+    col3, col4 = st.columns([10, 2], gap="small")
 
     with col1:
 
@@ -796,7 +797,7 @@ ON o.bulan = i.bulan AND o.cabang = i.cabang;
 
         #pil_cab=st.selectbox(label="**Pilih Cabang:**",options= lst_cab)
 
-    with col2:
+    with col3:
             
             st.dataframe(filter_dp4)
             #pil_cab=st.selectbox(label="**Pilih Cabang:**",options= lst_cab)
