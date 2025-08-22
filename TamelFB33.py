@@ -633,6 +633,7 @@ if selected2=="Review Kinerja":
     page_4()
 
     query_4="""
+    
     SELECT 
     o.bulan,
 		now() as waktu,
@@ -643,6 +644,7 @@ if selected2=="Review Kinerja":
 		o.darat_kg,
     o.outbound_kg_reg,
 		o.outbound_kg_mtx,
+		o.total_outbound_kg,
 		o.trip_trucking,
     i.inbound_kg
 FROM
@@ -657,43 +659,40 @@ FROM
 				SUM(CASE WHEN (kdproduk='D' AND reg_mtx='REG') THEN berat ELSE 0 END) AS darat_kg, 
         SUM(CASE WHEN (kdproduk IN ('N', 'U', 'T', 'D') AND reg_mtx='REG') THEN berat ELSE 0 END) AS outbound_kg_reg,
 				sum(case when (kdproduk in ('N', 'U', 'T', 'D') and reg_mtx ='MTX') then berat else 0 end) as outbound_kg_mtx,
+				sum(case when kdproduk in ('N', 'U', 'T', 'D') then berat else 0 end) as total_outbound_kg,			
 				sum(case when kdproduk='C' then 1 else 0 end) as trip_trucking
 
     FROM
     (
         -- Data pengiriman keluar
         SELECT 
-            DATE_FORMAT(tanggal, "%b-%y") AS bulan,
-            konid, kdpelanggan, nott,
-            IF(
-                IF(LEFT(konid, 3)='CBM', 'CBH', LEFT(konid, 3))
-                = IF(LEFT(kdpelanggan, 3) IN ('CTG', 'CBK', 'CBO'), 'CBH', LEFT(kdpelanggan, 3)),
-                'REG',
-                'MTX'
-            ) AS reg_mtx,
-            jenis, tanggal, pengirim, penerima, tujuan,
+            DATE_FORMAT(tanggal, "%b-%y") AS bulan, tanggal,
+            konid, kdpelanggan,
+            pengirim, penerima, tujuan,
             kdproduk, asal, 
-            IF(LEFT(kdpelanggan, 3) IN ('CTG', 'CBK', 'CBO'), 'CBH', LEFT(kdpelanggan, 3)) AS asal_new,
-               
+            if(left(kdpelanggan,3) in ('CTG','CBK', 'CBO'),'CBH', left(kdpelanggan,3) ) AS asal_new,
+						IF(left(kdpelanggan,3)= IF(asal='CBM', 'CBH', asal),'REG','MTX') as reg_mtx,
             koli, berat, kdmani, 
             IF(kdmani IN ('RAX', 'REX', 'CLT', 'SAP'), 'CBD', Kdmani) AS kdmani_new,
-            awbno, createdby
+            awbno, 
+						createdby
         FROM tkonos
         WHERE tanggal >= '2025-01-01' AND tanggal <= '2025-08-31'
-            AND (kdpelanggan NOT LIKE 'CBD18002%'
-            or kdpelanggan NOT LIKE 'CSG18002%'
-            or kdpelanggan NOT LIKE 'CSB18002%'
-            or kdpelanggan NOT LIKE 'CBH17002%'
-            or kdpelanggan NOT LIKE 'CML18002%'
-            or kdpelanggan NOT LIKE 'CDP18002%')
-						#and asal ='CML' and kdproduk='T'
-            AND asal IN ('CBH','CBM','CBD', 'CSB', 'CSG', 'CML', 'CDP')
+            AND kdpelanggan NOT LIKE 'CBD18002%'
+            and kdpelanggan NOT LIKE 'CSG18002%'
+            and kdpelanggan NOT LIKE 'CSB18002%'
+            and kdpelanggan NOT LIKE 'CBH17002%'
+            and kdpelanggan NOT LIKE 'CML18002%'
+            and kdpelanggan NOT LIKE 'CDP18002%'
+						and left(kdpelanggan,3) ='CML'
+						#and IF(left(kdpelanggan,3)= IF(asal='CBM', 'CBH', asal),'REG','MTX')='MTX'
+            #AND left(kdpelanggan,3) IN ('CBH','CBM','CBD', 'CSB', 'CSG', 'CML', 'CDP', 'CBK','CBO','CTG')
     ) AS new1
     GROUP BY bulan, asal_new
 		
-    ) AS o
-    LEFT JOIN
-    (
+) AS o
+LEFT JOIN
+(
     -- Subquery untuk inbound
     SELECT 
         bulan, 
@@ -714,19 +713,17 @@ FROM
             awbno, createdby
         FROM tkonos
         WHERE tanggal >= '2025-01-01' AND tanggal <= '2025-08-31'
-            AND (kdpelanggan NOT LIKE 'CBD18002%'
-            or kdpelanggan NOT LIKE 'CSG18002%'
-            or kdpelanggan NOT LIKE 'CSB18002%'
-            or kdpelanggan NOT LIKE 'CBH17002%'
-            or kdpelanggan NOT LIKE 'CML18002%'
-            or kdpelanggan NOT LIKE 'CDP18002%')         
+            AND kdpelanggan NOT LIKE 'CBD18002%'
+            AND kdpelanggan NOT LIKE 'CSG18002%'
+            AND kdpelanggan NOT LIKE 'CSB18002%'
+            AND kdpelanggan NOT LIKE 'CBH17002%'
+            AND kdpelanggan NOT LIKE 'CML18002%'
+            AND kdpelanggan NOT LIKE 'CDP18002%'         
     ) AS new2
-        GROUP BY bulan, kdmani_new
-    ) AS i
-    ON o.bulan = i.bulan AND o.cabang = i.cabang;
-            
+    GROUP BY bulan, kdmani_new
+) AS i
+ON o.bulan = i.bulan AND o.cabang = i.cabang;
 
-                
             
             
     """
