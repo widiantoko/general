@@ -769,7 +769,8 @@ ON o.bulan = i.bulan AND o.cabang = i.cabang;
     
     datapage4= datapage4.drop('waktu', axis=1) # axis=1 specifies column
 
-  
+    from st_aggrid import AgGrid
+
     
     
 
@@ -803,7 +804,8 @@ ON o.bulan = i.bulan AND o.cabang = i.cabang;
 
     with col3:
             
-            st.dataframe(filter_dp4)
+            #st.dataframe(filter_dp4)
+            grid_return = AgGrid(filter_dp4)
             #pil_cab=st.selectbox(label="**Pilih Cabang:**",options= lst_cab)
 
 
