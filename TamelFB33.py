@@ -750,7 +750,7 @@ ON o.bulan = i.bulan AND o.cabang = i.cabang;
         conn_02.close()
 
 
-    datapage4.reset_index(drop=True, inplace=True)
+    #datapage4.reset_index(drop=True, inplace=True)
     #datapage4[['berat']] = datapage4[['berat']].astype(float)
 
     datapage4.columns = ['bulan', 'waktu', 'cabang','normal_kg', 'urgent_kg', 'top_urgent_kg', 'darat_kg', 'reg_kg', 'matrix_kg', 'total_kg','trip_trucking', 'inbound_kg']
