@@ -728,7 +728,7 @@ ON o.bulan = i.bulan AND o.cabang = i.cabang;
             
     """
 
-# 
+ 
 
 
     cursor_02 = conn_02.cursor()
