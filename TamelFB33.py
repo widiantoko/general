@@ -760,6 +760,7 @@ ON o.bulan = i.bulan AND o.cabang = i.cabang;
     datapage4["urgent_kg"] = datapage4[["urgent_kg"]].astype(int)
     datapage4["top_urgent_kg"] = datapage4[["top_urgent_kg"]].astype(int)
     datapage4["darat_kg"] = datapage4[["darat_kg"]].astype(int)
+    datapage4["reg_kg"] = datapage4[["reg_kg"]].astype(int)
     datapage4["total_kg"] = datapage4[["total_kg"]].astype(int)
     datapage4["matrix_kg"] = datapage4[["matrix_kg"]].astype(int)
     datapage4["trip_trucking"] = datapage4[["trip_trucking"]].astype(int)
