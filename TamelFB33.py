@@ -764,7 +764,7 @@ ON o.bulan = i.bulan AND o.cabang = i.cabang;
     datapage4["total_kg"] = datapage4[["total_kg"]].astype(int)
     datapage4["matrix_kg"] = datapage4[["matrix_kg"]].astype(int)
     datapage4["trip_trucking"] = datapage4[["trip_trucking"]].astype(int)
-    datapage4["inbound_kg"] = datapage4[["inbound_kg"]].astype(int)
+    #datapage4["inbound_kg"] = datapage4[["inbound_kg"]].astype(int)
     #datapage4.style.hide(axis="index")
     
     datapage4= datapage4.drop('waktu', axis=1) # axis=1 specifies column
