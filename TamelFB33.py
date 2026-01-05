@@ -695,7 +695,7 @@ if selected2=="Volume Kiriman":
     #st.text(tahunku)
     #st.text(berat_2024)
     #st.text(berat_2025)
-    #st.text(berat_2026)
+    st.text(berat_2026)
 
 
 
