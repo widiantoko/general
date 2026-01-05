@@ -628,12 +628,12 @@ if selected2=="Volume Kiriman":
 
     source = ColumnDataSource(dataku)
 
-    #hover = HoverTool(
-    #tooltips=[
-    #    ("fruits", "@fruits"),
-    #    ("2024", "$berat_2024"),
-    #    ("2025", "$berat_2025"),
-    #    ("2026", "$berat_2026")] )   
+    hover = HoverTool(
+    tooltips=[
+        ("fruits", "@fruits"),
+        ("2024", "$berat_2024"),
+        ("2025", "$berat_2025"),
+        ("2026", "$berat_2026")] )
 
 
     TOOLTIPS = [
