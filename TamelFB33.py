@@ -608,7 +608,7 @@ if selected2=="Volume Kiriman":
     #st.text(res_months)
 
 
-    st.dataframe(datapage3.datapage3[["berat_kg"]])
+    #st.dataframe(datapage3.datapage3[["berat_kg"]])
 
     
     p4= datapage3.plot_bokeh(
