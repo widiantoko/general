@@ -627,7 +627,7 @@ if selected2=="Volume Kiriman":
     source = ColumnDataSource(dataku)
 
     pgab = figure(x_range=fruits, y_range=(0, 200000), title="Volume Berat Kiriman per Bulan Tahun 2024 - 2026",
-           height=350, width=1200, toolbar_location="above", tools="hover", tooltips="@fruits: @years{0.2f} %")
+           height=350, width=1200, toolbar_location="above", tools="hover", tooltips="@fruits: @fruits{0.2f} %")
 
     pgab.vbar(x=dodge('fruits', -0.35, range=pgab.x_range), top='2024', source=source,
        width=0.35, color="#c9d9d3", legend_label="2024")
@@ -638,7 +638,7 @@ if selected2=="Volume Kiriman":
     pgab.vbar(x=dodge('fruits',  0.35, range=pgab.x_range), top='2026', source=source,
        width=0.35, color="#e84d60", legend_label="2026")
 
-    pgab.x_range.range_padding = 0.10
+    pgab.x_range.range_padding = 0.20
     pgab.xgrid.grid_line_color = None
     pgab.legend.location = "top_left"
     pgab.legend.orientation = "horizontal"
