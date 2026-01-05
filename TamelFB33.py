@@ -607,8 +607,8 @@ if selected2=="Volume Kiriman":
     from bokeh.plotting import figure, show
     from bokeh.transform import dodge
 
-    fruits = bulanku
-    years = tahunku
+    fruits = [bulanku]
+    years = [tahunku]
 
     dataku = {'fruits' : fruits,
         '2024'   : [berat_2024],
