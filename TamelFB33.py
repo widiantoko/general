@@ -594,6 +594,7 @@ if selected2=="Volume Kiriman":
     data2026=datapage3[datapage3["tahun"]==2026]
 
     bulanku = datapage3['bulan'].unique()
+    tahunku = datapage3['tahun'].unique()
 
 
     from datetime import datetime
@@ -646,6 +647,7 @@ if selected2=="Volume Kiriman":
 
     
     st.text(bulanku)
+    st.text(tahunku)
     st.text(berat_2024)
     st.text(berat_2025)
     st.text(berat_2026)
