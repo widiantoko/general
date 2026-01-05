@@ -641,7 +641,7 @@ if selected2=="Volume Kiriman":
     pgab.xgrid.grid_line_color = None
     pgab.legend.location = "top_left"
     pgab.legend.orientation = "horizontal"
-    pgab.axis_label_text_font_size = '10px'
+    #pgab.axis_label_text_font_size = '10px'
 
     st.bokeh_chart(pgab)
 
