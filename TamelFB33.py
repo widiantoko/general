@@ -657,6 +657,7 @@ if selected2=="Volume Kiriman":
     pgab.legend.location = "top_left"
     pgab.legend.orientation = "horizontal"
     pgab.yaxis.formatter = NumeralTickFormatter(format="0,0")
+    pgab.add_tools(hover)
     #pgab.axis_label_text_font_size = '10px'
 
     st.bokeh_chart(pgab)
