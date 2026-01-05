@@ -638,14 +638,14 @@ if selected2=="Volume Kiriman":
   
     #st.bokeh_chart(p4)
     berat_2024=data2024["berat_kg"].to_list()
-    berat_2025=data2024["berat_kg"].to_list()
-    berat_2026=data2024["berat_kg"].to_list()
+    berat_2025=data2025["berat_kg"].to_list()
+    berat_2026=data2026["berat_kg"].to_list()
     #berat_dp3=berat_dp3.to_list()
 
     st.text(berat_2024)
     st.text(berat_2025)
     st.text(berat_2026)
-    
+
 
     #st.markdown(datapage3.index.tolist())
     
