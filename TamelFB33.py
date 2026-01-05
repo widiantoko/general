@@ -601,6 +601,8 @@ if selected2=="Volume Kiriman":
     berat_2025=data2025["berat_kg"].to_list()
     berat_2026=data2026["berat_kg"].to_list()
 
+    berat_2026.extend([0,0,0,0,0,0,0,0,0,0,0])  # to make sure the length matches for plotting
+
 
 
     from bokeh.models import ColumnDataSource
