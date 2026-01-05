@@ -576,7 +576,7 @@ if selected2=="Volume Kiriman":
 
     datapage3=pd.DataFrame(result3)
     #st.text(datapage3.info)
-    st.dataframe(datapage3)
+   
 
     if conn_01.is_connected():
         cursor_01.close()
@@ -586,6 +586,8 @@ if selected2=="Volume Kiriman":
     datapage3.columns= ["tahun","bulan" ,"bln_thn", "qty_pcs", "berat_kg"]
     datapage3["qty_pcs"] = datapage3[["qty_pcs"]].astype(int)
     datapage3["berat_kg"] = datapage3[["berat_kg"]].astype(int)
+    
+    st.dataframe(datapage3)
 
 
     from datetime import datetime
