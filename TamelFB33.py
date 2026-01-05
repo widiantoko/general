@@ -616,6 +616,7 @@ if selected2=="Volume Kiriman":
     from bokeh.plotting import figure, show
     from bokeh.transform import dodge
     from bokeh.models import NumeralTickFormatter, FuncTickFormatter
+    from bokeh.models import BoxEditTool, HoverTool
 
     fruits = bulanku
     years = tahunku
@@ -627,16 +628,20 @@ if selected2=="Volume Kiriman":
 
     source = ColumnDataSource(dataku)
 
+    hover = HoverTool(
+    tooltips=[
+        ("fruits", "$fruits"),
+        ("2024", "@berat_2024"),
+        ("2025", "@berat_2025"),
+        ("2026", "@berat_2026")] )   
 
-    TOOLTIPS = [
-    ("fruits", "$fruits"),
-    ("2024", "@berat_2024"),
-    ("2025", "@berat_2025"),
-    ("2026", "@berat_2026")]
+
+    
 
     
     pgab = figure(x_range=fruits, y_range=(0, 200000), title="Volume Berat Kiriman per Bulan Tahun 2024 - 2026",
-           height=350, width=1200, toolbar_location="above", tools="hover", tooltips=TOOLTIPS)
+           height=350, width=1200, toolbar_location="above", tools="hover", )
+    
 
     pgab.vbar(x=dodge('fruits', -0.30, range=pgab.x_range), top='2024', source=source,
        width=0.28, color="#c9d9d3", legend_label="2024")
