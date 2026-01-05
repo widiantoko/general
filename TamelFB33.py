@@ -603,6 +603,8 @@ if selected2=="Volume Kiriman":
 
     berat_2026.extend([0,0,0,0,0,0,0,0,0,0,0])  # to make sure the length matches for plotting
 
+    print(berat_2026)
+
 
 
     from bokeh.models import ColumnDataSource
