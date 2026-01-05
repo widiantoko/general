@@ -630,14 +630,14 @@ if selected2=="Volume Kiriman":
     pgab = figure(x_range=fruits, y_range=(0, 200000), title="Volume Berat Kiriman per Bulan Tahun 2024 - 2026",
            height=350, width=1200, toolbar_location="above", tools="hover", tooltips="@fruits: @berat_all{0.2f} %")
 
-    pgab.vbar(x=dodge('fruits', -0.30, range=pgab.x_range), top='2024', source=source,
-       width=0.35, color="#c9d9d3", legend_label="2024")
+    pgab.vbar(x=dodge('fruits', -0.32, range=pgab.x_range), top='2024', source=source,
+       width=0.30, color="#c9d9d3", legend_label="2024")
 
     pgab.vbar(x=dodge('fruits',  0.0,  range=pgab.x_range), top='2025', source=source,
-       width=0.35, color="#718dbf", legend_label="2025")
+       width=0.30, color="#718dbf", legend_label="2025")
 
-    pgab.vbar(x=dodge('fruits',  0.30, range=pgab.x_range), top='2026', source=source,
-       width=0.35, color="#e84d60", legend_label="2026")
+    pgab.vbar(x=dodge('fruits',  0.32, range=pgab.x_range), top='2026', source=source,
+       width=0.30, color="#e84d60", legend_label="2026")
 
     pgab.x_range.range_padding = 0.20
     pgab.xgrid.grid_line_color = None
