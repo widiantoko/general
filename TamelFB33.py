@@ -620,14 +620,14 @@ if selected2=="Volume Kiriman":
     pgab = figure(x_range=fruits, y_range=(0, 10), title="Fruit Counts by Year",
            height=350, toolbar_location=None, tools="")
 
-    pgab.vbar(x=dodge('fruits', -0.25, range=p.x_range), top='2015', source=source,
-       width=0.2, color="#c9d9d3", legend_label="2015")
+    pgab.vbar(x=dodge('fruits', -0.25, range=pgab.x_range), top='2024', source=source,
+       width=0.2, color="#c9d9d3", legend_label="2024")
 
-    pgab.vbar(x=dodge('fruits',  0.0,  range=p.x_range), top='2016', source=source,
-       width=0.2, color="#718dbf", legend_label="2016")
+    pgab.vbar(x=dodge('fruits',  0.0,  range=pgab.x_range), top='2025', source=source,
+       width=0.2, color="#718dbf", legend_label="2025")
 
-    pgab.vbar(x=dodge('fruits',  0.25, range=p.x_range), top='2017', source=source,
-       width=0.2, color="#e84d60", legend_label="2017")
+    pgab.vbar(x=dodge('fruits',  0.25, range=pgab.x_range), top='2026', source=source,
+       width=0.2, color="#e84d60", legend_label="2026")
 
     pgab.x_range.range_padding = 0.1
     pgab.xgrid.grid_line_color = None
