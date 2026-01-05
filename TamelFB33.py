@@ -633,7 +633,7 @@ if selected2=="Volume Kiriman":
     #st.bokeh_chart(p4)
     berat_dp3=datapage3[["berat_kg"]]
 
-    st.text(berat_dp3)
+    st.text(berat_dp3.to_list())
 
     #st.markdown(datapage3.index.tolist())
     
