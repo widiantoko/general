@@ -638,9 +638,9 @@ if selected2=="Volume Kiriman":
 
     TOOLTIPS = [
         ("fruits", "@fruits"),
-        ("2024", "$berat_2024"),
-        ("2025", "$berat_2025"),
-        ("2026", "$berat_2026")]
+        ("berat_2024", "@berat_2024"),
+        ("berat_2025", "@berat_2025"),
+        ("berat_2026", "@berat_2026")]
 
 
     
