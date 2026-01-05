@@ -630,7 +630,7 @@ if selected2=="Volume Kiriman":
 
     hover = HoverTool(
     tooltips=[
-        ("fruits", "@fruits"),
+        ("Bulan", "@fruits"),
         ("2024", "@2024"),
         ("2025", "@2025"),
         ("2026", "@2026")] )
