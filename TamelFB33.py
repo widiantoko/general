@@ -629,7 +629,7 @@ if selected2=="Volume Kiriman":
 
     TOOLTIPS = [
         ("Bulan", "@fruits"),
-        ("Berat(kg)", "@berat_all{0.2f}%")
+        ("Berat(kg)", "@berat_2024{0.2f}%")
     ]
 
     pgab = figure(x_range=fruits, y_range=(0, 200000), title="Volume Berat Kiriman per Bulan Tahun 2024 - 2026",
