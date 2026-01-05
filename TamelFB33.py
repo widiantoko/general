@@ -631,9 +631,9 @@ if selected2=="Volume Kiriman":
     hover = HoverTool(
     tooltips=[
         ("fruits", "@fruits"),
-        ("2024", "$berat_2024"),
-        ("2025", "$berat_2025"),
-        ("2026", "$berat_2026")] )
+        ("2024", "@berat_2024"),
+        ("2025", "@berat_2025"),
+        ("2026", "@berat_2026")] )
 
 
     #TOOLTIPS = [
