@@ -554,7 +554,7 @@ if selected2=="Volume Kiriman":
     query_3="""
     select year(tanggal) as tahun, MONTHNAME(tanggal) as bulan,  DATE_FORMAT(tanggal,'%b_%y') as bln_thn,
     COUNT(konid) as qty_pcs, round(sum(berat),0) as berat_kg from 
-    tkonos where tanggal >='2024-06-01' and tanggal<=NOW() and kdpelanggan not like 'CBH17002%' and (kdpelanggan like 'CBH%' 
+    tkonos where tanggal >='2024-01-01' and tanggal<=NOW() and kdpelanggan not like 'CBH17002%' and (kdpelanggan like 'CBH%' 
     or kdpelanggan like 'CTG%' 
     or kdpelanggan like 'CBO%' 
     or kdpelanggan like 'CBK%') 
@@ -590,6 +590,8 @@ if selected2=="Volume Kiriman":
     st.dataframe(datapage3)
 
     data2024=datapage3[datapage3["tahun"]==2024]
+    data2025=datapage3[datapage3["tahun"]==2025]
+    data2026=datapage3[datapage3["tahun"]==2026]
 
 
     from datetime import datetime
