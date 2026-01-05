@@ -589,6 +589,8 @@ if selected2=="Volume Kiriman":
     
     st.dataframe(datapage3)
 
+    data2024=datapage3[datapage3["tahun"]==2024]
+
 
     from datetime import datetime
     from dateutil import relativedelta
@@ -633,10 +635,10 @@ if selected2=="Volume Kiriman":
     
   
     #st.bokeh_chart(p4)
-    berat_dp3=datapage3["berat_kg"].to_list()
+    berat_2024=data2024["berat_kg"].to_list()
     #berat_dp3=berat_dp3.to_list()
 
-    st.text(berat_dp3)
+    st.text(berat_2024)
 
     #st.markdown(datapage3.index.tolist())
     
