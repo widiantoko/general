@@ -596,7 +596,7 @@ if selected2=="Volume Kiriman":
     bulanku = datapage3['bulan'].unique().tolist()
     tahunku = datapage3['tahun'].unique().tolist()
 
-
+    bln_thn_all=datapage3["bln_thn"].to_list()
     berat_all = datapage3["berat_kg"].to_list()
     berat_2024=data2024["berat_kg"].to_list()
     berat_2025=data2025["berat_kg"].to_list()
@@ -628,8 +628,8 @@ if selected2=="Volume Kiriman":
     source = ColumnDataSource(dataku)
 
     TOOLTIPS = [
-        ("Bulan", "$name"),
-        ("Berat (kg)", "@dataku{0.2f}%")
+        ("Bulan", "@bln_thn_all"),
+        ("Berat(kg)", "@berat_all{0.2f}%")
     ]
 
     pgab = figure(x_range=fruits, y_range=(0, 200000), title="Volume Berat Kiriman per Bulan Tahun 2024 - 2026",
