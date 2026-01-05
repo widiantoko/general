@@ -631,15 +631,15 @@ if selected2=="Volume Kiriman":
            height=350, width=1200, toolbar_location="above", tools="hover", tooltips="$name @fruits: @$name{0.2f} %")
 
     pgab.vbar(x=dodge('fruits', -0.4, range=pgab.x_range), top='2024', source=source,
-       width=0.30, color="#c9d9d3", legend_label="2024")
+       width=0.25, color="#c9d9d3", legend_label="2024")
 
     pgab.vbar(x=dodge('fruits',  0.0,  range=pgab.x_range), top='2025', source=source,
-       width=0.30, color="#718dbf", legend_label="2025")
+       width=0.25, color="#718dbf", legend_label="2025")
 
     pgab.vbar(x=dodge('fruits',  0.4, range=pgab.x_range), top='2026', source=source,
-       width=0.30, color="#e84d60", legend_label="2026")
+       width=0.25, color="#e84d60", legend_label="2026")
 
-    pgab.x_range.range_padding = 0.10
+    pgab.x_range.range_padding = 0.5
     pgab.xgrid.grid_line_color = None
     pgab.legend.location = "top_left"
     pgab.legend.orientation = "horizontal"
