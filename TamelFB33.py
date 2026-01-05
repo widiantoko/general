@@ -587,7 +587,7 @@ if selected2=="Volume Kiriman":
     datapage3["qty_pcs"] = datapage3[["qty_pcs"]].astype(int)
     datapage3["berat_kg"] = datapage3[["berat_kg"]].astype(int)
     
-    st.dataframe(datapage3)
+    #st.dataframe(datapage3)
 
     data2024=datapage3[datapage3["tahun"]==2024]
     data2025=datapage3[datapage3["tahun"]==2025]
@@ -611,9 +611,9 @@ if selected2=="Volume Kiriman":
     years = tahunku
 
     data = {'fruits' : fruits,
-        '2024'   : berat_2024,
-        '2025'   : berat_2025,
-        '2026'   : berat_2026}
+        '2024'   : [berat_2024],
+        '2025'   : [berat_2025],
+        '2026'   : [berat_2026]}
 
     source = ColumnDataSource(data=data)
 
@@ -687,11 +687,11 @@ if selected2=="Volume Kiriman":
     #berat_dp3=berat_dp3.to_list()
 
     
-    st.text(bulanku)
-    st.text(tahunku)
-    st.text(berat_2024)
-    st.text(berat_2025)
-    st.text(berat_2026)
+    #st.text(bulanku)
+    #st.text(tahunku)
+    #st.text(berat_2024)
+    #st.text(berat_2025)
+    #st.text(berat_2026)
 
 
 
