@@ -607,15 +607,15 @@ if selected2=="Volume Kiriman":
     from bokeh.plotting import figure, show
     from bokeh.transform import dodge
 
-    fruits = [bulanku]
-    years = [tahunku]
+    fruits = bulanku
+    years = tahunku
 
     dataku = {'fruits' : fruits,
-        '2024'   : [berat_2024],
-        '2025'   : [berat_2025],
-        '2026'   : [berat_2026]}
+        '2024'   : berat_2024,
+        '2025'   : berat_2025,
+        '2026'   : berat_2026}
 
-    source = ColumnDataSource(data=dataku)
+    source = ColumnDataSource(dataku)
 
     pgab = figure(x_range=fruits, y_range=(0, 10), title="Volume Berat Kiriman per Bulan Tahun 2024 - 2026",
            height=350, width=900, toolbar_location=None, tools="")
