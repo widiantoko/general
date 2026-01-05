@@ -640,7 +640,7 @@ if selected2=="Volume Kiriman":
 
     
     pgab = figure(x_range=fruits, y_range=(0, 200000), title="Volume Berat Kiriman per Bulan Tahun 2024 - 2026",
-           height=350, width=1200, toolbar_location="above", tools="hover", )
+           height=350, width=1200, toolbar_location="above", )
     
 
     pgab.vbar(x=dodge('fruits', -0.30, range=pgab.x_range), top='2024', source=source,
