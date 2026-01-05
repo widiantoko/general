@@ -636,16 +636,16 @@ if selected2=="Volume Kiriman":
         ("2026", "$berat_2026")] )
 
 
-    TOOLTIPS = [
-        ("fruits", "@fruits"),
-        ("berat_2024", "@berat_2024"),
-        ("berat_2025", "@berat_2025"),
-        ("berat_2026", "@berat_2026")]
+    #TOOLTIPS = [
+    #    ("fruits", "@fruits"),
+    #    ("berat_2024", "@berat_2024"),
+    #    ("berat_2025", "@berat_2025"),
+    #    ("berat_2026", "@berat_2026")]
 
 
     
     pgab = figure(x_range=fruits, y_range=(0, 200000), title="Volume Berat Kiriman per Bulan Tahun 2024 - 2026",
-           height=350, width=1200, toolbar_location=None, tools="hover", tooltips=TOOLTIPS)
+           height=350, width=1200, toolbar_location=None, tools="hover", tooltips=hover)
     
 
     pgab.vbar(x=dodge('fruits', -0.30, range=pgab.x_range), top='2024', source=source,
