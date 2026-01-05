@@ -765,7 +765,7 @@ FROM
             awbno, 
 						createdby
         FROM tkonos
-        WHERE tanggal >= '2025-05-01' AND tanggal <= '2025-12-31'
+        WHERE tanggal >= '2025-05-01' AND tanggal <= NOW()
             AND kdpelanggan NOT LIKE 'CBD18002%'
             and kdpelanggan NOT LIKE 'CSG18002%'
             and kdpelanggan NOT LIKE 'CSB18002%'
@@ -800,7 +800,7 @@ LEFT JOIN
                IF(kdmani IN ('CBK', 'CBO', 'CTG'), 'CBH', kdmani)) AS kdmani_new,
             awbno, createdby
         FROM tkonos
-        WHERE tanggal >= '2025-05-01' AND tanggal <= '2025-12-31'
+        WHERE tanggal >= '2025-05-01' AND tanggal <= NOW()
             AND kdpelanggan NOT LIKE 'CBD18002%'
             AND kdpelanggan NOT LIKE 'CSG18002%'
             AND kdpelanggan NOT LIKE 'CSB18002%'
