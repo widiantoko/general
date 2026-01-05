@@ -593,6 +593,8 @@ if selected2=="Volume Kiriman":
     data2025=datapage3[datapage3["tahun"]==2025]
     data2026=datapage3[datapage3["tahun"]==2026]
 
+    bulanku = datapage3['bulan'].unique()
+
 
     from datetime import datetime
     from dateutil import relativedelta
@@ -642,9 +644,16 @@ if selected2=="Volume Kiriman":
     berat_2026=data2026["berat_kg"].to_list()
     #berat_dp3=berat_dp3.to_list()
 
+    
+    st.text(bulanku)
     st.text(berat_2024)
     st.text(berat_2025)
     st.text(berat_2026)
+
+
+
+
+
 
 
     #st.markdown(datapage3.index.tolist())
