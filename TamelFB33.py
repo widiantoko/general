@@ -645,7 +645,7 @@ if selected2=="Volume Kiriman":
 
     
     pgab = figure(x_range=fruits, y_range=(0, 200000), title="Volume Berat Kiriman per Bulan Tahun 2024 - 2026",
-           height=350, width=1200, toolbar_location=None, tools="hover", tooltips=hover)
+           height=350, width=1200, toolbar_location=None, )
     
 
     pgab.vbar(x=dodge('fruits', -0.30, range=pgab.x_range), top='2024', source=source,
@@ -662,7 +662,7 @@ if selected2=="Volume Kiriman":
     pgab.legend.location = "top_left"
     pgab.legend.orientation = "horizontal"
     pgab.yaxis.formatter = NumeralTickFormatter(format="0,0")
-    #pgab.add_tools(hover)
+    pgab.add_tools(hover)
     #pgab.axis_label_text_font_size = '10px'
 
     st.bokeh_chart(pgab)
