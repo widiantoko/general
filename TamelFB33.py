@@ -608,7 +608,7 @@ if selected2=="Volume Kiriman":
     #st.text(res_months)
 
 
-    st.markdown(datapage3.datapage3[["berat_kg"]], unsafe_allow_html=True)
+    st.dataframe(datapage3.datapage3[["berat_kg"]])
 
     
     p4= datapage3.plot_bokeh(
@@ -630,7 +630,7 @@ if selected2=="Volume Kiriman":
     
   
     st.bokeh_chart(p4)
-    st.text(datapage3)
+    st.dataframe(datapage3)
     
 
 
