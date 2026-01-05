@@ -608,6 +608,7 @@ if selected2=="Volume Kiriman":
 
 
     st.markdown(datapage3[["berat_kg"]])
+
     
     p4= datapage3.plot_bokeh(
         kind='bar',
@@ -628,7 +629,8 @@ if selected2=="Volume Kiriman":
     
   
     st.bokeh_chart(p4)
-
+    st.text(datapage3[["berat_kg"]])
+    
 
 
 
