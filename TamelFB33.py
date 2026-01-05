@@ -628,7 +628,7 @@ if selected2=="Volume Kiriman":
     source = ColumnDataSource(dataku)
 
     TOOLTIPS = [
-        ("Bulan", "@bln_thn_all"),
+        ("Bulan", "@fruits"),
         ("Berat(kg)", "@berat_all{0.2f}%")
     ]
 
