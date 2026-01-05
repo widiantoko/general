@@ -597,6 +597,7 @@ if selected2=="Volume Kiriman":
     tahunku = datapage3['tahun'].unique().tolist()
 
 
+    berat_all = datapage3["berat_kg"].to_list()
     berat_2024=data2024["berat_kg"].to_list()
     berat_2025=data2025["berat_kg"].to_list()
     berat_2026=data2026["berat_kg"].to_list()
@@ -627,7 +628,7 @@ if selected2=="Volume Kiriman":
     source = ColumnDataSource(dataku)
 
     pgab = figure(x_range=fruits, y_range=(0, 200000), title="Volume Berat Kiriman per Bulan Tahun 2024 - 2026",
-           height=350, width=1200, toolbar_location="above", tools="hover", tooltips="@fruits: @fruits{0.2f} %")
+           height=350, width=1200, toolbar_location="above", tools="hover", tooltips="@fruits: @berat_all{0.2f} %")
 
     pgab.vbar(x=dodge('fruits', -0.35, range=pgab.x_range), top='2024', source=source,
        width=0.35, color="#c9d9d3", legend_label="2024")
