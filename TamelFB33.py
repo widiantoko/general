@@ -629,8 +629,8 @@ if selected2=="Volume Kiriman":
     p4.outline_line_color = None
     
   
-    st.bokeh_chart(p4)
-    
+    #st.bokeh_chart(p4)
+
     st.dataframe(datapage3)
     
 
