@@ -630,6 +630,7 @@ if selected2=="Volume Kiriman":
     
   
     st.bokeh_chart(p4)
+    
     st.dataframe(datapage3)
     
 
