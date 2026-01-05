@@ -576,6 +576,7 @@ if selected2=="Volume Kiriman":
 
     datapage3=pd.DataFrame(result3)
     #st.text(datapage3.info)
+    st.dataframe(datapage3)
 
     if conn_01.is_connected():
         cursor_01.close()
