@@ -638,7 +638,7 @@ if selected2=="Volume Kiriman":
     pgab.vbar(x=dodge('fruits', -0.30, range=pgab.x_range), top='2024', source=source,
        width=0.28, color="#c9d9d3", legend_label="2024")
 
-    pgab.vbar(x=dodge('fruits',  0.30,  range=pgab.x_range), top='2025', source=source,
+    pgab.vbar(x=dodge('fruits',  0.0,  range=pgab.x_range), top='2025', source=source,
        width=0.28, color="#718dbf", legend_label="2025")
 
     pgab.vbar(x=dodge('fruits',  0.30, range=pgab.x_range), top='2026', source=source,
