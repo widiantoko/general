@@ -607,6 +607,7 @@ if selected2=="Volume Kiriman":
     #st.text(res_months)
 
 
+    st.text(datapage3[["berat_kg"]].astype(int))
     
     p4= datapage3.plot_bokeh(
         kind='bar',
@@ -625,9 +626,12 @@ if selected2=="Volume Kiriman":
     p4.title.align = 'center'
     p4.outline_line_color = None
     
-   
   
     st.bokeh_chart(p4)
+
+
+
+
    
 if selected2=="Review Kinerja":
     page_4()
