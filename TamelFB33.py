@@ -605,9 +605,9 @@ if selected2=="Volume Kiriman":
     #list_a = [1, 2, 3]
     list_b = [0] * (12 -len(berat_2026))
 
-    berat_2026.extend([0,0,0,0,0,0,0,0,0,0,0])  # to make sure the length matches for plotting
+    berat_2026.extend(list_b)  # to make sure the length matches for plotting
 
-    st.text(list_b)
+    #st.text(list_b)
 
 
 
@@ -629,16 +629,16 @@ if selected2=="Volume Kiriman":
     pgab = figure(x_range=fruits, y_range=(0, 200000), title="Volume Berat Kiriman per Bulan Tahun 2024 - 2026",
            height=350, width=1200, toolbar_location=None, tools="")
 
-    pgab.vbar(x=dodge('fruits', -0.35, range=pgab.x_range), top='2024', source=source,
+    pgab.vbar(x=dodge('fruits', -0.20, range=pgab.x_range), top='2024', source=source,
        width=0.2, color="#c9d9d3", legend_label="2024")
 
     pgab.vbar(x=dodge('fruits',  0.0,  range=pgab.x_range), top='2025', source=source,
        width=0.2, color="#718dbf", legend_label="2025")
 
-    pgab.vbar(x=dodge('fruits',  0.35, range=pgab.x_range), top='2026', source=source,
+    pgab.vbar(x=dodge('fruits',  0.20, range=pgab.x_range), top='2026', source=source,
        width=0.2, color="#e84d60", legend_label="2026")
 
-    pgab.x_range.range_padding = 0.05
+    pgab.x_range.range_padding = 0.20
     pgab.xgrid.grid_line_color = None
     pgab.legend.location = "top_left"
     pgab.legend.orientation = "horizontal"
