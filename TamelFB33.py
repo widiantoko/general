@@ -597,6 +597,48 @@ if selected2=="Volume Kiriman":
     tahunku = datapage3['tahun'].unique().tolist()
 
 
+    berat_2024=data2024["berat_kg"].to_list()
+    berat_2025=data2025["berat_kg"].to_list()
+    berat_2026=data2026["berat_kg"].to_list()
+
+
+
+    from bokeh.models import ColumnDataSource
+    from bokeh.plotting import figure, show
+    from bokeh.transform import dodge
+
+    fruits = bulanku
+    years = tahunku
+
+    data = {'fruits' : fruits,
+        '2024'   : berat_2024,
+        '2025'   : berat_2025,
+        '2026'   : berat_2026}
+
+    source = ColumnDataSource(data=data)
+
+    pgab = figure(x_range=fruits, y_range=(0, 10), title="Fruit Counts by Year",
+           height=350, toolbar_location=None, tools="")
+
+    pgab.vbar(x=dodge('fruits', -0.25, range=p.x_range), top='2015', source=source,
+       width=0.2, color="#c9d9d3", legend_label="2015")
+
+    pgab.vbar(x=dodge('fruits',  0.0,  range=p.x_range), top='2016', source=source,
+       width=0.2, color="#718dbf", legend_label="2016")
+
+    pgab.vbar(x=dodge('fruits',  0.25, range=p.x_range), top='2017', source=source,
+       width=0.2, color="#e84d60", legend_label="2017")
+
+    pgab.x_range.range_padding = 0.1
+    pgab.xgrid.grid_line_color = None
+    pgab.legend.location = "top_left"
+    pgab.legend.orientation = "horizontal"
+
+    st.bokeh_chart(pgab)
+
+
+
+
     from datetime import datetime
     from dateutil import relativedelta
     from datetime import date
@@ -640,9 +682,7 @@ if selected2=="Volume Kiriman":
     
   
     #st.bokeh_chart(p4)
-    berat_2024=data2024["berat_kg"].to_list()
-    berat_2025=data2025["berat_kg"].to_list()
-    berat_2026=data2026["berat_kg"].to_list()
+    
 
     #berat_dp3=berat_dp3.to_list()
 
