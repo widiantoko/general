@@ -667,22 +667,22 @@ if selected2=="Volume Kiriman":
     #st.dataframe(datapage3.datapage3[["berat_kg"]])
 
     
-    p4= datapage3.plot_bokeh(
-        kind='bar',
-        x='bln_thn',
-        y='berat_kg',
-        xlabel='Bulan Tahun',
-        title='Volume Berat Kiriman Thn 2024 - 2025',
-        color="#3288bd") #type ignore
+    #p4= datapage3.plot_bokeh(
+    #    kind='bar',
+    #    x='bln_thn',
+    #    y='berat_kg',
+    #    xlabel='Bulan Tahun',
+    #    title='Volume Berat Kiriman Thn 2024 - 2025',
+    #    color="#3288bd") #type ignore
     
-    p4.frame_width= res_months
-    p4.plot_height=400
-    p4.plot_width=1000
-    p4.yaxis.visible = False
-    p4.grid.grid_line_color = None
-    p4.title.text_font_size = '14pt'
-    p4.title.align = 'center'
-    p4.outline_line_color = None
+    #p4.frame_width= res_months
+    #p4.plot_height=400
+    #p4.plot_width=1000
+    #p4.yaxis.visible = False
+    #p4.grid.grid_line_color = None
+    #p4.title.text_font_size = '14pt'
+    #p4.title.align = 'center'
+    #p4.outline_line_color = None
     
   
     #st.bokeh_chart(p4)
@@ -691,11 +691,11 @@ if selected2=="Volume Kiriman":
     #berat_dp3=berat_dp3.to_list()
 
     
-    st.text(bulanku)
-    st.text(tahunku)
-    st.text(berat_2024)
-    st.text(berat_2025)
-    st.text(berat_2026)
+    #st.text(bulanku)
+    #st.text(tahunku)
+    #st.text(berat_2024)
+    #st.text(berat_2025)
+    #st.text(berat_2026)
 
 
 
