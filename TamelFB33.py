@@ -554,7 +554,7 @@ if selected2=="Volume Kiriman":
     query_3="""
     select year(tanggal) as tahun, MONTHNAME(tanggal) as bulan,  DATE_FORMAT(tanggal,'%b_%y') as bln_thn,
     COUNT(konid) as qty_pcs, round(sum(berat),0) as berat_kg from 
-    tkonos where tanggal >='2024-01-01' and tanggal<=NOW() and kdpelanggan not like 'CBH17002%' and (kdpelanggan like 'CBH%' 
+    tkonos where tanggal >='2025-10-01' and tanggal<=NOW() and kdpelanggan not like 'CBH17002%' and (kdpelanggan like 'CBH%' 
     or kdpelanggan like 'CTG%' 
     or kdpelanggan like 'CBO%' 
     or kdpelanggan like 'CBK%') 
@@ -583,21 +583,29 @@ if selected2=="Volume Kiriman":
         conn_01.close()
 
 
+    df2024 = pd.read_csv('data/vol2024_2025_streamlit.csv', sep=',')
+
+    st.text(df2024)
+
     datapage3.columns= ["tahun","bulan" ,"bln_thn", "qty_pcs", "berat_kg"]
     datapage3["qty_pcs"] = datapage3[["qty_pcs"]].astype(int)
     datapage3["berat_kg"] = datapage3[["berat_kg"]].astype(int)
+
+
+    df_combined = pd.concat([df2024, datapage3], ignore_index=True)
     
     #st.dataframe(datapage3)
 
-    data2024=datapage3[datapage3["tahun"]==2024]
-    data2025=datapage3[datapage3["tahun"]==2025]
-    data2026=datapage3[datapage3["tahun"]==2026]
+    data2024=df_combined[df_combined["tahun"]==2024]
+    data2025=df_combined[df_combined["tahun"]==2025]
+    data2026=df_combined[df_combined["tahun"]==2026]
 
-    bulanku = datapage3['bulan'].unique().tolist()
-    tahunku = datapage3['tahun'].unique().tolist()
+    bulanku = df_combined['bulan'].unique().tolist()
+    tahunku = df_combined['tahun'].unique().tolist()
 
-    bln_thn_all=datapage3["bln_thn"].to_list()
-    berat_all = datapage3["berat_kg"].to_list()
+    #bln_thn_all=df_combined["bln_thn"].to_list()
+    #berat_all = df_combined["berat_kg"].to_list()
+    
     berat_2024=data2024["berat_kg"].to_list()
     berat_2025=data2025["berat_kg"].to_list()
     berat_2026=data2026["berat_kg"].to_list()
@@ -610,9 +618,7 @@ if selected2=="Volume Kiriman":
 
     #st.text(list_b)
 
-    df2024 = pd.read_csv('data/vol2024_2025_streamlit.csv', sep=',')
-
-    st.text(df2024)
+   
 
     from bokeh.models import ColumnDataSource
     from bokeh.plotting import figure, show
