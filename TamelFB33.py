@@ -612,7 +612,7 @@ if selected2=="Volume Kiriman":
 
     df2024 = pd.read_csv('vol2024_2025_streamlit.csv')
 
-
+    st.text(df2024.info())
 
     from bokeh.models import ColumnDataSource
     from bokeh.plotting import figure, show
