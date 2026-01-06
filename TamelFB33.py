@@ -610,10 +610,8 @@ if selected2=="Volume Kiriman":
     berat_2025=data2025["berat_kg"].to_list()
     berat_2026=data2026["berat_kg"].to_list()
 
-
-    #list_a = [1, 2, 3]
+ 
     list_b = [0] * (12 -len(berat_2026))
-
     berat_2026.extend(list_b)  # to make sure the length matches for plotting
 
     #st.text(list_b)
