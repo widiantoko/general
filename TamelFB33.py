@@ -637,11 +637,7 @@ if selected2=="Volume Kiriman":
           formatters= {'@2024': 'printf', '@2025': 'printf', '@2026': 'printf'}, )
 
 
-    #TOOLTIPS = [
-    #    ("fruits", "@fruits"),
-    #    ("berat_2024", "@berat_2024"),
-    #    ("berat_2025", "@berat_2025"),
-    #    ("berat_2026", "@berat_2026")]
+    
 
 
     
