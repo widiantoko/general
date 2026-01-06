@@ -610,6 +610,8 @@ if selected2=="Volume Kiriman":
 
     #st.text(list_b)
 
+    df2024 = pd.read_csv('vol2024_2025_streamlit.csv')
+
 
 
     from bokeh.models import ColumnDataSource
