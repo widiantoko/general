@@ -610,7 +610,7 @@ if selected2=="Volume Kiriman":
 
     #st.text(list_b)
 
-    df2024 = pd.read_csv('vol2024_2025_streamlit.csv')
+    df2024 = pd.read_csv('data/vol2024_2025_streamlit.csv')
 
     st.text(df2024.info())
 
