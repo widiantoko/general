@@ -585,7 +585,7 @@ if selected2=="Volume Kiriman":
 
     df2024 = pd.read_csv('data/vol2024_2025_streamlit.csv', sep=',')
 
-    st.text(df2024)
+    #st.text(df2024)
 
     datapage3.columns= ["tahun","bulan" ,"bln_thn", "qty_pcs", "berat_kg"]
     datapage3["qty_pcs"] = datapage3[["qty_pcs"]].astype(int)
@@ -605,7 +605,7 @@ if selected2=="Volume Kiriman":
 
     #bln_thn_all=df_combined["bln_thn"].to_list()
     #berat_all = df_combined["berat_kg"].to_list()
-    
+
     berat_2024=data2024["berat_kg"].to_list()
     berat_2025=data2025["berat_kg"].to_list()
     berat_2026=data2026["berat_kg"].to_list()
