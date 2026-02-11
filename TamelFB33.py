@@ -20,29 +20,27 @@ import math
 st.set_page_config(page_title="Kiriman Ke Cabang dan Agen", layout='wide')
 
 
-def init_connection():
-    return mysql.connector.connect(**st.secrets["mysql01"])  
-conn_01 = init_connection()
+def init_connection_01():
+    return mysql.connector.connect(**st.secrets["mysql01"])
 
-def init_connection():
-    return mysql.connector.connect(**st.secrets["mysql02"])  
-conn_02 = init_connection()
+def init_connection_02():
+    return mysql.connector.connect(**st.secrets["mysql02"])
 
-
-
+conn_01 = init_connection_01()
+conn_02 = init_connection_02()
 
 
 def page_1():
-    page_1= st.container()
+    return st.container()
 
 def page_2():
-    page_2= st.container()
+    return st.container()
 
 def page_3():
-    page_3= st.container()
+    return st.container()
 
 def page_4():
-    page_4= st.container()
+    return st.container()
 
 
 selected2 = option_menu("Dashboard Operasional CitoXpress", ["Kiriman Belum Ada Status", "Kiriman Intracity Jakarta", "Volume Kiriman", "Review Kinerja"],
@@ -75,10 +73,7 @@ d.kdpelanggan, d.nmpelanggan, kdproduk, kdkirim  from tkonos a
             return cur.fetchall()
 
     datafr=pd.DataFrame(result1)
-
-    if conn_01.is_connected():
-        cursor_01.close()
-        conn_01.close()
+    cursor_01.close()
 
     datafr.columns= ["konid", "bln_thn", "kdmani", "diff2", "kd_pelanggan", "nm_pelanggan", "kdproduk", "kdkirim"]
     datafr['nm_pelanggan'] = datafr['nm_pelanggan'].str.replace(",",' ')    
