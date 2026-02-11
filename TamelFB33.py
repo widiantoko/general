@@ -12,6 +12,8 @@ import numpy as np
 import mysql
 from bokeh.plotting import figure
 import math
+from datetime import datetime
+import pytz
 
 
 
@@ -244,12 +246,12 @@ d.kdpelanggan, d.nmpelanggan, kdproduk, kdkirim  from tkonos a
         localtime = time.asctime( time.localtime(time.time()) )
         hari_ini=(time.strftime("%d-%m-%Y  %H:%M:%S", time.localtime()))
 
-   
+        local_time2 = datetime.now()
         
         #AgGrid(hasil.head(20))
 
         st.markdown( f" :green[{hari_ini}] ")
-
+        st.markdown( f" :green[{local_time2}] ")
      
 
     with col2:
