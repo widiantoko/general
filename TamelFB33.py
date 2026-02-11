@@ -246,20 +246,12 @@ d.kdpelanggan, d.nmpelanggan, kdproduk, kdkirim  from tkonos a
       
 
         tz_offset = timezone(timedelta(hours=7))  # UTC+7 for Asia/Jakarta
-        
-        #hari_ini_awal=(time.strftime("%d-%m-%Y / %H:%M:%S", time.localtime()))
         hari_ini = datetime.now(tz_offset).strftime("%d-%m-%Y / %H:%M:%S")
    
 
-        #local_time2 = datetime.now()
-        #local_tz = pytz.timezone("Asia/Jakarta")
-        #local_dt = local_tz.localize(localtime)
-        
-        #AgGrid(hasil.head(20))
-
         st.markdown( f" :green[{hari_ini}] ")
 
-        #st.markdown( f" :green[{hari_ini_awal}] ")     
+        
      
 
     with col2:
@@ -626,14 +618,17 @@ if selected2=="Volume Kiriman":
 
     st.bokeh_chart(pgab)
 
+    
+    tz_offset = timezone(timedelta(hours=7))  # UTC+7 for Asia/Jakarta
+    hari_ini = datetime.now(tz_offset).strftime("%d-%m-%Y / %H:%M:%S")
     st.markdown( f" :green[{hari_ini}] ")
 
 
 
 
-    from datetime import datetime
-    from dateutil import relativedelta
-    from datetime import date
+    #from datetime import datetime
+    #from dateutil import relativedelta
+    #from datetime import date
 
 # get two dates
     #today = date.today()
