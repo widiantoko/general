@@ -12,7 +12,7 @@ import numpy as np
 import mysql
 from bokeh.plotting import figure
 import math
-from datetime import datetime
+from datetime import datetime, timedelta, timezone
 import pytz
 
 
@@ -243,8 +243,11 @@ d.kdpelanggan, d.nmpelanggan, kdproduk, kdkirim  from tkonos a
    
 
     
-        #localtime = time.asctime( time.localtime(time.time()) )
-        hari_ini=(time.strftime("%d-%m-%Y  %H:%M:%S", time.localtime()))
+      
+
+        tz_offset = timezone(timedelta(hours=7))  # UTC+7 for Asia/Jakarta
+        #hari_ini=(time.strftime("%d-%m-%Y / %H:%M:%S", time.localtime()))
+        hari_ini = datetime.now(tz_offset).strftime("%d-%m-%Y / %H:%M:%S")
    
 
         #local_time2 = datetime.now()
