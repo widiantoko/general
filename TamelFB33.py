@@ -20,17 +20,30 @@ import math
 st.set_page_config(page_title="Kiriman Ke Cabang dan Agen", layout='wide')
 
 
-def init_connection():
-    return mysql.connector.connect(**st.secrets["mysql01"])  
+#def init_connection():
+#    return mysql.connector.connect(**st.secrets["mysql01"])  
+#conn_01 = init_connection()
+#def init_connection():
+#    return mysql.connector.connect(**st.secrets["mysql02"])  
+#conn_02 = init_connection()
 
 
-conn_01 = init_connection()
 
-def init_connection():
-    return mysql.connector.connect(**st.secrets["mysql02"])  
+# Gunakan cache agar tidak membuat koneksi baru setiap kali script jalan
+@st.cache_resource
+def get_connection(secret_key):
+    # Mengambil data dari Streamlit Secrets secara aman
+    return mysql.connector.connect(**st.secrets[secret_key])
+
+# Memanggil koneksi dengan nama key yang berbeda
+try:
+    conn_01 = get_connection("mysql01")
+    conn_02 = get_connection("mysql02")
+    st.success("Berhasil terhubung ke kedua database!")
+except Exception as e:
+    st.error(f"Gagal koneksi: {e}")
 
 
-conn_02 = init_connection()
 
 
 
