@@ -30,10 +30,15 @@ st.set_page_config(page_title="Kiriman Ke Cabang dan Agen", layout='wide')
 
 
 # Gunakan cache agar tidak membuat koneksi baru setiap kali script jalan
+
+
 @st.cache_resource
 def get_connection(secret_key):
-    # Mengambil data dari Streamlit Secrets secara aman
-    return mysql.connector.connect(**st.secrets[secret_key])
+    # Tambahkan use_pure=True untuk menghindari crash memori
+    return mysql.connector.connect(**st.secrets[secret_key], use_pure=True)
+
+
+
 
 # Memanggil koneksi dengan nama key yang berbeda
 try:
