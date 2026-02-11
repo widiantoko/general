@@ -248,11 +248,12 @@ d.kdpelanggan, d.nmpelanggan, kdproduk, kdkirim  from tkonos a
 
         #local_time2 = datetime.now()
         local_tz = pytz.timezone("Asia/Jakarta")
+        local_dt = local_tz.localize(hari_ini)
         
         #AgGrid(hasil.head(20))
 
         st.markdown( f" :green[{hari_ini}] ")
-        st.markdown( f" :green[{local_tz}] ")
+        st.markdown( f" :green[{local_dt}] ")
      
 
     with col2:
