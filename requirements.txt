@@ -3,7 +3,7 @@ ipython==8.1.1
 streamlit-aggrid==0.3.4
 streamlit-option-menu==0.3.2
 streamlit-pandas==0.0.9
-pandas==1.5.3
+pandas==2.0.0
 pandas-bokeh==0.5.5
 bokeh==2.4.3
 numpy==1.26.4
