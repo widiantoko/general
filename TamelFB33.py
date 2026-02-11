@@ -20,33 +20,14 @@ import math
 st.set_page_config(page_title="Kiriman Ke Cabang dan Agen", layout='wide')
 
 
-#def init_connection():
-#    return mysql.connector.connect(**st.secrets["mysql01"])  
-#conn_01 = init_connection()
-#def init_connection():
-#    return mysql.connector.connect(**st.secrets["mysql02"])  
-#conn_02 = init_connection()
+def init_connection():
+    return mysql.connector.connect(**st.secrets["mysql01"])  
+conn_01 = init_connection()
 
+def init_connection():
+    return mysql.connector.connect(**st.secrets["mysql02"])  
+conn_02 = init_connection()
 
-
-# Gunakan cache agar tidak membuat koneksi baru setiap kali script jalan
-
-
-@st.cache_resource
-def get_connection(secret_key):
-    # Tambahkan use_pure=True untuk menghindari crash memori
-    return mysql.connector.connect(**st.secrets[secret_key], use_pure=True)
-
-
-
-
-# Memanggil koneksi dengan nama key yang berbeda
-try:
-    conn_01 = get_connection("mysql01")
-    conn_02 = get_connection("mysql02")
-    st.success("Berhasil terhubung ke kedua database!")
-except Exception as e:
-    st.error(f"Gagal koneksi: {e}")
 
 
 
