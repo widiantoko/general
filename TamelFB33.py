@@ -246,7 +246,8 @@ d.kdpelanggan, d.nmpelanggan, kdproduk, kdkirim  from tkonos a
       
 
         tz_offset = timezone(timedelta(hours=7))  # UTC+7 for Asia/Jakarta
-        #hari_ini=(time.strftime("%d-%m-%Y / %H:%M:%S", time.localtime()))
+        
+        hari_ini_awal=(time.strftime("%d-%m-%Y / %H:%M:%S", time.localtime()))
         hari_ini = datetime.now(tz_offset).strftime("%d-%m-%Y / %H:%M:%S")
    
 
@@ -257,7 +258,8 @@ d.kdpelanggan, d.nmpelanggan, kdproduk, kdkirim  from tkonos a
         #AgGrid(hasil.head(20))
 
         st.markdown( f" :green[{hari_ini}] ")
-       
+
+        st.markdown( f" :green[{hari_ini_awal}] ")     
      
 
     with col2:
