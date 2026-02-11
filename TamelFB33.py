@@ -628,6 +628,8 @@ if selected2=="Volume Kiriman":
 
     st.bokeh_chart(pgab)
 
+    st.markdown( f" :green[{hari_ini}] ")
+
 
 
 
