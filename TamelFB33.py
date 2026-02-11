@@ -30,6 +30,11 @@ conn_01 = init_connection_01()
 conn_02 = init_connection_02()
 
 
+
+
+
+
+
 def page_1():
     return st.container()
 
@@ -65,6 +70,10 @@ d.kdpelanggan, d.nmpelanggan, kdproduk, kdkirim  from tkonos a
     cursor_01 = conn_01.cursor()
     cursor_01.execute(query_1)
     result1 = cursor_01.fetchall()
+
+    #query_dms = "SELECT * FROM tkonos LIMIT 10"
+    #df_dms = fetch_from_db(query_1, "mysql01")
+
 
     @st.cache_data(ttl=600)
     def load_data(mysql1): 
