@@ -601,8 +601,6 @@ if selected2=="Volume Kiriman":
           )
 
 
-    
-#"@foo{0,0.000}" 
 
     
     pgab = figure(x_range=fruits, y_range=(0, 200000), title="Volume Berat Kiriman per Bulan Tahun 2024 - 2026",
@@ -638,19 +636,19 @@ if selected2=="Volume Kiriman":
     from datetime import date
 
 # get two dates
-    today = date.today()
-    d1 = '01/01/2024'
-    d2 = today.strftime("%d/%m/%Y")
+    #today = date.today()
+    #d1 = '01/01/2024'
+    #d2 = today.strftime("%d/%m/%Y")
 
 # convert string to date object
-    start_date = datetime.strptime(d1, "%d/%m/%Y")
-    end_date = datetime.strptime(d2, "%d/%m/%Y")
+    #start_date = datetime.strptime(d1, "%d/%m/%Y")
+    #end_date = datetime.strptime(d2, "%d/%m/%Y")
 
 # Get the relativedelta between two dates
-    delta = relativedelta.relativedelta(end_date, start_date)
+    #delta = relativedelta.relativedelta(end_date, start_date)
 
 # get months difference
-    res_months = (delta.months + 1) * 100
+    #res_months = (delta.months + 1) * 100
     #st.text(res_months)
 
 
@@ -691,9 +689,6 @@ if selected2=="Volume Kiriman":
 
 
 
-
-
-    #st.markdown(datapage3.index.tolist())
     
 
 
