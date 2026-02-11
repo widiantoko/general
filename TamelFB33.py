@@ -20,17 +20,18 @@ import math
 st.set_page_config(page_title="Kiriman Ke Cabang dan Agen", layout='wide')
 
 
-def init_connection_01():
-    return mysql.connector.connect(**st.secrets["mysql01"])
-
-def init_connection_02():
-    return mysql.connector.connect(**st.secrets["mysql02"])
-
-conn_01 = init_connection_01()
-conn_02 = init_connection_02()
-
-
-
+@st.cache_data(ttl=600)
+def fetch_from_db(query, db_key):
+    """Fetch data from MySQL database with automatic caching"""
+    conn = mysql.connector.connect(**st.secrets[db_key], use_pure=True)
+    cursor = conn.cursor(dictionary=True)
+    
+    cursor.execute(query)
+    result = cursor.fetchall()
+    
+    cursor.close()
+    conn.close()
+    return pd.DataFrame(result)
 
 
 
@@ -67,24 +68,9 @@ d.kdpelanggan, d.nmpelanggan, kdproduk, kdkirim  from tkonos a
         order by tanggal asc
 
     '''
-    cursor_01 = conn_01.cursor()
-    cursor_01.execute(query_1)
-    result1 = cursor_01.fetchall()
-
-    #query_dms = "SELECT * FROM tkonos LIMIT 10"
-    #df_dms = fetch_from_db(query_1, "mysql01")
-
-
-    @st.cache_data(ttl=600)
-    def load_data(mysql1): 
-        with conn_01.cursor() as cur:
-            cur.execute(mysql1)
-            return cur.fetchall()
-
-    datafr=pd.DataFrame(result1)
-    cursor_01.close()
-
-    datafr.columns= ["konid", "bln_thn", "kdmani", "diff2", "kd_pelanggan", "nm_pelanggan", "kdproduk", "kdkirim"]
+    
+    datafr = fetch_from_db(query_1, "mysql01")
+    datafr.columns = ["konid", "bln_thn", "kdmani", "diff2", "kd_pelanggan", "nm_pelanggan", "kdproduk", "kdkirim"]
     datafr['nm_pelanggan'] = datafr['nm_pelanggan'].str.replace(",",' ')    
     datafr[["awal", "tengah", "belakang", "akhir"]]=datafr["nm_pelanggan"].str.split(" ", n = 3, expand = True)
     datafr["pelanggan"]=datafr["awal"] + " " + datafr["tengah"] 
@@ -416,24 +402,7 @@ if selected2=="Kiriman Intracity Jakarta":
     
     """
 
-    cursor_01 = conn_01.cursor()
-    cursor_01.execute(query_2)
-    result2 = cursor_01.fetchall()
-
-    @st.cache_data(ttl=600)
-    def load_data2(mysql2): 
-        with conn_01.cursor() as cur:
-            cur.execute(mysql2)
-            return cur.fetchall()
-    
-
-    datafr2=pd.DataFrame(result2)
-
-    if conn_01.is_connected():
-        cursor_01.close()
-        conn_01.close()
-    
-    
+    datafr2 = fetch_from_db(query_2, "mysql01")
     datafr2.columns= ["konid" ,"tanggal", "ktr_asal", "ktr_tujuan", "jenis", "pengirim", "penerima", "kdproduk", "berat", "nm_kota" ]
     datafr2["tanggal"]=time.strftime("%d-%m-%Y ")
     
@@ -564,35 +533,12 @@ if selected2=="Volume Kiriman":
     order by year(tanggal), month(tanggal) asc
     """
 
-    cursor_01 = conn_01.cursor()
-    cursor_01.execute(query_3)
-    result3 = cursor_01.fetchall()
-
-    @st.cache_data(ttl=600)
-    def load_data3(mysql3): 
-       with conn_01.cursor() as cur:
-            cur.execute(mysql3)
-            return cur.fetchall()
-    
-
-    datapage3=pd.DataFrame(result3)
-    #st.text(datapage3.info)
-   
-
-    if conn_01.is_connected():
-        cursor_01.close()
-        conn_01.close()
-
-
-    df2024 = pd.read_csv('data/vol2024_2025_streamlit.csv', sep=',')
-
-    #st.text(df2024)
-
+    datapage3 = fetch_from_db(query_3, "mysql01")
     datapage3.columns= ["tahun","bulan" ,"bln_thn", "qty_pcs", "berat_kg"]
     datapage3["qty_pcs"] = datapage3[["qty_pcs"]].astype(int)
     datapage3["berat_kg"] = datapage3[["berat_kg"]].astype(int)
 
-
+    df2024 = pd.read_csv('data/vol2024_2025_streamlit.csv', sep=',')
     df_combined = pd.concat([df2024, datapage3], ignore_index=True)
     
     #st.dataframe(datapage3)
@@ -843,28 +789,7 @@ ON o.bulan = i.bulan AND o.cabang = i.cabang;
  
 
 
-    cursor_02 = conn_02.cursor()
-    cursor_02.execute(query_4)
-    result4 = cursor_02.fetchall()
-
-    @st.cache_data(ttl=600)
-    def load_data4(mysql4): 
-       with conn_01.cursor() as cur:
-            cur.execute(mysql4)
-            return cur.fetchall()
-    
-
-    datapage4=pd.DataFrame(result4)  ##
-
-
-    if conn_02.is_connected():
-        cursor_02.close()
-        conn_02.close()
-
-
-    #datapage4.reset_index(drop=True, inplace=True)
-    #datapage4[['berat']] = datapage4[['berat']].astype(float)
-
+    datapage4 = fetch_from_db(query_4, "mysql02")
     datapage4.columns = ['bulan', 'waktu', 'cabang','normal_kg', 'urgent_kg', 'top_urgent_kg', 'darat_kg', 'reg_kg', 'matrix_kg', 'total_kg','trip_trucking', 'inbound_kg']
 
     datapage4["cabang"] = datapage4[["cabang"]].astype(str)
