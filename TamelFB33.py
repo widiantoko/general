@@ -32,8 +32,6 @@ conn_02 = init_connection()
 
 
 
-
-
 def page_1():
     page_1= st.container()
 
