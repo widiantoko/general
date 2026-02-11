@@ -248,7 +248,7 @@ d.kdpelanggan, d.nmpelanggan, kdproduk, kdkirim  from tkonos a
 
         #local_time2 = datetime.now()
         local_tz = pytz.timezone("Asia/Jakarta")
-        local_dt = local_tz.localize(hari_ini)
+        local_dt = local_tz.localize(localtime)
         
         #AgGrid(hasil.head(20))
 
