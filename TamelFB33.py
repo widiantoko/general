@@ -774,7 +774,7 @@ ON o.bulan = i.bulan AND o.cabang = i.cabang;
 
     with col3:
             
-            st.dataframe(filter_dp4)
+            st.dataframe(filter_dp4, hide_index=)
             #grid_return = AgGrid(filter_dp4)
             #pil_cab=st.selectbox(label="**Pilih Cabang:**",options= lst_cab)
 
