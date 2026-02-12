@@ -775,6 +775,7 @@ ON o.bulan = i.bulan AND o.cabang = i.cabang;
 
 
 
-        AgGrid(filter_dp4, hide_index=True, fit_columns_on_grid_load=True)
-            
+        AgGrid(filter_dp4, hide_index=True)
+        AgGrid(filter_dp4.reset_index(drop=True), hide_index=True)
+           
 
