@@ -749,10 +749,8 @@ ON o.bulan = i.bulan AND o.cabang = i.cabang;
     lst_cab=datapage4["cabang"].drop_duplicates().sort_index(ascending=True)
     #pilihan4=st.selectbox("Pilih Cabang", lst_cab, key="cabang")  
     
-    #kg_tujuan[['normal_kg', 'urgent_kg']] = kg_tujuan[['normal_kg', 'urgent_kg']].astype(int)
-    #filter_5=pd.DataFrame(kg_tujuan[(kg_tujuan.asal_new=='CML')].set_index(['bulan', 'asal_new']))
+    
 
-   
     
     col1, col2 = st.columns([2, 10], gap="small")
     col3, col4 = st.columns([10, 2], gap="small")
@@ -765,7 +763,7 @@ ON o.bulan = i.bulan AND o.cabang = i.cabang;
         #st.dataframe(datapage4[[datapage4.cabang==lst_cab]])
         filter_dp4=datapage4[(datapage4.cabang==pil_cab)]
 
-        df_show = pd.DataFrame(filter_dp4)
+        #df_show = pd.DataFrame(filter_dp4)
 
         #pil_cab=st.selectbox(label="**Pilih Cabang:**",options= lst_cab)
 
@@ -777,6 +775,6 @@ ON o.bulan = i.bulan AND o.cabang = i.cabang;
 
 
 
-        grid_return = AgGrid(df_show)
+        AgGrid(filter_dp4)
             
 
