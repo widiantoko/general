@@ -765,6 +765,8 @@ ON o.bulan = i.bulan AND o.cabang = i.cabang;
         #st.dataframe(datapage4[[datapage4.cabang==lst_cab]])
         filter_dp4=datapage4[(datapage4.cabang==pil_cab)]
 
+        df_show = pd.DataFrame(filter_dp4)
+
         #pil_cab=st.selectbox(label="**Pilih Cabang:**",options= lst_cab)
 
     with col3:
@@ -775,6 +777,6 @@ ON o.bulan = i.bulan AND o.cabang = i.cabang;
 
 
 
-        grid_return = AgGrid(filter_dp4)
+        grid_return = AgGrid(df_show)
             
 
