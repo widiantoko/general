@@ -137,15 +137,7 @@ d.kdpelanggan, d.nmpelanggan, kdproduk, kdkirim  from tkonos a
         pivot_2c.rename(columns={'N': 'Normal', 'U': 'Urgent', 'T': 'Top Urgent', 'D': 'Darat',
         'C': 'Trucking' , 'P': 'Premium' }, inplace=True)
       
-        
-
-
-        #pivot_2c=hasil2c.pivot_table(values='rekap',index=['pelanggan'], columns=['kdproduk'], aggfunc=np.sum).fillna(0)
-        #pivot_2c.columns = ['_'.join(str(s).strip() for s in col if s) for col in pivot_2c.columns]
-        #pivot_2c.rename(columns={'N': 'Normal', 'U': 'Urgent', 'T': 'Top Urgent', 'D': 'Darat',
-        #'C': 'Trucking' , 'P': 'Premium' }, inplace=True)
-
-        
+                
         pivot_2c.reset_index(inplace=True)
         #pivot_2c["sum"]=pivot_2c.sum(axis=1)
         update_2c = pivot_2c.drop(pivot_2c.index[int(len(pivot_2c))-1])
@@ -153,10 +145,6 @@ d.kdpelanggan, d.nmpelanggan, kdproduk, kdkirim  from tkonos a
         
         final=update_2c.sort_values(by=["sum"], ascending=False).head(12)
 
-
-        #pivot_2c.reset_index(inplace=True)
-        #pivot_2c["sum"]=pivot_2c.sum(axis=1)
-        #final=pivot_2c.sort_values(by=["sum"], ascending=False).head(12)
 
 
         def round_up(n, decimals=0):
@@ -626,63 +614,6 @@ if selected2=="Volume Kiriman":
 
 
 
-    #from datetime import datetime
-    #from dateutil import relativedelta
-    #from datetime import date
-
-# get two dates
-    #today = date.today()
-    #d1 = '01/01/2024'
-    #d2 = today.strftime("%d/%m/%Y")
-
-# convert string to date object
-    #start_date = datetime.strptime(d1, "%d/%m/%Y")
-    #end_date = datetime.strptime(d2, "%d/%m/%Y")
-
-# Get the relativedelta between two dates
-    #delta = relativedelta.relativedelta(end_date, start_date)
-
-# get months difference
-    #res_months = (delta.months + 1) * 100
-    #st.text(res_months)
-
-
-    #st.dataframe(datapage3.datapage3[["berat_kg"]])
-
-    
-    #p4= datapage3.plot_bokeh(
-    #    kind='bar',
-    #    x='bln_thn',
-    #    y='berat_kg',
-    #    xlabel='Bulan Tahun',
-    #    title='Volume Berat Kiriman Thn 2024 - 2025',
-    #    color="#3288bd") #type ignore
-    
-    #p4.frame_width= res_months
-    #p4.plot_height=400
-    #p4.plot_width=1000
-    #p4.yaxis.visible = False
-    #p4.grid.grid_line_color = None
-    #p4.title.text_font_size = '14pt'
-    #p4.title.align = 'center'
-    #p4.outline_line_color = None
-    
-  
-    #st.bokeh_chart(p4)
-    
-
-    #berat_dp3=berat_dp3.to_list()
-
-    
-    #st.text(bulanku)
-    #st.text(tahunku)
-    #st.text(berat_2024)
-    #st.text(berat_2025)
-    #st.text(berat_2026)
-
-
-
-
 
     
 
@@ -737,7 +668,7 @@ FROM
             awbno, 
 						createdby
         FROM tkonos
-        WHERE tanggal >= '2025-05-01' AND tanggal <= NOW()
+        WHERE tanggal >= '2025-09-01' AND tanggal <= NOW()
             AND kdpelanggan NOT LIKE 'CBD18002%'
             and kdpelanggan NOT LIKE 'CSG18002%'
             and kdpelanggan NOT LIKE 'CSB18002%'
@@ -772,7 +703,7 @@ LEFT JOIN
                IF(kdmani IN ('CBK', 'CBO', 'CTG'), 'CBH', kdmani)) AS kdmani_new,
             awbno, createdby
         FROM tkonos
-        WHERE tanggal >= '2025-05-01' AND tanggal <= NOW()
+        WHERE tanggal >= '2025-09-01' AND tanggal <= NOW()
             AND kdpelanggan NOT LIKE 'CBD18002%'
             AND kdpelanggan NOT LIKE 'CSG18002%'
             AND kdpelanggan NOT LIKE 'CSB18002%'
