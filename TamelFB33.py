@@ -753,13 +753,7 @@ ON o.bulan = i.bulan AND o.cabang = i.cabang;
     #filter_5=pd.DataFrame(kg_tujuan[(kg_tujuan.asal_new=='CML')].set_index(['bulan', 'asal_new']))
 
    
-    #st.dataframe(kg_tujuan)
-    #st.dataframe(kg_tujuan[(kg_tujuan.asal_new==pilihan4)])
-
     
-
-    #st.text(kg_tujuan.dtypes)
-
     col1, col2 = st.columns([2, 10], gap="small")
     col3, col4 = st.columns([10, 2], gap="small")
 
@@ -775,12 +769,12 @@ ON o.bulan = i.bulan AND o.cabang = i.cabang;
 
     with col3:
             
-            #st.dataframe(filter_dp4, hide_index=True)
-            #st.dataframe(filter_dp4.style.hide(axis="index"))
-            #st.dataframe(filter_dp4.reset_index(drop=True), hide_index=True)
+        #st.dataframe(filter_dp4, hide_index=True)
+        #st.dataframe(filter_dp4.style.hide(axis="index"))
+        #st.dataframe(filter_dp4.reset_index(drop=True), hide_index=True)
 
 
 
-            grid_return = AgGrid(filter_dp4)
-            #pil_cab=st.selectbox(label="**Pilih Cabang:**",options= lst_cab)
+        grid_return = AgGrid(filter_dp4)
+            
 
