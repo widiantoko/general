@@ -778,7 +778,3 @@ ON o.bulan = i.bulan AND o.cabang = i.cabang;
             #grid_return = AgGrid(filter_dp4)
             #pil_cab=st.selectbox(label="**Pilih Cabang:**",options= lst_cab)
 
-
-        #filter_dp4=datapage4[datapage4['cabang'] == pil_cab]
-        #st.dataframe(filter_dp4.set_index(filter_dp4.columns[0]))
-        #st.dataframe(filter_dp4, index=False, use_container_width=True,)
