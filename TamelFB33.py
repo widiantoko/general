@@ -14,6 +14,7 @@ from bokeh.plotting import figure
 import math
 from datetime import datetime, timedelta, timezone
 import pytz
+from st_aggrid import AgGrid
 
 
 
@@ -776,10 +777,10 @@ ON o.bulan = i.bulan AND o.cabang = i.cabang;
             
             #st.dataframe(filter_dp4, hide_index=True)
             #st.dataframe(filter_dp4.style.hide(axis="index"))
-            st.dataframe(filter_dp4.reset_index(drop=True), hide_index=True)
+            #st.dataframe(filter_dp4.reset_index(drop=True), hide_index=True)
 
 
 
-            #grid_return = AgGrid(filter_dp4)
+            grid_return = AgGrid(filter_dp4)
             #pil_cab=st.selectbox(label="**Pilih Cabang:**",options= lst_cab)
 
