@@ -775,7 +775,9 @@ ON o.bulan = i.bulan AND o.cabang = i.cabang;
     with col3:
             
             #st.dataframe(filter_dp4, hide_index=True)
-            st.dataframe(filter_dp4.style.hide(axis="index"))
+            #st.dataframe(filter_dp4.style.hide(axis="index"))
+            st.dataframe(filter_dp4.reset_index(drop=True), hide_index=True)
+
 
 
             #grid_return = AgGrid(filter_dp4)
