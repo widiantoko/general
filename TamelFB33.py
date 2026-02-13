@@ -743,6 +743,7 @@ ON o.bulan = i.bulan AND o.cabang = i.cabang;
    
 
     from st_aggrid import AgGrid
+    from st_aggrid import AgGrid, GridOptionsBuilder
 
     
     
@@ -777,11 +778,15 @@ ON o.bulan = i.bulan AND o.cabang = i.cabang;
         #st.dataframe(filter_dp4.style.hide(axis="index"))
         #st.dataframe(filter_dp4.reset_index(drop=True), hide_index=True)
 
-
+        gb = GridOptionsBuilder.from_dataframe(filter_dp4)
+        gb.configure_pagination(paginationAutoPageSize=True) # Add pagination
+        gridOptions = gb.build()    
         #st.dataframe(datapage4, hide_index=True)
 
+        AgGrid(filter_dp4, gridOptions=gridOptions)
 
-        AgGrid(filter_dp4, hide_index=True)
+
+        #AgGrid(filter_dp4, hide_index=True)
         #AgGrid(filter_dp4.reset_index(drop=True), hide_index=True)
            
 
