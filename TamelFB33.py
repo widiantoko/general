@@ -768,9 +768,6 @@ ON o.bulan = i.bulan AND o.cabang = i.cabang;
 
         filter_dp4.reset_index(drop=True, inplace=True)
 
-        #df_show = pd.DataFrame(filter_dp4)
-
-        #pil_cab=st.selectbox(label="**Pilih Cabang:**",options= lst_cab)
 
     with col3:
             
