@@ -464,8 +464,12 @@ if selected2=="Kiriman Intracity Jakarta":
 
         
         localtime = time.asctime( time.localtime(time.time()) )
-        hari_ini=(time.strftime("%d-%m-%Y  %H:%M:%S", time.localtime()))
+        #hari_ini=(time.strftime("%d-%m-%Y  %H:%M:%S", time.localtime()))
         tgl_ini=(time.strftime("%d-%m-%Y ", time.localtime()))
+
+
+        tz_offset = timezone(timedelta(hours=7))  # UTC+7 for Asia/Jakarta
+        hari_ini = datetime.now(tz_offset).strftime("%d-%m-%Y | %H:%M:%S")
 
         st.caption(f""" 
         1. Data yang digunakan adalah Kiriman Intracity Jakarta periode:  01-01-2025  s.d.  {tgl_ini} 
