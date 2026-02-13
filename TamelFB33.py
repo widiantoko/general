@@ -766,7 +766,7 @@ ON o.bulan = i.bulan AND o.cabang = i.cabang;
         #st.dataframe(datapage4[[datapage4.cabang==lst_cab]])
         filter_dp4=datapage4[(datapage4.cabang==pil_cab)]
 
-        #filter_dp4.reset_index(drop=True, inplace=True)
+        filter_dp4.reset_index(drop=True, inplace=True)
 
         #df_show = pd.DataFrame(filter_dp4)
 
