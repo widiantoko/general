@@ -781,9 +781,7 @@ ON o.bulan = i.bulan AND o.cabang = i.cabang;
         st.dataframe(datapage4, hide_index=True)
 
 
-
         #AgGrid(filter_dp4, hide_index=True)
-        
         #AgGrid(filter_dp4.reset_index(drop=True), hide_index=True)
            
 
