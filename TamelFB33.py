@@ -9,7 +9,7 @@ from bokeh.plotting import figure
 from bokeh.transform import cumsum
 from bokeh.models import ColumnDataSource, Range1d, LabelSet
 import numpy as np
-import mysql
+#import mysql
 from bokeh.plotting import figure
 import math
 from datetime import datetime, timedelta, timezone
