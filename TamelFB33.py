@@ -191,12 +191,6 @@ d.kdpelanggan, d.nmpelanggan, kdproduk, kdkirim  from tkonos a
         ph.hbar_stack(final2, y='pelanggan', height=0.7, color=ok, source=chart,
              legend_label= final2)
 
-
-
-            #Labels = LabelSet(x='x_posisi', y='y_posisi', text='label' ,text_color="grey", x_offset=0, y_offset=0,
-             #  text_baseline="middle", text_font_size='10pt', text_font_style= 'italic', source=data_chart, text_align='center',
-              #   x_units='screen', y_units='screen',  
-               #  render_mode='canvas')   
         
 
         ph.ygrid.grid_line_color = None
@@ -209,16 +203,14 @@ d.kdpelanggan, d.nmpelanggan, kdproduk, kdkirim  from tkonos a
 
 
 
-
-
        
-        ps.y_range = Range1d(0, upper_lmt)
-        ps.xgrid.grid_line_color = None
-        ps.axis.minor_tick_line_color = None
-        ps.legend.location = "center"
-        ps.legend.orientation = "horizontal"
-        ps.add_layout(ps.legend[0], 'below')
-        ps.outline_line_color = None  # type: ignore
+        #ps.y_range = Range1d(0, upper_lmt)
+        #ps.xgrid.grid_line_color = None
+        #ps.axis.minor_tick_line_color = None
+        #ps.legend.location = "center"
+        #ps.legend.orientation = "horizontal"
+        #ps.add_layout(ps.legend[0], 'below')
+        #ps.outline_line_color = None  # type: ignore
         #   pv.add_layout(lblpv)
         #   pv.add_layout(Labels)
   
