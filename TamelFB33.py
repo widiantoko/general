@@ -227,17 +227,10 @@ d.kdpelanggan, d.nmpelanggan, kdproduk, kdkirim  from tkonos a
 
         st.bokeh_chart(ph)
       
-
-
-   
-
     
-      
-
+    
         tz_offset = timezone(timedelta(hours=7))  # UTC+7 for Asia/Jakarta
-        hari_ini = datetime.now(tz_offset).strftime("%d-%m-%Y / %H:%M:%S")
-   
-
+        hari_ini = datetime.now(tz_offset).strftime("%d-%m-%Y | %H:%M:%S")
         st.markdown( f" :green[{hari_ini}] ")
 
         
@@ -476,8 +469,6 @@ if selected2=="Kiriman Intracity Jakarta":
 
         st.bokeh_chart(p)
 
-        
-        
 
         
         localtime = time.asctime( time.localtime(time.time()) )
@@ -609,7 +600,7 @@ if selected2=="Volume Kiriman":
 
     
     tz_offset = timezone(timedelta(hours=7))  # UTC+7 for Asia/Jakarta
-    hari_ini = datetime.now(tz_offset).strftime("%d-%m-%Y / %H:%M:%S")
+    hari_ini = datetime.now(tz_offset).strftime("%d-%m-%Y | %H:%M:%S")
     st.markdown( f" :green[{hari_ini}] ")
 
 
