@@ -80,24 +80,42 @@ d.kdpelanggan, d.nmpelanggan, kdproduk, kdkirim  from tkonos a
 
 
 
-
-
-    for i, row in datafr.iterrows():
-        hasil1 = ''
-        if (row['diff2'] >= 0 and row['diff2'] <4):
-            hasil1 = 'a. 0 - 3 hari'
-        elif (row['diff2'] > 3 and row['diff2'] <8):
-            hasil1 = 'b. 4 - 7 hari'
-        elif (row['diff2'] >7  and row['diff2'] <15):
-            hasil1 = 'c. 8 - 14 hari'
-        elif (row['diff2'] > 14 and row['diff2'] <31):
-            hasil1 = 'd. 15 - 30 hari'
-        elif (row['diff2'] > 30  and row['diff2'] <61):
-            hasil1 = 'e. 31 - 60 hari'
-        else:
-            hasil1 = 'f. 61 hari - dst'
+    #for i, row in datafr.iterrows():
+    #    hasil1 = ''
+    #    if (row['diff2'] >= 0 and row['diff2'] <4):
+    #        hasil1 = 'a. 0 - 3 hari'
+    #    elif (row['diff2'] > 3 and row['diff2'] <8):
+    #        hasil1 = 'b. 4 - 7 hari'
+    #    elif (row['diff2'] >7  and row['diff2'] <15):
+    #        hasil1 = 'c. 8 - 14 hari'
+    #    elif (row['diff2'] > 14 and row['diff2'] <31):
+    #        hasil1 = 'd. 15 - 30 hari'
+    #    elif (row['diff2'] > 30  and row['diff2'] <61):
+    #        hasil1 = 'e. 31 - 60 hari'
+    #    else:
+    #        hasil1 = 'f. 61 hari - dst'
     
-        datafr.at[i, 'cluster_LT'] = hasil1
+    #    datafr.at[i, 'cluster_LT'] = hasil1
+
+
+
+ # Split nama pelanggan lebih aman
+    split_names = datafr["nm_pelanggan"].str.split(" ", n=3, expand=True)
+    datafr["pelanggan"] = split_names[0].fillna("") + " " + split_names[1].fillna("")
+    
+    datafr["diff2"] = datafr["diff2"].astype(int)
+
+    # Clustering menggunakan Numpy Select (Jauh lebih cepat dari for-loop)
+    conditions = [
+        (datafr['diff2'] <= 3),
+        (datafr['diff2'] > 3) & (datafr['diff2'] <= 7),
+        (datafr['diff2'] > 7) & (datafr['diff2'] <= 14),
+        (datafr['diff2'] > 14) & (datafr['diff2'] <= 30),
+        (datafr['diff2'] > 30) & (datafr['diff2'] <= 60),
+        (datafr['diff2'] > 60)
+    ]
+    choices = ['a. 0 - 3 hari', 'b. 4 - 7 hari', 'c. 8 - 14 hari', 'd. 15 - 30 hari', 'e. 31 - 60 hari', 'f. 61 hari - dst']
+    datafr['cluster_LT'] = np.select(conditions, choices, default='f. 61 hari - dst')
 
 
     
@@ -199,23 +217,6 @@ d.kdpelanggan, d.nmpelanggan, kdproduk, kdkirim  from tkonos a
         ph.axis.minor_tick_line_color = None
         ph.add_layout(ph.legend[0], 'below')
         ph.outline_line_color = None # type: ignore
-
-
-
-       
-        #ps.y_range = Range1d(0, upper_lmt)
-        #ps.xgrid.grid_line_color = None
-        #ps.axis.minor_tick_line_color = None
-        #ps.legend.location = "center"
-        #ps.legend.orientation = "horizontal"
-        #ps.add_layout(ps.legend[0], 'below')
-        #ps.outline_line_color = None  # type: ignore
-        #   pv.add_layout(lblpv)
-        #   pv.add_layout(Labels)
-  
-      
-        #st.bokeh_chart(ps)
-
         st.bokeh_chart(ph)
       
     
