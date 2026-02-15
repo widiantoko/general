@@ -80,25 +80,6 @@ d.kdpelanggan, d.nmpelanggan, kdproduk, kdkirim  from tkonos a
 
 
 
-    #for i, row in datafr.iterrows():
-    #    hasil1 = ''
-    #    if (row['diff2'] >= 0 and row['diff2'] <4):
-    #        hasil1 = 'a. 0 - 3 hari'
-    #    elif (row['diff2'] > 3 and row['diff2'] <8):
-    #        hasil1 = 'b. 4 - 7 hari'
-    #    elif (row['diff2'] >7  and row['diff2'] <15):
-    #        hasil1 = 'c. 8 - 14 hari'
-    #    elif (row['diff2'] > 14 and row['diff2'] <31):
-    #        hasil1 = 'd. 15 - 30 hari'
-    #    elif (row['diff2'] > 30  and row['diff2'] <61):
-    #        hasil1 = 'e. 31 - 60 hari'
-    #    else:
-    #        hasil1 = 'f. 61 hari - dst'
-    
-    #    datafr.at[i, 'cluster_LT'] = hasil1
-
-
-
  # Split nama pelanggan lebih aman
     split_names = datafr["nm_pelanggan"].str.split(" ", n=3, expand=True)
     datafr["pelanggan"] = split_names[0].fillna("") + " " + split_names[1].fillna("")
@@ -133,7 +114,8 @@ d.kdpelanggan, d.nmpelanggan, kdproduk, kdkirim  from tkonos a
         data_kdkirim= datafr.groupby(["kdkirim"]).apply(lambda x: x[x['bln_thn'] == pilihan]['konid'].count()).reset_index(name='jumlah')
         data_plgn= datafr.groupby(["nm_pelanggan", "kdproduk"])["konid"].count().reset_index(name='no_status').sort_values(["no_status"], ascending=False).head(12)
         
-        total=sum(data_hasil)
+        #total=sum(data_hasil)
+        total=len(data_hasil)
         bold = (f"**{total}**")
 
         #pkt=list(data_kdkirim)[0]
